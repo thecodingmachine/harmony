@@ -19,7 +19,7 @@ use Mouf\Composer\ComposerService;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Reflection\MoufReflectionProxy;
 use Mouf\MoufManager;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\MoufSearchable;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
@@ -27,7 +27,6 @@ use Mouf\Mvc\Splash\Controllers\Controller;
 /**
  * The controller allowing access to the Mouf framework.
  *
- * @Component
  */
 class MoufController extends Controller implements MoufSearchable {
 

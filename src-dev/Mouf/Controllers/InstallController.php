@@ -16,13 +16,12 @@ use Mouf\Installer\AbstractInstallTask;
 use Mouf\Installer\ComposerInstaller;
 
 use Mouf\Html\HtmlElement\HtmlBlock;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
 
 /**
  * This controller displays the packages installation page.
  *
- * @Component
  */
 class InstallController extends Controller {
 
@@ -165,4 +164,3 @@ class InstallController extends Controller {
 		
 	}
 }
-?>

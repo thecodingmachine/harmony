@@ -13,11 +13,11 @@ use Mouf\MoufManager;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Html\HtmlElement\HtmlBlock;
+use Mouf\Security\UserService\Splash\Logged;
 
 /**
  * The controller managing the config.php file.
  *
- * @Component
  */
 class ConfigController extends Controller {
 

@@ -10,11 +10,11 @@
 namespace Mouf\Controllers;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
+use Mouf\Security\UserService\Splash\Logged;
 
 /**
  * The base controller for Mouf (when the "mouf/" url is typed).
  *
- * @Component
  */
 class MoufRootController extends Controller {
 	

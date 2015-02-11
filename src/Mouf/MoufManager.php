@@ -16,6 +16,8 @@ use Mouf\Reflection\MoufReflectionClassManager;
 use Mouf\Reflection\MoufXmlReflectionClassManager;
 use Interop\Container\ContainerInterface;
 use Mouf\Composer\ClassNameMapper;
+use Symfony\Component\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * The class managing object instanciation in the Mouf framework.
@@ -89,7 +91,7 @@ class MoufManager implements ContainerInterface {
 	 * @param string $classFile Path to file containing the class, relative to ROOT_PATH.
 	 * @throws MoufException
 	 */
-	public static function initMoufManager($configFile = null, $className = null, $classFile = null) {
+	public static function initMoufManager($configFile = null, $className = null, $classFile = null, $configTplFile = null, $variablesFile = null) {
 		if (self::$defaultInstance == null) {
 			if ($configFile == null) {
 				// If we are here, we come from a Mouf 2.0 MoufComponents file.
@@ -111,7 +113,20 @@ class MoufManager implements ContainerInterface {
 				
 				// We also need to modify the composer.json file to make it load the new container in RootContainer:
 				self::migrateComposerJson($className);
-				self::migrateMoufPhpFile();			
+				self::migrateMoufPhpFile();
+
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				// TODO: migrate config and variables!!!
+				self::migrateConfigTpl();
+				self::migrateVariablesTpl();
 			}
 			self::$defaultInstance = new MoufManager();
 			self::$defaultInstance->configManager = new MoufConfigManager("../../../../../config.php");
@@ -121,6 +136,8 @@ class MoufManager implements ContainerInterface {
 			self::$defaultInstance->configFile = $configFile;
 			self::$defaultInstance->className = $className;
 			self::$defaultInstance->classFile = $classFile;
+			self::$defaultInstance->configTplFile = $configTplFile;
+			self::$defaultInstance->variablesFile = $variablesFile;
 			
 			self::$defaultInstance->container = new MoufContainer(__DIR__."/../../../../../".$configFile, $className, new MoufReflectionClassManager(), null, __DIR__.'/../../../../../'.$classFile);
 			/*if (file_exists(__DIR__."/../../../../../mouf/instances.php")) {
@@ -132,6 +149,9 @@ class MoufManager implements ContainerInterface {
 			self::$defaultInstance->scope = MoufManager::SCOPE_APP;
 			// Unless the setDelegateLookupContainer is set, we lookup dependencies inside our own container.
 			self::$defaultInstance->delegateLookupContainer = self::$defaultInstance;
+
+			self::$defaultInstance->getConfigManager()->setConstantsDefinitionArray(require __DIR__."/../../../../../".$configTplFile);
+			self::$defaultInstance->setAllVariables(require __DIR__."/../../../../../".$variablesFile);
 		}
 	}
 
@@ -153,6 +173,8 @@ class MoufManager implements ContainerInterface {
 		self::$defaultInstance->configFile = __DIR__."/../../mouf/instances.php";
 		self::$defaultInstance->className = "Mouf\\AdminContainer";
 		self::$defaultInstance->classFile = "src-dev/Mouf/AdminContainer.php";
+		self::$defaultInstance->configTplFile = __DIR__."/../../mouf/config_tpl.php";
+		self::$defaultInstance->variablesFile = __DIR__."/../../mouf/variables.php";
 
 		self::$defaultInstance->container = new MoufContainer(self::$defaultInstance->configFile, self::$defaultInstance->className, new MoufReflectionClassManager(), null, __DIR__."/../../".self::$defaultInstance->classFile);
 		/*if (file_exists(__DIR__."/../../mouf/instances.php")) {
@@ -162,6 +184,9 @@ class MoufManager implements ContainerInterface {
 		
 		// Unless the setDelegateLookupContainer is set, we lookup dependencies inside our own container.
 		self::$defaultInstance->delegateLookupContainer = self::$defaultInstance;
+
+		self::$defaultInstance->getConfigManager()->setConstantsDefinitionArray(require self::$defaultInstance->configTplFile);
+		self::$defaultInstance->setAllVariables(require self::$defaultInstance->variablesFile);
 	}
 	
 	/**
@@ -171,18 +196,20 @@ class MoufManager implements ContainerInterface {
 	 */
 	private static function migrateComposerJson($className) {
 		$composer = json_decode(file_get_contents(__DIR__.'/../../../../../composer.json'), true);
-		
+
+		$fs = new Filesystem();
+
 		// Let's set the factory
-		$factoryCode = "function(\$c) { return new $className(\$c); }";
+		$factoryCode = "function() { return new Mouf\\FrameworkInterop\\Module(__DIR__.". $fs->makePathRelative($this->configFile, __DIR__)." }, {$this->className}, {$this->classFile}, {$this->configTplFile}, __DIR__.".$fs->makePathRelative($this->variablesFile, __DIR__)."); }";
 		
 		$done = false;
-		if (isset($composer['extra']['container-interop']['container-factory'])) {
-			$factories = &$composer['extra']['container-interop']['container-factory'];
+		if (isset($composer['extra']['framework-interop']['module-factory'])) {
+			$factories = &$composer['extra']['framework-interop']['module-factory'];
 			
 			if (is_array($factories)) {
 				foreach ($factories as &$factory) {
 					if (is_array($factory)) {
-						if ($factory['name'] == 'default') {
+						if ($factory['name'] == 'mouf') {
 							$factory['factory'] = $factoryCode;
 							$done = true;
 						}
@@ -191,8 +218,8 @@ class MoufManager implements ContainerInterface {
 			}
 		} 
 		if (!$done) {
-			$composer['extra']['container-interop']['container-factory'][] = [
-					"name" => "default",
+			$composer['extra']['framework-interop']['module-factory'][] = [
+					"name" => "mouf",
 					"description" => "Default Mouf container",
 					"factory" => $factoryCode
 			];
@@ -237,6 +264,9 @@ require_once 'MoufComponents.php';
 	private $configFile;
 	private $className;
 	private $classFile;
+	private $configTplFile;
+	private $variablesFile;
+
 	
 	private $oldv20className;
 	

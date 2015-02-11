@@ -40,7 +40,7 @@ there should be no output (so no errors, no HTML, ...). Any class trigerring som
 
 <form method="post" action="refresh">
 	<input type="hidden" name="selfedit" id="selfedit" value="<?php echo $this->selfedit; ?>" />
-	<button class="btn btn-success"><i class="icon-white icon-refresh"></i> Purge code cache and refresh</button>
+	<button class="btn btn-success"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Purge code cache and refresh</button>
 </form>
 
 <h2>Classes that trigger errors</h2>
@@ -50,7 +50,7 @@ if (empty($this->errors)) {
 } else {
 	foreach ($this->errors as $className=>$errorMsg):
 	?>
-		<div class="alert alert-error">
+		<div class="alert alert-danger">
 			<div>Error while including <strong><?php echo $className; ?></strong>. <a href="#" class="showmore">Show more</a></div>
 			<div class="hiddeable hidden"><?php echo $errorMsg; ?></div>
 		</div>
@@ -66,7 +66,7 @@ if (empty($this->warnings)) {
 } else {
 	foreach ($this->warnings as $className=>$errorMsgs):
 	?>
-		<div class="alert alert-block">
+		<div class="alert alert-warning">
 			<div>You might encounter problems while using <strong><?php echo $className; ?></strong>. <a href="#" class="showmore">Show more</a></div>
 			<div class="hiddeable hidden"><ul><?php 
 			foreach ($errorMsgs as $errorMsg) {

@@ -19,8 +19,77 @@ class AdminContainer extends MoufContainer {
     }
 
     protected function _getClosures() {
-		return [
-		];
+        return [
+            'bootstrapRenderer' => [
+                'constructor' => [
+                    4 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'packageRenderer_mouf/html.utils.weblibrarymanager' => [
+                'constructor' => [
+                    4 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'packageRenderer_mouf/html.widgets.menu' => [
+                'constructor' => [
+                    4 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'packageRenderer_mouf/html.widgets.messageservice' => [
+                'constructor' => [
+                    4 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'defaultRenderer' => [
+                'constructor' => [
+                    1 => function(ContainerInterface $container) {
+                        return $this;
+                    },
+                ],
+            ],
+            'packageRenderer_mouf/security.simplelogincontroller' => [
+                'constructor' => [
+                    4 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'annotationReader' => function(ContainerInterface $container) {
+                // Using composer autoloader
+                $loader = require ROOT_PATH . 'vendor/autoload.php';
+                \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+                \Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('URL');
+\Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('Action');
+\Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('Compulsory');
+
+                // Creating a new AnnotationReader
+                $reader = new \Doctrine\Common\Annotations\AnnotationReader();
+                return new \Doctrine\Common\Annotations\CachedReader($reader, new \Doctrine\Common\Cache\ArrayCache());
+            },
+            'defaultDoctrineCache' => function(ContainerInterface $container) {
+                // If DEBUG mode is on, let\'s just use an ArrayCache.
+                if (DEBUG) {
+                    $driver = new \Doctrine\Common\Cache\ArrayCache();
+                } else {
+                    // If APC is available, let\'s use APC
+                    if (extension_loaded("apc")) {
+                        $driver = new \Doctrine\Common\Cache\ApcCache();
+                    } else {
+                        $driver = new \Doctrine\Common\Cache\FileCache(sys_get_temp_dir().'/doctrinecache');
+                    }
+                }
+                $driver->setNamespace(SECRET);
+                return $driver;
+            },
+        ];
 	}
     /**
      * @return Mouf\Controllers\MoufAjaxInstanceController

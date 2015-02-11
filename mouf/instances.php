@@ -7,39 +7,9 @@
  */
 		
 return array (
-  '__anonymous_1351271275513' => 
+  '__anonymous_1351271292292' =>
   array (
-    'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenuRenderer',
-    'external' => false,
-    'weak' => true,
-    'anonymous' => true,
-    'fieldProperties' => 
-    array (
-      'pullRight' => 
-      array (
-        'value' => true,
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => '__anonymous_1351271292292',
-        'parametertype' => 'object',
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
-  ),
-  '__anonymous_1351271292292' => 
-  array (
-    'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
+    'class' => 'Mouf\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
     'weak' => true,
     'anonymous' => true,
@@ -58,6 +28,17 @@ return array (
         ),
       ),
     ),
+      'fieldProperties' =>
+          array (
+              'navbar' =>
+                  array (
+                      'value' => true,
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+          ),
   ),
   '__anonymous_1356167917517' => 
   array (
@@ -272,9 +253,9 @@ return array (
     array (
       'children' => 
       array (
-        0 => 'instanceMenuRenderer',
-        1 => 'documentationMenuRenderer',
-        2 => 'specialActionsMenuRenderer',
+        0 => 'instanceMenu',
+        1 => 'documentationMenu',
+        2 => 'specialActionsMenu',
       ),
     ),
   ),
@@ -327,6 +308,16 @@ return array (
         array (
         ),
       ),
+        4 =>
+            array (
+                'value' => 'return $container;',
+                'parametertype' => 'primitive',
+                'type' => 'php',
+                'metadata' =>
+                    array (
+                    ),
+            ),
+
     ),
   ),
   'config' => 
@@ -626,30 +617,33 @@ return array (
       'setWebLibraries' => 
       array (
         0 => 'javascript.underscore',
-        1 => 'jQueryLibrary',
-        2 => 'jQueryUiLibrary',
-        3 => 'javascript.bootstrap',
-        4 => 'javascript.syntaxHighlighter',
+        1 => 'component.jquery',
+        2 => 'component.jqueryui',
+        3 => 'component.bootstrap',
         5 => 'setRootUrlJsBlock',
-        6 => 'javascript.jquery-filetree',
         7 => 'javascript.moufInstanceLibrary',
         8 => 'javascript.composer',
         9 => 'css.moufCssStyles',
         10 => 'javascript.chooseInstancePopupJs',
-        11 => 'javascript.jquery-filetree',
         12 => 'messageServiceLibrary',
         13 => 'weblibrary.qtip2',
-        14 => 'javascript.jqBootstrapValidation',
         15 => 'javascript.highlight.js',
       ),
     ),
+      'constructor' =>
+          array (
+              0 =>
+                  array (
+                      'value' => 'defaultRenderer',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+          ),
   ),
-  'defaultWebLibraryRenderer' => 
-  array (
-    'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\DefaultWebLibraryRenderer',
-    'external' => false,
-  ),
-  'displayGraph' => 
+  'displayGraph' =>
   array (
     'class' => 'Mouf\\Controllers\\MoufDisplayGraphController',
     'external' => false,
@@ -767,19 +761,10 @@ return array (
   ),
   'documentationMenu' => 
   array (
-    'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
+    'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
   ),
-  'documentationMenuRenderer' => 
-  array (
-    'class' => 'Mouf\\Html\\Template\\Menus\\BasicMenuRenderer',
-    'external' => false,
-    'fieldBinds' => 
-    array (
-      'menu' => 'documentationMenu',
-    ),
-  ),
-  'documentationSubMenu' => 
+  'documentationSubMenu' =>
   array (
     'class' => 'Mouf\\Menu\\DocumentationMenuItem',
     'external' => false,
@@ -1253,19 +1238,10 @@ return array (
   ),
   'instanceMenu' => 
   array (
-    'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
+    'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
   ),
-  'instanceMenuRenderer' => 
-  array (
-    'class' => 'Mouf\\Html\\Template\\Menus\\BasicMenuRenderer',
-    'external' => false,
-    'fieldBinds' => 
-    array (
-      'menu' => 'instanceMenu',
-    ),
-  ),
-  'instancesSubMenu' => 
+  'instancesSubMenu' =>
   array (
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
@@ -1357,85 +1333,8 @@ return array (
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
-    ),
   ),
-  'jQueryUiLibrary' => 
-  array (
-    'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
-    'external' => false,
-    'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
-          0 => 'vendor/mouf/javascript.jquery.jquery-ui/js/jquery-ui-1.10.2.custom.js',
-        ),
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
-          0 => 'vendor/mouf/javascript.jquery.jquery-ui/css/ui-lightness/jquery-ui-1.10.2.custom.min.css',
-        ),
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
-    'setterBinds' => 
-    array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
-      'setDependencies' => 
-      array (
-        0 => 'jQueryLibrary',
-      ),
-    ),
-  ),
-  'javascript.bootstrap' => 
-  array (
-    'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
-    'external' => false,
-    'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
-          0 => 'vendor/mouf/html.utils.bootstrap/js/bootstrap.min.js',
-        ),
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
-          0 => 'vendor/mouf/html.utils.bootstrap/css/bootstrap.min.css',
-        ),
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
-    'setterBinds' => 
-    array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
-    ),
-  ),
+
   'javascript.chooseInstancePopupJs' => 
   array (
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
@@ -1575,8 +1474,7 @@ return array (
     ),
     'setterBinds' => 
     array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
-      'setDependencies' => 
+      'setDependencies' =>
       array (
         0 => 'jQueryLibrary',
       ),
@@ -1658,8 +1556,7 @@ return array (
     ),
     'setterBinds' => 
     array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
-      'setDependencies' => 
+      'setDependencies' =>
       array (
         0 => 'jQueryLibrary',
       ),
@@ -1937,7 +1834,7 @@ return array (
   ),
   'mainMenu' => 
   array (
-    'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
+    'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
     'setterBinds' => 
     array (
@@ -1948,6 +1845,17 @@ return array (
         2 => 'documentationSubMenu',
       ),
     ),
+      'fieldProperties' =>
+          array (
+              'navbar' =>
+                  array (
+                      'value' => true,
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+          ),
   ),
   'messageServiceLibrary' => 
   array (
@@ -1981,7 +1889,7 @@ return array (
     ),
     'setterBinds' => 
     array (
-      'setRenderer' => 'defaultWebLibraryRenderer',
+
     ),
   ),
   'messageWidget' => 
@@ -2095,7 +2003,7 @@ return array (
     'external' => false,
     'setterBinds' => 
     array (
-      'setFooter' => 'block.footer',
+        'setFooter' => 'block.footer',
       'setRight' => 'block.right',
       'setContent' => 'block.content',
       'setWebLibraryManager' => 'defaultWebLibraryManager',
@@ -2517,8 +2425,8 @@ return array (
       array (
         'value' => 
         array (
-          0 => 'navBarMenuRenderer',
-          1 => '__anonymous_1351271275513',
+          0 => 'mainMenu',
+          1 => '__anonymous_1351271292292',
           2 => 'searchBox',
           3 => 'purgeCodeCacheButton',
         ),
@@ -2530,53 +2438,6 @@ return array (
       ),
     ),
     'anonymous' => false,
-  ),
-  'navBarMenuRenderer' => 
-  array (
-    'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenuRenderer',
-    'external' => false,
-    'fieldBinds' => 
-    array (
-    ),
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => 'mainMenu',
-        'parametertype' => 'object',
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
-    'fieldProperties' => 
-    array (
-      'inverted' => 
-      array (
-        'value' => true,
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-      'title' => 
-      array (
-        'value' => 'Mouf',
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-      'pullRight' => 
-      array (
-        'value' => false,
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
   ),
   'packageRenderer_mouf/security.simplelogincontroller' => 
   array (
@@ -2621,6 +2482,16 @@ return array (
         array (
         ),
       ),
+        4 =>
+            array (
+                'value' => 'return $container;',
+                'parametertype' => 'primitive',
+                'type' => 'php',
+                'metadata' =>
+                    array (
+                    ),
+            ),
+
     ),
   ),
   'phpInfo' => 
@@ -2891,9 +2762,9 @@ return array (
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\InlineWebLibrary',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
+    'setterBinds' =>
     array (
-      'additionalElement' => 'rootUrlJsFile',
+      'setAdditionalElement' => 'rootUrlJsFile',
     ),
   ),
   'simpleloginview' => 
@@ -2906,16 +2777,7 @@ return array (
     'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
     'external' => false,
   ),
-  'specialActionsMenuRenderer' => 
-  array (
-    'class' => 'Mouf\\Html\\Template\\Menus\\BasicMenuRenderer',
-    'external' => false,
-    'fieldBinds' => 
-    array (
-      'menu' => 'specialActionsMenu',
-    ),
-  ),
-  'splash' => 
+  'splash' =>
   array (
     'class' => 'Mouf\\Mvc\\Splash\\Splash',
     'external' => false,
@@ -3015,6 +2877,7 @@ return array (
     array (
       'log' => 'errorLogger',
       'userDao' => 'userFileDao',
+      'sessionManager' => 'sessionManager'
     ),
     'fieldProperties' => 
     array (
@@ -3294,4 +3157,418 @@ return array (
       ),
     ),
   ),
+    'filterRepository' =>
+        array (
+            'class' => 'Mouf\\Mvc\\Splash\\Filters\\FilterRepository',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' =>
+                                array (
+                                  'loggedFilterFactory'
+                                ),
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'component.bootstrap' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/bootstrap/js/bootstrap.js',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/bootstrap/css/bootstrap.min.css',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'component.jquery' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/jquery/jquery.js',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' =>
+                                array (
+                                ),
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'component.underscore' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/underscore/underscore-min.js',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' =>
+                                array (
+                                ),
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'component.jqueryui' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/jquery-ui/jquery-ui.min.js',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'components/jquery-ui/themes/ui-lightness/jquery-ui.min.css',
+                                ),
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
+    'packageRenderer_mouf/html.utils.weblibrarymanager' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'vendor/mouf/html.utils.weblibrarymanager/src/templates',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'rendererCacheService',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    2 =>
+                        array (
+                            'value' => 'package',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    3 =>
+                        array (
+                            'value' => 0,
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    4 =>
+                        array (
+                            'value' => 'return $container;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'packageRenderer_mouf/html.widgets.menu' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'vendor/mouf/html.widgets.menu/src/templates',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'rendererCacheService',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    2 =>
+                        array (
+                            'value' => 'package',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    3 =>
+                        array (
+                            'value' => 0,
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    4 =>
+                        array (
+                            'value' => 'return $container;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'packageRenderer_mouf/html.widgets.messageservice' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'vendor/mouf/html.widgets.messageservice/src/templates',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'rendererCacheService',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    2 =>
+                        array (
+                            'value' => 'package',
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    3 =>
+                        array (
+                            'value' => 0,
+                            'parametertype' => 'primitive',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    4 =>
+                        array (
+                            'value' => 'return $container;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
+    'defaultRenderer' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\AutoChainRenderer',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'rendererCacheService',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'return $this;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+    'annotationReader' =>
+  array (
+      'weak' => false,
+      'comment' => '',
+      'class' => 'Doctrine\\Common\\Annotations\\CachedReader',
+      'external' => false,
+      'code' => '// Using composer autoloader
+$loader = require ROOT_PATH . \'vendor/autoload.php\';
+\\Doctrine\\Common\\Annotations\\AnnotationRegistry::registerLoader(array($loader, \'loadClass\'));
+\\Doctrine\\Common\\Annotations\\AnnotationReader::addGlobalIgnoredName(\'URL\');
+\\Doctrine\\Common\\Annotations\\AnnotationReader::addGlobalIgnoredName(\'Action\');
+\\Doctrine\\Common\\Annotations\\AnnotationReader::addGlobalIgnoredName(\'Compulsory\');
+
+
+// Creating a new AnnotationReader
+$reader = new \\Doctrine\\Common\\Annotations\\AnnotationReader();
+return new \\Doctrine\\Common\\Annotations\\CachedReader($reader, $container->get("defaultDoctrineCache");',
+  ),
+
+    'defaultDoctrineCache' =>
+        array (
+            'weak' => false,
+            'comment' => '',
+            'class' => 'Doctrine\\Common\\Annotations\\CachedReader',
+            'external' => false,
+            'code' => '// If DEBUG mode is on, let\'s just use an ArrayCache.
+if (DEBUG) {
+	$driver = new \\Doctrine\\Common\\Cache\\ArrayCache();
+} else {
+	// If APC is available, let\'s use APC
+	if (extension_loaded("apc")) {
+		$driver = new \\Doctrine\\Common\\Cache\\ApcCache();
+	} else {
+		$driver = new \\Doctrine\\Common\\Cache\\FileCache(sys_get_temp_dir().\'/doctrinecache\');
+	}
+}
+$driver->setNamespace(SECRET);
+return $driver;
+',
+        ),
+
+
+
+
+
+    'loggedFilterFactory' =>
+        array (
+            'class' => 'Mouf\Security\UserService\Splash\\LoggedFilterFactory',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'annotationReader',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'userService',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
 );

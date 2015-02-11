@@ -10,11 +10,11 @@
 namespace Mouf\Controllers;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
+use Mouf\Security\UserService\Splash\Logged;
 
 /**
  * The controller displaying the PHP Info page.
  *
- * @Component
  */
 class PhpInfoController extends Controller {
 	
@@ -28,4 +28,3 @@ class PhpInfoController extends Controller {
 		echo phpinfo();
 	}
 }
-?>

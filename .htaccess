@@ -13,15 +13,15 @@
     RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
     RewriteRule ^(.*) - [E=BASE:%1]
     
-    RewriteRule doc\/view\/ %{ENV:BASE}/src/mouf_router.php
+    RewriteRule doc\/view\/ %{ENV:BASE}/src/app_router.php
 
     # If the requested filename exists, and has an allowed extension, simply serve it.
     # We only want to let Apache serve files and not directories.
     #RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule .*((\.(js|ico|gif|jpg|png|css)$)|^vendor|^src/direct/|^src/mouf_router.php) - [L]
+    RewriteRule .*((\.(js|ico|gif|jpg|png|css|ttf|woff|woff2|eot|svg)$)|^vendor|^src/direct/|^src/app_router.php) - [L]
 
     # Rewrite all other queries to the front controller.
-    RewriteRule .? %{ENV:BASE}/src/mouf_router.php [L]
+    RewriteRule .? %{ENV:BASE}/src/app_router.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>

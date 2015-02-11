@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
 		jQuery.ajax(url)
 			.done(function(data) {
 				if (data) {
-					addMessage("An error occured while purging code cache:<br/>"+data, "alert alert-error");
+					addMessage("An error occured while purging code cache:<br/>"+data, "alert alert-danger");
 				}
 				jQuery("#menupurgecodecache").hide();
 				jQuery("#menupurgecodecachedone").show();
@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 					jQuery('#menupurgecodecache').button('reset');
 				}, 1000);
 			}).fail(function() {
-				addMessage("An error occured while purging code cache", "alert alert-error");
+				addMessage("An error occured while purging code cache", "alert alert-danger");
 			});
 		
 		return false;

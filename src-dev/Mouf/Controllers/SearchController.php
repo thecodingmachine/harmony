@@ -10,13 +10,12 @@
 namespace Mouf\Controllers;
 
 use Mouf\MoufManager;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
 
 /**
  * The controller managing full-text searches inside Mouf.
  *
- * @Component
  */
 class SearchController extends Controller {
 

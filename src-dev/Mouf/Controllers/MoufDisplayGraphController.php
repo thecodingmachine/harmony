@@ -10,11 +10,11 @@
 namespace Mouf\Controllers;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
+use Mouf\Security\UserService\Splash\Logged;
 
 /**
  * This controller displays the JIT graph of the component.
  *
- * @Component
  */
 class MoufDisplayGraphController extends AbstractMoufInstanceController {
 	

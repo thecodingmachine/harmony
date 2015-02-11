@@ -1,10 +1,7 @@
 #!/usr/bin/env php
 <?php
-require_once 'vendor/autoload.php';
+require_once 'src/app.php';
 
-use Mouf\RootContainer;
-use Symfony\Component\Console\Application;
-
-$console = RootContainer::get('console');
-//$application->add(new RunCommand());
+$app->initApp();
+$console = $app->getContainer()->get('console');
 $console->run();

@@ -16,14 +16,13 @@ use Mouf\Reflection\MoufReflectionProxy;
 use Mouf\MoufManager;
 
 use Mouf\MoufClassExplorer;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
 
 /**
  * The controller checking for existing classes in project and printing classes that can't be included
  * because of software problems.
  *
- * @Component
  */
 class IncludesAnalyzerController extends Controller {
 

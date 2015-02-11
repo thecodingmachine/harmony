@@ -17,11 +17,12 @@ $(document).ready(function() {
 	if ($this->countNbTodo) {
 	?>
 
-
 <form action="install" method="post">
 	<input type="hidden" id="selfedit" name="selfedit" value="<?php echo plainstring_to_htmlprotected($this->selfedit) ?>" />
-	<button class="btn btn-success btn-large"><i class="icon-white icon-chevron-right"></i> Run the <?php echo $this->countNbTodo ?> pending install task<?php echo ($this->countNbTodo==1?"":"s") ?></button>
+	<button class="btn btn-success btn-lg"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Run the <?php echo $this->countNbTodo ?> pending install task<?php echo ($this->countNbTodo==1?"":"s") ?></button>
 </form>
+<br/>
+
 <?php } else {?>
 <div class="alert alert-success">All install tasks have been executed.</div>
 <?php }?>
@@ -41,9 +42,9 @@ $(document).ready(function() {
 		<td><?php echo plainstring_to_htmlprotected($installTask->getDescription()); ?></td>
 		<td><?php 
 		if ($installTask->getStatus()==AbstractInstallTask::STATUS_TODO) {
-			echo '<i class="icon-time"></i> Awaiting installation';
+			echo '<span class="glyphicon glyphicon-time" aria-hidden="true"></span> Awaiting installation';
 		} elseif ($installTask->getStatus()==AbstractInstallTask::STATUS_DONE) {
-			echo '<i class="icon-ok"></i> Done';
+			echo '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Done';
 		} else {
 			echo plainstring_to_htmlprotected($installTask->getStatus());
 		}
@@ -57,11 +58,11 @@ $(document).ready(function() {
 		<?php 
 		if ($installTask->getStatus()=="todo") {
 		?>
-			<button class="btn btn-info"><i class="icon-white icon-chevron-right"></i> Manual install</button>
+			<button class="btn btn-info"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Manual install</button>
 		<?php   
 		} else {
 		?>
-			<button class="btn btn-danger"><i class="icon-white icon-chevron-right"></i> Reinstall</button>
+			<button class="btn btn-danger"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> Reinstall</button>
 		<?php   
 		}
 		?>

@@ -10,14 +10,13 @@
 namespace Mouf\Controllers;
 
 use Mouf\Html\HtmlElement\HtmlBlock;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Reflection\MoufReflectionProxy;
 
 /**
  * The controller that will call all validators on Mouf.
  *
- * @Component
  */
 class MoufValidatorController extends Controller {
 	

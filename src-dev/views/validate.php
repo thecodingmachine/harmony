@@ -73,9 +73,9 @@ ValidatorMessages = {
 	turnMessageIntoError: function(container, text) {
 		ValidatorsCounter.incrementError();
 		if (typeof(text)=="string") { 
-			container.html("<div class='alert alert-error validatorError'>"+text+"</div>");
+			container.html("<div class='alert alert-danger validatorError'>"+text+"</div>");
 		} else {
-			container.html("<div class='alert alert-error validatorError'></div>").find("div").append(text);
+			container.html("<div class='alert alert-danger validatorError'></div>").find("div").append(text);
 		}
 
 		return container;
@@ -160,7 +160,7 @@ $(document).ready(function() {
 				}
                                 
 				//addMessage("<pre>"+msg+"</pre>", "error");
-                                $("#loadingValidatorsIndicator").removeClass('loading').addClass('alert alert-error').text("An error occured while loading validators for classes and instances : "+msg);
+                                $("#loadingValidatorsIndicator").removeClass('loading').addClass('alert alert-danger').text("An error occured while loading validators for classes and instances : "+msg);
 			})
 	.done(
 			function(result) {
@@ -206,7 +206,7 @@ $(document).ready(function() {
 							}
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-error'>Unable to run validator for class '"+className+"': "+textStatus+"</div>");
+							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-danger'>Unable to run validator for class '"+className+"': "+textStatus+"</div>");
 						}
 										
 					});
@@ -247,7 +247,7 @@ $(document).ready(function() {
 							}
 						},
 						error: function(jqXHR, textStatus, errorThrown) {
-							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-error'>Unable to run validator for instance '"+instanceName+"': "+textStatus+"</div>");
+							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-danger'>Unable to run validator for instance '"+instanceName+"': "+textStatus+"</div>");
 						}
 										
 					});

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6986f10c081197e1b8f1e94354e20461",
+    "hash": "a7b0930e4ff932c39ce0f0094f8fca28",
     "packages": [
         {
             "name": "acclimate/container",
@@ -65,6 +65,257 @@
                 "service locator"
             ],
             "time": "2014-03-19 19:15:54"
+        },
+        {
+            "name": "components/bootstrap",
+            "version": "3.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/bootstrap.git",
+                "reference": "bffd83f39eb2679850482410b9bdd39a8cc456e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/bootstrap/zipball/bffd83f39eb2679850482410b9bdd39a8cc456e5",
+                "reference": "bffd83f39eb2679850482410b9bdd39a8cc456e5",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.9.1"
+            },
+            "suggest": {
+                "components/bootstrap-default": "Provide a theme for Bootstrap as components/bootstrap only provides the CSS as file assets"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "js/bootstrap.js"
+                    ],
+                    "files": [
+                        "js/*.js",
+                        "css/*.css",
+                        "css/*.map",
+                        "fonts/*",
+                        "less/mixins/*.less",
+                        "less/*.less"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ]
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2015-01-22 12:14:01"
+        },
+        {
+            "name": "components/jquery",
+            "version": "1.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "d7dfc1aa3edf92038a24862888b46b4d0e74faba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/d7dfc1aa3edf92038a24862888b46b4d0e74faba",
+                "reference": "d7dfc1aa3edf92038a24862888b46b4d0e74faba",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery-migrate.js",
+                        "jquery-migrate.min.js",
+                        "jquery.min.map"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Resig",
+                    "email": "jeresig@gmail.com"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2014-12-23 06:54:15"
+        },
+        {
+            "name": "components/jqueryui",
+            "version": "1.11.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "396781474d936959061271505f506b78398fe6a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/396781474d936959061271505f506b78398fe6a2",
+                "reference": "396781474d936959061271505f506b78398fe6a2",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.6"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "jquery-ui",
+                    "scripts": [
+                        "jquery-ui.js"
+                    ],
+                    "files": [
+                        "ui/**",
+                        "themes/**",
+                        "jquery-ui.min.js"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ],
+                        "exports": "jQuery"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jQuery UI Team",
+                    "homepage": "http://jqueryui.com/about"
+                },
+                {
+                    "name": "Joern Zaefferer",
+                    "email": "joern.zaefferer@gmail.com",
+                    "homepage": "http://bassistance.de"
+                },
+                {
+                    "name": "Scott Gonzalez",
+                    "email": "scott.gonzalez@gmail.com",
+                    "homepage": "http://scottgonzalez.com"
+                },
+                {
+                    "name": "Kris Borchers",
+                    "email": "kris.borchers@gmail.com",
+                    "homepage": "http://krisborchers.com"
+                },
+                {
+                    "name": "Mike Sherov",
+                    "email": "mike.sherov@gmail.com",
+                    "homepage": "http://mike.sherov.com"
+                },
+                {
+                    "name": "TJ VanToll",
+                    "email": "tj.vantoll@gmail.com",
+                    "homepage": "http://tjvantoll.com"
+                },
+                {
+                    "name": "Corey Frang",
+                    "email": "gnarf37@gmail.com",
+                    "homepage": "http://gnarf.net"
+                },
+                {
+                    "name": "Felix Nagel",
+                    "email": "info@felixnagel.com",
+                    "homepage": "http://www.felixnagel.com"
+                }
+            ],
+            "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
+            "time": "2014-10-17 06:40:12"
+        },
+        {
+            "name": "components/underscore",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/underscore.git",
+                "reference": "dc64d58f5d1079e5822d480110b28d724bda06c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/underscore/zipball/dc64d58f5d1079e5822d480110b28d724bda06c2",
+                "reference": "dc64d58f5d1079e5822d480110b28d724bda06c2",
+                "shasum": ""
+            },
+            "require": {
+                "robloach/component-installer": "*"
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "underscore.js"
+                    ],
+                    "files": [
+                        "underscore-min.js",
+                        "underscore-min.map"
+                    ],
+                    "shim": {
+                        "exports": "_"
+                    }
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Ashkenas",
+                    "email": "jeremy@documentcloud.org"
+                }
+            ],
+            "description": "JavaScript's functional programming helper library.",
+            "homepage": "http://underscorejs.org",
+            "keywords": [
+                "browser",
+                "client",
+                "functional",
+                "server",
+                "util"
+            ],
+            "time": "2014-09-22 16:48:28"
         },
         {
             "name": "composer/composer",
@@ -275,6 +526,475 @@
             "time": "2014-09-17 04:17:07"
         },
         {
+            "name": "doctrine/annotations",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/eeda578cbe24a170331a1cfdf78be723412df7a4",
+                "reference": "eeda578cbe24a170331a1cfdf78be723412df7a4",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Annotations\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Docblock Annotations Parser",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "parser"
+            ],
+            "time": "2014-12-20 20:49:38"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/2346085d2b027b233ae1d5de59b07440b9f288c8",
+                "reference": "2346085d2b027b233ae1d5de59b07440b9f288c8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=3.7",
+                "predis/predis": "~0.8",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Cache\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2015-01-15 20:38:55"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+                "reference": "a85fab9a98f1f9b8ebcdbe71733f0d910e5b9adf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Whoops": "src/"
+                },
+                "classmap": [
+                    "src/deprecated"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
+                }
+            ],
+            "description": "php error handling for cool kids",
+            "homepage": "https://github.com/filp/whoops",
+            "keywords": [
+                "error",
+                "exception",
+                "handling",
+                "library",
+                "silex-provider",
+                "whoops",
+                "zf2"
+            ],
+            "time": "2014-10-26 09:05:09"
+        },
+        {
+            "name": "framework-interop/application",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/framework-interop/application.git",
+                "reference": "b777f02033ebad157720635738bff3692e89e401"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/framework-interop/application/zipball/b777f02033ebad157720635738bff3692e89e401",
+                "reference": "b777f02033ebad157720635738bff3692e89e401",
+                "shasum": ""
+            },
+            "require": {
+                "acclimate/container": "~1.0",
+                "framework-interop/http-module-interface": "~1.0",
+                "silex/silex": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthieu Napoli",
+                    "email": "matthieu@mnapoli.fr",
+                    "homepage": "http://mnapoli.fr"
+                },
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "A sample implementation of a kernel application for framework-interop",
+            "homepage": "http://github.com/framework-interop/application",
+            "keywords": [
+                "application",
+                "framework-interop",
+                "kernel"
+            ],
+            "support": {
+                "source": "https://github.com/framework-interop/application/tree/1.0",
+                "issues": "https://github.com/framework-interop/application/issues"
+            },
+            "time": "2015-02-06 16:03:55"
+        },
+        {
+            "name": "framework-interop/http-module-interface",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/framework-interop/http-module-interface.git",
+                "reference": "03ed4f42972d56335cb881e52ba521e6b622aeda"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/framework-interop/http-module-interface/zipball/03ed4f42972d56335cb881e52ba521e6b622aeda",
+                "reference": "03ed4f42972d56335cb881e52ba521e6b622aeda",
+                "shasum": ""
+            },
+            "require": {
+                "framework-interop/module-interface": "~1.0",
+                "symfony/http-kernel": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "The interface for framework-agnostic modules that provide a HTTP middleware",
+            "homepage": "http://github.com/framework-interop/http-module-interface",
+            "keywords": [
+                "framework-interop"
+            ],
+            "support": {
+                "source": "https://github.com/framework-interop/http-module-interface/tree/1.0",
+                "issues": "https://github.com/framework-interop/http-module-interface/issues"
+            },
+            "time": "2015-01-29 17:23:10"
+        },
+        {
+            "name": "framework-interop/module-interface",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/framework-interop/module-interface.git",
+                "reference": "b9790743895ed4d02faaf6176e67cd7a9ca21d0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/framework-interop/module-interface/zipball/b9790743895ed4d02faaf6176e67cd7a9ca21d0a",
+                "reference": "b9790743895ed4d02faaf6176e67cd7a9ca21d0a",
+                "shasum": ""
+            },
+            "require": {
+                "container-interop/container-interop": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthieu Napoli",
+                    "email": "matthieu@mnapoli.fr",
+                    "homepage": "http://mnapoli.fr"
+                },
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "The base interface for framework-agnostic modules",
+            "homepage": "http://github.com/framework-interop/module-interface",
+            "keywords": [
+                "framework-interop"
+            ],
+            "support": {
+                "source": "https://github.com/framework-interop/module-interface/tree/1.0",
+                "issues": "https://github.com/framework-interop/module-interface/issues"
+            },
+            "time": "2015-01-29 16:58:47"
+        },
+        {
+            "name": "fxp/composer-asset-plugin",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
+                "reference": "dbc856439a09f07987de673aa8a264c1b88b0c6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/dbc856439a09f07987de673aa8a264c1b88b0c6b",
+                "reference": "dbc856439a09f07987de673aa8a264c1b88b0c6b",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Fxp\\Composer\\AssetPlugin\\FxpAssetPlugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fxp\\Composer\\AssetPlugin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@gmail.com"
+                }
+            ],
+            "description": "NPM/Bower Dependency Manager for Composer",
+            "homepage": "https://github.com/francoispluchino/composer-asset-plugin",
+            "keywords": [
+                "asset",
+                "bower",
+                "composer",
+                "dependency manager",
+                "nodejs",
+                "npm",
+                "package"
+            ],
+            "time": "2015-01-25 13:24:06"
+        },
+        {
+            "name": "javascript/ace",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ajaxorg/ace-builds.git",
+                "reference": "v1.1.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/ajaxorg/ace-builds/archive/v1.1.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
+        },
+        {
             "name": "justinrainbow/json-schema",
             "version": "1.3.7",
             "source": {
@@ -341,6 +1061,80 @@
             "time": "2014-08-25 02:48:14"
         },
         {
+            "name": "kriswallsmith/assetic",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/assetic.git",
+                "reference": "b20efe38845d20458702f97f3ff625d80805897b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/b20efe38845d20458702f97f3ff625d80805897b",
+                "reference": "b20efe38845d20458702f97f3ff625d80805897b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/process": "~2.1"
+            },
+            "require-dev": {
+                "cssmin/cssmin": "*",
+                "joliclic/javascript-packer": "*",
+                "kamicane/packager": "*",
+                "leafo/lessphp": "*",
+                "leafo/scssphp": "*",
+                "leafo/scssphp-compass": "*",
+                "mrclay/minify": "*",
+                "patchwork/jsqueeze": "~1.0",
+                "phpunit/phpunit": "~4",
+                "psr/log": "~1.0",
+                "ptachoire/cssembed": "*",
+                "twig/twig": "~1.6"
+            },
+            "suggest": {
+                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+                "twig/twig": "Assetic provides the integration with the Twig templating engine"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "time": "2014-12-12 05:04:05"
+        },
+        {
             "name": "michelf/php-markdown",
             "version": "1.4.1",
             "source": {
@@ -390,47 +1184,6 @@
                 "markdown"
             ],
             "time": "2014-05-05 02:43:50"
-        },
-        {
-            "name": "mouf/container-installer",
-            "version": "1.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/container-installer.git",
-                "reference": "570111d94550b1e8eaa178ddf56c4ea94022fa05"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/container-installer/zipball/570111d94550b1e8eaa178ddf56c4ea94022fa05",
-                "reference": "570111d94550b1e8eaa178ddf56c4ea94022fa05",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "1.0.0",
-                "container-interop/container-interop": "~1.0",
-                "php": ">=5.4"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Mouf\\ContainerInstaller\\ContainerInstallerPlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "Mouf\\ContainerInstaller\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "This package contains a PHP dependency injection container detector and aggregator. The idea is to have potentially one DI container per composer package and to aggregate all those containers into a 'root' container.",
-            "homepage": "http://mouf-php.com",
-            "keywords": [
-                "ContainerInterop",
-                "di",
-                "installer"
-            ],
-            "time": "2015-01-21 18:03:28"
         },
         {
             "name": "mouf/famfamfam",
@@ -527,21 +1280,22 @@
         },
         {
             "name": "mouf/html.renderer",
-            "version": "v1.0.0",
+            "version": "1.4.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/html.renderer.git",
-                "reference": "5f3fabfba7abb82f46d4fee1c29039bdccab9dc0"
+                "url": "https://github.com/moufmouf/html.renderer.git",
+                "reference": "ac17976f3e3b4f29964b92a2b9257bae65ba4221"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.renderer/zipball/5f3fabfba7abb82f46d4fee1c29039bdccab9dc0",
-                "reference": "5f3fabfba7abb82f46d4fee1c29039bdccab9dc0",
+                "url": "https://api.github.com/repos/moufmouf/html.renderer/zipball/ac17976f3e3b4f29964b92a2b9257bae65ba4221",
+                "reference": "ac17976f3e3b4f29964b92a2b9257bae65ba4221",
                 "shasum": ""
             },
             "require": {
                 "mouf/html.htmlelement": "~2.0",
-                "mouf/html.renderer.twig-extensions": "~1.0",
+                "mouf/html.renderer.twig-extensions": ">= 1.0.2, <2.0",
+                "mouf/mouf-installer": "~2.1",
                 "mouf/utils.cache.apc-cache": "~2.0",
                 "mouf/utils.cache.in-memory-cache": "~1.0",
                 "php": ">=5.4.4",
@@ -552,8 +1306,8 @@
                 "mouf": {
                     "install": [
                         {
-                            "file": "src/install.php",
-                            "type": "file"
+                            "type": "class",
+                            "class": "Mouf\\Utils\\Log\\Psr\\ErrorLogLoggerInstaller"
                         }
                     ],
                     "logo": "logo.png",
@@ -582,7 +1336,6 @@
                     "Mouf\\Html\\Renderer": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -601,23 +1354,27 @@
                 "render",
                 "tohtml"
             ],
-            "time": "2014-04-17 11:13:36"
+            "support": {
+                "source": "https://github.com/moufmouf/html.renderer/tree/1.4"
+            },
+            "time": "2015-02-09 16:53:11"
         },
         {
             "name": "mouf/html.renderer.twig-extensions",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/html.renderer.twig-extensions.git",
-                "reference": "afa36a537c9ecdce827c0c162208d3c1bb36d8b9"
+                "reference": "d786071230acfa7eeedd8607d97eeed9a3950288"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.renderer.twig-extensions/zipball/afa36a537c9ecdce827c0c162208d3c1bb36d8b9",
-                "reference": "afa36a537c9ecdce827c0c162208d3c1bb36d8b9",
+                "url": "https://api.github.com/repos/thecodingmachine/html.renderer.twig-extensions/zipball/d786071230acfa7eeedd8607d97eeed9a3950288",
+                "reference": "d786071230acfa7eeedd8607d97eeed9a3950288",
                 "shasum": ""
             },
             "require": {
+                "container-interop/container-interop": "~1.0",
                 "mouf/html.htmlelement": "~2.0",
                 "mouf/utils.cache.cache-interface": "~2.0",
                 "php": ">=5.4.0",
@@ -665,37 +1422,38 @@
                 "render",
                 "tohtml"
             ],
-            "time": "2015-01-19 18:53:54"
+            "time": "2015-02-09 13:53:33"
         },
         {
             "name": "mouf/html.template.bootstrap",
-            "version": "v2.3.3.0",
+            "version": "4.1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/html.template.bootstrap.git",
-                "reference": "ec16af152d5125798dfd5e63224006d1fb28fbd2"
+                "url": "https://github.com/moufmouf/html.template.bootstrap.git",
+                "reference": "f8372badca9e23baa917da4771e947eed96b16f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.template.bootstrap/zipball/ec16af152d5125798dfd5e63224006d1fb28fbd2",
-                "reference": "ec16af152d5125798dfd5e63224006d1fb28fbd2",
+                "url": "https://api.github.com/repos/moufmouf/html.template.bootstrap/zipball/f8372badca9e23baa917da4771e947eed96b16f7",
+                "reference": "f8372badca9e23baa917da4771e947eed96b16f7",
                 "shasum": ""
             },
             "require": {
+                "components/bootstrap": "3.*",
+                "components/jquery": "~1.9",
                 "mouf/html.template.templateinterface": "~2.1",
-                "mouf/html.utils.bootstrap": "2.3.*",
-                "mouf/html.utils.weblibrarymanager": "~2.0",
-                "mouf/html.widgets.menu": "2.*",
+                "mouf/html.utils.weblibrarymanager": "~3.0",
+                "mouf/html.widgets.menu": "~3.0",
                 "mouf/html.widgets.messageservice": "~3.0",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "type": "mouf-library",
             "extra": {
                 "mouf": {
                     "install": [
                         {
-                            "file": "src/install.php",
-                            "type": "file"
+                            "type": "class",
+                            "class": "Mouf\\Html\\Template\\BootstrapTemplateInstaller"
                         }
                     ],
                     "logo": "icons/logo.png"
@@ -706,7 +1464,6 @@
                     "Mouf": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -725,51 +1482,10 @@
                 "mouf",
                 "template"
             ],
-            "time": "2014-04-24 15:35:51"
-        },
-        {
-            "name": "mouf/html.template.menus.basicmenu",
-            "version": "v2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/html.template.menus.basicmenu.git",
-                "reference": "29ee1265b57bef6148bbedc4facb2d142feee309"
+            "support": {
+                "source": "https://github.com/moufmouf/html.template.bootstrap/tree/4.1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.template.menus.basicmenu/zipball/29ee1265b57bef6148bbedc4facb2d142feee309",
-                "reference": "29ee1265b57bef6148bbedc4facb2d142feee309",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/html.widgets.menu": "2.*",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "autoload": {
-                "psr-0": {
-                    "Mouf": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains a single class in charge of rendering a 'Menu' instance in HTML using the toHtml() method. The rendering is performed using &lt;ul&gt; and &lt;li&gt; tags.",
-            "homepage": "https://github.com/thecodingmachine/html.template.menus.basicmenu",
-            "keywords": [
-                "basicmenu",
-                "menu",
-                "mouf"
-            ],
-            "time": "2014-06-03 20:27:41"
+            "time": "2015-02-09 13:32:16"
         },
         {
             "name": "mouf/html.template.mouftemplate",
@@ -817,21 +1533,21 @@
         },
         {
             "name": "mouf/html.template.templateinterface",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/html.template.templateinterface.git",
-                "reference": "cf4e9b7fa886f18deea490c12b34e2d0ab8a4cb3"
+                "reference": "92586fd0542117702054fa348a76ee7da57e48f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.template.templateinterface/zipball/cf4e9b7fa886f18deea490c12b34e2d0ab8a4cb3",
-                "reference": "cf4e9b7fa886f18deea490c12b34e2d0ab8a4cb3",
+                "url": "https://api.github.com/repos/thecodingmachine/html.template.templateinterface/zipball/92586fd0542117702054fa348a76ee7da57e48f3",
+                "reference": "92586fd0542117702054fa348a76ee7da57e48f3",
                 "shasum": ""
             },
             "require": {
                 "mouf/html.renderer": "~1.0",
-                "mouf/html.utils.weblibrarymanager": ">=2.0-dev,<3.0",
+                "mouf/html.utils.weblibrarymanager": ">=2.0-dev,<4.0",
                 "php": ">=5.3.0"
             },
             "type": "mouf-library",
@@ -858,90 +1574,47 @@
                 "template",
                 "templateinterface"
             ],
-            "time": "2013-10-29 18:21:58"
-        },
-        {
-            "name": "mouf/html.utils.bootstrap",
-            "version": "v2.3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/html.utils.bootstrap.git",
-                "reference": "a4e1baf73a77dd5f051b027863f55f329f86008c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.utils.bootstrap/zipball/a4e1baf73a77dd5f051b027863f55f329f86008c",
-                "reference": "a4e1baf73a77dd5f051b027863f55f329f86008c",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/javascript.jquery.jquery": "~1.7",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ],
-                    "logo": "icons/logo.png"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache License V2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Otto"
-                },
-                {
-                    "name": "Billy Gates"
-                }
-            ],
-            "description": "This package contains the Bootstrap HTML/CSS/JS library, along a Mouf installer file to add Bootstrap easily in your Mouf project.",
-            "homepage": "http://twitter.github.com/bootstrap/",
-            "keywords": [
-                "bootstrap",
-                "javascript",
-                "mouf"
-            ],
-            "time": "2013-03-19 22:41:54"
+            "time": "2014-12-10 16:01:57"
         },
         {
             "name": "mouf/html.utils.weblibrarymanager",
-            "version": "v2.1.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/html.utils.weblibrarymanager.git",
-                "reference": "318e1d38bb631b53d17ae5eab57c96e96a7def88"
+                "reference": "315ab995fbac718bbc4f64a4f9c97df3c8d7ee51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.utils.weblibrarymanager/zipball/318e1d38bb631b53d17ae5eab57c96e96a7def88",
-                "reference": "318e1d38bb631b53d17ae5eab57c96e96a7def88",
+                "url": "https://api.github.com/repos/thecodingmachine/html.utils.weblibrarymanager/zipball/315ab995fbac718bbc4f64a4f9c97df3c8d7ee51",
+                "reference": "315ab995fbac718bbc4f64a4f9c97df3c8d7ee51",
                 "shasum": ""
             },
             "require": {
                 "mouf/html.htmlelement": "~2.0",
-                "mouf/html.utils.weblibrarymanager.component-installer": "2.1.*",
+                "mouf/html.renderer": "~1.0",
+                "mouf/html.utils.weblibrarymanager.bower-installer": "~1.0",
+                "mouf/html.utils.weblibrarymanager.component-installer": "~2.1",
                 "mouf/mouf-installer": "~2.0",
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "type": "mouf-library",
             "extra": {
                 "mouf": {
                     "install": [
                         {
-                            "type": "file",
-                            "file": "install.php"
+                            "type": "class",
+                            "class": "Mouf\\Html\\Utils\\WebLibraryManager\\WebLibraryManagerInstaller"
                         }
                     ],
                     "require-admin": [
                         "src/WebLibraryAdmin.php"
+                    ],
+                    "doc": [
+                        {
+                            "title": "CHANGELOG",
+                            "url": "doc/CHANGELOG.md"
+                        }
                     ]
                 }
             },
@@ -971,7 +1644,59 @@
                 "javascript",
                 "mouf"
             ],
-            "time": "2014-05-28 07:46:16"
+            "time": "2014-12-10 15:45:37"
+        },
+        {
+            "name": "mouf/html.utils.weblibrarymanager.bower-installer",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moufmouf/html.utils.weblibrarymanager.bower-installer.git",
+                "reference": "f104f3da17eac5dba36c7cbccf8f1a9e966b4fc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moufmouf/html.utils.weblibrarymanager.bower-installer/zipball/f104f3da17eac5dba36c7cbccf8f1a9e966b4fc9",
+                "reference": "f104f3da17eac5dba36c7cbccf8f1a9e966b4fc9",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0",
+                "fxp/composer-asset-plugin": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Mouf\\Html\\Utils\\WebLibraryManager\\BowerInstaller\\BowerInstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mouf\\Html\\Utils\\WebLibraryManager\\BowerInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "This Mouf package contains a Composer installer that will automatically create WebLibrary instances when a 'bower' package is installed in Composer. It is designed to be used only with Mouf's WebLibraryManager. Bower compatibility provided thanks to francoispluchino/composer-asset-plugin",
+            "homepage": "http://mouf-php/packages/mouf/html.utils.weblibrarymanager.bower-installer",
+            "keywords": [
+                "bower",
+                "css",
+                "dependencies",
+                "dependency",
+                "html",
+                "javascript",
+                "mouf"
+            ],
+            "time": "2014-12-10 15:22:15"
         },
         {
             "name": "mouf/html.utils.weblibrarymanager.component-installer",
@@ -1025,24 +1750,34 @@
         },
         {
             "name": "mouf/html.widgets.menu",
-            "version": "v2.0.0",
+            "version": "3.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/html.widgets.menu.git",
-                "reference": "fdac5fc5c6c65ffb603a29cb95cb0fbee17b817e"
+                "reference": "c552dbde51a50de58c810fac01e43bd59ceff7f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.widgets.menu/zipball/fdac5fc5c6c65ffb603a29cb95cb0fbee17b817e",
-                "reference": "fdac5fc5c6c65ffb603a29cb95cb0fbee17b817e",
+                "url": "https://api.github.com/repos/thecodingmachine/html.widgets.menu/zipball/c552dbde51a50de58c810fac01e43bd59ceff7f8",
+                "reference": "c552dbde51a50de58c810fac01e43bd59ceff7f8",
                 "shasum": ""
             },
             "require": {
+                "mouf/html.renderer": "~1.0",
                 "mouf/utils.common.conditioninterface": "2.*",
-                "mouf/utils.i18n.fine": "3.*",
                 "php": ">=5.3.0"
             },
             "type": "mouf-library",
+            "extra": {
+                "mouf": {
+                    "install": [
+                        {
+                            "file": "src/install.php",
+                            "type": "file"
+                        }
+                    ]
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Mouf": "src/"
@@ -1066,7 +1801,7 @@
                 "mouf",
                 "template"
             ],
-            "time": "2014-04-25 14:27:23"
+            "time": "2014-11-14 14:47:54"
         },
         {
             "name": "mouf/html.widgets.messageservice",
@@ -1143,369 +1878,17 @@
             "time": "2015-01-02 21:49:18"
         },
         {
-            "name": "mouf/javascript.ace",
-            "version": "v1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.ace.git",
-                "reference": "b76425308ba4e90a7ff5dd5ee1615271e87dae85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.ace/zipball/b76425308ba4e90a7ff5dd5ee1615271e87dae85",
-                "reference": "b76425308ba4e90a7ff5dd5ee1615271e87dae85",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/html.utils.weblibrarymanager": "~2.0",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "class",
-                            "class": "Mouf\\Javascript\\Ace\\AceInstaller"
-                        }
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Mouf\\Javascript\\Ace\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "This package contains the ACE Javascript code editor (and a Mouf wrapper installer).",
-            "homepage": "https://mouf-php.com/packages/mouf/javascript.ace",
-            "keywords": [
-                "ace",
-                "javascript",
-                "mouf"
-            ],
-            "time": "2014-04-08 09:56:23"
-        },
-        {
-            "name": "mouf/javascript.jquery.jq-bootstrap-validation",
-            "version": "v1.3.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moufmouf/javascript.jquery.jqBootstrapValidation.git",
-                "reference": "f25987d36c052f2fd4719c8b949409fa934295ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/javascript.jquery.jqBootstrapValidation/zipball/f25987d36c052f2fd4719c8b949409fa934295ea",
-                "reference": "f25987d36c052f2fd4719c8b949409fa934295ea",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/html.utils.weblibrarymanager": "~2.0",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "logo": "logo.png",
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the jqBootstrapValidation plugin for Bootstrap. It features an installer for the Mouf framework.",
-            "homepage": "http://mouf-php.com/packages/mouf/javascript.jquery.jqBootstrapValidation",
-            "keywords": [
-                "bootstrap",
-                "jqBootstrapValidation",
-                "validator"
-            ],
-            "time": "2013-06-17 14:11:31"
-        },
-        {
-            "name": "mouf/javascript.jquery.jquery",
-            "version": "v1.11.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.jquery.jquery.git",
-                "reference": "7bae0fbeb391540906ec0ef5e40da6263e5133a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.jquery.jquery/zipball/7bae0fbeb391540906ec0ef5e40da6263e5133a3",
-                "reference": "7bae0fbeb391540906ec0ef5e40da6263e5133a3",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/html.utils.weblibrarymanager": ">=2.0-dev,<3.0",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the JQuery library, along a Mouf installer file to add JQuery easily in your Mouf project.",
-            "homepage": "https://github.com/thecodingmachine/javascript.jquery.jquery",
-            "keywords": [
-                "javascript",
-                "jquery",
-                "mouf"
-            ],
-            "time": "2014-02-18 10:06:30"
-        },
-        {
-            "name": "mouf/javascript.jquery.jquery-filetree",
-            "version": "v1.01.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.jquery.jquery-filetree.git",
-                "reference": "da68e197c36ee294969508bd118feb4c315b1f37"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.jquery.jquery-filetree/zipball/da68e197c36ee294969508bd118feb4c315b1f37",
-                "reference": "da68e197c36ee294969508bd118feb4c315b1f37",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/javascript.jquery.jquery-ui": ">=1.8.22-dev,<2.0",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the jQuery FileTree library, along a Mouf installer file to add JQuery FileTree easily in your Mouf project.",
-            "homepage": "http://www.abeautifulsite.net/blog/2008/03/jquery-file-tree/",
-            "keywords": [
-                "filetree",
-                "javascript",
-                "jquery",
-                "jquery filetree",
-                "mouf"
-            ],
-            "time": "2014-06-03 20:44:49"
-        },
-        {
-            "name": "mouf/javascript.jquery.jquery-ui",
-            "version": "v1.10.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.jquery.jquery-ui.git",
-                "reference": "0bb621cf5cfe0f6830c469c565143b80b24733d7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.jquery.jquery-ui/zipball/0bb621cf5cfe0f6830c469c565143b80b24733d7",
-                "reference": "0bb621cf5cfe0f6830c469c565143b80b24733d7",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/javascript.jquery.jquery": "~1.7",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the JQuery UI library, along a Mouf installer file to add JQuery UI easily in your Mouf project.",
-            "homepage": "https://github.com/thecodingmachine/javascript.jquery.jquery-ui",
-            "keywords": [
-                "jQueryUI",
-                "javascript",
-                "jquery",
-                "jquery-ui",
-                "mouf"
-            ],
-            "time": "2013-04-11 12:11:39"
-        },
-        {
-            "name": "mouf/javascript.syntaxhighlighter",
-            "version": "v3.0.83.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.syntaxhighlighter.git",
-                "reference": "6f4499eafbe688f504501ccdc2329edb459150d4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.syntaxhighlighter/zipball/6f4499eafbe688f504501ccdc2329edb459150d4",
-                "reference": "6f4499eafbe688f504501ccdc2329edb459150d4",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/javascript.jquery.jquery": ">=1.7.2",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Mouf": "php/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the SyntaxHighlighter javascript library, along a Mouf installer file to add SyntaxHighlighter easily in your Mouf project.",
-            "homepage": "http://alexgorbatchev.com/SyntaxHighlighter/",
-            "keywords": [
-                "SyntaxHighlighter",
-                "javascript",
-                "mouf"
-            ],
-            "time": "2014-06-03 20:45:27"
-        },
-        {
-            "name": "mouf/javascript.underscore",
-            "version": "v1.3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thecodingmachine/javascript.underscore.git",
-                "reference": "e1e1122c51c1b1ab8841c75ce4e7cabd857f558c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/javascript.underscore/zipball/e1e1122c51c1b1ab8841c75ce4e7cabd857f558c",
-                "reference": "e1e1122c51c1b1ab8841c75ce4e7cabd857f558c",
-                "shasum": ""
-            },
-            "require": {
-                "mouf/html.utils.weblibrarymanager": ">=2.0-dev,<3.0",
-                "php": ">=5.3.0"
-            },
-            "type": "mouf-library",
-            "extra": {
-                "mouf": {
-                    "install": [
-                        {
-                            "type": "file",
-                            "file": "install.php"
-                        }
-                    ]
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Négrier",
-                    "email": "d.negrier@thecodingmachine.com",
-                    "homepage": "http://mouf-php.com"
-                }
-            ],
-            "description": "This package contains the Underscore javascript library, along a Mouf installer file to add Underscore easily in your Mouf project.",
-            "homepage": "https://github.com/thecodingmachine/javascript.underscore",
-            "keywords": [
-                "javascript",
-                "mouf",
-                "underscore",
-                "underscorejs"
-            ],
-            "time": "2014-06-03 20:45:03"
-        },
-        {
             "name": "mouf/mouf-installer",
             "version": "2.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/mouf-installer.git",
-                "reference": "70df22c17ed859ff96f2781af70c58186c9237e6"
+                "reference": "d278a9894d957860e45b06d06349205f7f55418c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/mouf-installer/zipball/70df22c17ed859ff96f2781af70c58186c9237e6",
-                "reference": "70df22c17ed859ff96f2781af70c58186c9237e6",
+                "url": "https://api.github.com/repos/thecodingmachine/mouf-installer/zipball/d278a9894d957860e45b06d06349205f7f55418c",
+                "reference": "d278a9894d957860e45b06d06349205f7f55418c",
                 "shasum": ""
             },
             "require": {
@@ -1541,7 +1924,7 @@
                 "install",
                 "mouf"
             ],
-            "time": "2015-01-21 18:02:07"
+            "time": "2015-01-21 18:14:06"
         },
         {
             "name": "mouf/mouf-validators-interface",
@@ -1587,31 +1970,37 @@
         },
         {
             "name": "mouf/mvc.splash",
-            "version": "v4.3.1",
+            "version": "6.0.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/mvc.splash.git",
-                "reference": "fd988413802baef0c0e4a0c2c1809d59deec280a"
+                "url": "https://github.com/moufmouf/mvc.splash.git",
+                "reference": "dce97618f87bc22b4e84f08778576dc9593e52d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/mvc.splash/zipball/fd988413802baef0c0e4a0c2c1809d59deec280a",
-                "reference": "fd988413802baef0c0e4a0c2c1809d59deec280a",
+                "url": "https://api.github.com/repos/moufmouf/mvc.splash/zipball/dce97618f87bc22b4e84f08778576dc9593e52d7",
+                "reference": "dce97618f87bc22b4e84f08778576dc9593e52d7",
                 "shasum": ""
             },
             "require": {
-                "mouf/html.template.bootstrap": ">=2.1, <4.0",
+                "mouf/html.template.bootstrap": ">=2.1, <5.0",
                 "mouf/mouf-validators-interface": "~2.0",
-                "mouf/mvc.splash-common": "4.3.*",
+                "mouf/mvc.splash-common": "~6.0",
                 "mouf/utils.cache.apc-cache": "~2.1",
                 "mouf/utils.cache.file-cache": "~2.1",
                 "mouf/utils.cache.no-cache": "2.0.*",
+                "mouf/utils.constants.debug": "~1.0",
                 "mouf/utils.constants.secret": "~1.0",
+                "mouf/whoops-stackphp": "~1.0",
                 "php": ">=5.3.0",
-                "psr/log": "~1.0"
+                "psr/log": "~1.0",
+                "symfony/http-kernel": "~2.0"
+            },
+            "conflict": {
+                "mouf/mouf": "<2.1"
             },
             "provide": {
-                "mouf/mvc.splash-implementation": "4.3.*"
+                "mouf/mvc.splash-implementation": "6.0.*"
             },
             "type": "mouf-library",
             "extra": {
@@ -1653,8 +2042,12 @@
                             "url": "doc/filters.md"
                         },
                         {
-                            "title": "Settings and error handling",
-                            "url": "doc/settings_and_error_handling.md"
+                            "title": "Advanced: configuring routing",
+                            "url": "doc/url_routing.md"
+                        },
+                        {
+                            "title": "Migrating from Splash 4",
+                            "url": "doc/migrating.md"
                         }
                     ],
                     "require-admin": [
@@ -1671,7 +2064,6 @@
                     "Mouf\\Mvc\\Splash": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1690,31 +2082,42 @@
                 "mvc",
                 "splash"
             ],
-            "time": "2014-08-28 14:14:15"
+            "support": {
+                "source": "https://github.com/thecodingmachine/mvc.splash"
+            },
+            "time": "2015-02-09 16:59:57"
         },
         {
             "name": "mouf/mvc.splash-common",
-            "version": "v4.3.1",
+            "version": "6.0.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/mvc.splash-common.git",
-                "reference": "f78dba2e8940bd9d6d0f936bd22ec7befafb7fa2"
+                "url": "https://github.com/moufmouf/mvc.splash-common.git",
+                "reference": "32bef308e1d6b287fb7f9a4c0473a849d1ad566d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/mvc.splash-common/zipball/f78dba2e8940bd9d6d0f936bd22ec7befafb7fa2",
-                "reference": "f78dba2e8940bd9d6d0f936bd22ec7befafb7fa2",
+                "url": "https://api.github.com/repos/moufmouf/mvc.splash-common/zipball/32bef308e1d6b287fb7f9a4c0473a849d1ad566d",
+                "reference": "32bef308e1d6b287fb7f9a4c0473a849d1ad566d",
                 "shasum": ""
             },
             "require": {
                 "mouf/html.htmlelement": "2.*",
                 "mouf/html.renderer.twig-extensions": "~1.0",
-                "mouf/mvc.splash-implementation": "~4.3",
+                "mouf/mvc.splash-implementation": "~6.0",
                 "mouf/utils.action.common-action": "~1.0",
+                "mouf/utils.cache.apc-cache": "~2.1",
+                "mouf/utils.cache.cache-interface": "~2.0",
+                "mouf/utils.cache.file-cache": "~2.1",
+                "mouf/utils.common.conditioninterface": "~2.0",
                 "mouf/utils.common.url-interface": "~1.0",
                 "mouf/utils.common.validators": "3.*",
                 "mouf/utils.i18n.fine": "3.*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "symfony/http-kernel": "~2.0"
+            },
+            "conflict": {
+                "mouf/mouf": "<2.1"
             },
             "type": "mouf-library",
             "extra": {
@@ -1736,7 +2139,6 @@
                     "Mouf\\Mvc\\Splash": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1756,31 +2158,34 @@
                 "splash",
                 "splash-common"
             ],
-            "time": "2014-08-22 14:52:37"
+            "support": {
+                "source": "https://github.com/moufmouf/mvc.splash-common/tree/6.0"
+            },
+            "time": "2015-02-09 14:25:28"
         },
         {
             "name": "mouf/root-container",
-            "version": "1.0.x-dev",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/root-container.git",
-                "reference": "ac3d6c64b0aafa08fe44b3f6cda692acf133e12c"
+                "reference": "6a64651ecff67234ab60891ef79316d2ce6ebad5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/root-container/zipball/ac3d6c64b0aafa08fe44b3f6cda692acf133e12c",
-                "reference": "ac3d6c64b0aafa08fe44b3f6cda692acf133e12c",
+                "url": "https://api.github.com/repos/thecodingmachine/root-container/zipball/6a64651ecff67234ab60891ef79316d2ce6ebad5",
+                "reference": "6a64651ecff67234ab60891ef79316d2ce6ebad5",
                 "shasum": ""
             },
             "require": {
                 "acclimate/container": "~1.0",
-                "mouf/container-installer": "~1.0",
+                "framework-interop/module-interface": "~1.0",
                 "php": ">=5.4"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Mouf\\": "src"
+                    "Mouf\\RootContainer\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1790,7 +2195,7 @@
                 "ContainerInterop",
                 "di"
             ],
-            "time": "2015-01-16 15:54:41"
+            "time": "2015-02-09 16:51:56"
         },
         {
             "name": "mouf/security.simplelogincontroller",
@@ -1973,21 +2378,22 @@
         },
         {
             "name": "mouf/security.userservice-splash",
-            "version": "v4.0.0",
+            "version": "6.0.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/security.userservice-splash.git",
-                "reference": "8cd33757d6fd0ebd3b0903be62c16991e07bf78d"
+                "url": "https://github.com/moufmouf/security.userservice-splash.git",
+                "reference": "82bd28f3a3f8a39aeb622a26dbd8f308e88ae5c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/security.userservice-splash/zipball/8cd33757d6fd0ebd3b0903be62c16991e07bf78d",
-                "reference": "8cd33757d6fd0ebd3b0903be62c16991e07bf78d",
+                "url": "https://api.github.com/repos/moufmouf/security.userservice-splash/zipball/82bd28f3a3f8a39aeb622a26dbd8f308e88ae5c5",
+                "reference": "82bd28f3a3f8a39aeb622a26dbd8f308e88ae5c5",
                 "shasum": ""
             },
             "require": {
-                "mouf/mvc.splash-common": "4.*",
+                "mouf/mvc.splash-common": "~6.0",
                 "mouf/security.userservice": "2.*",
+                "mouf/utils.common.doctrine-annotations-wrapper": "~1.2",
                 "php": ">=5.3.0"
             },
             "type": "library",
@@ -1996,7 +2402,6 @@
                     "Mouf": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2015,7 +2420,10 @@
                 "splash",
                 "user"
             ],
-            "time": "2014-03-27 14:49:53"
+            "support": {
+                "source": "https://github.com/moufmouf/security.userservice-splash/tree/6.0"
+            },
+            "time": "2015-02-11 14:39:21"
         },
         {
             "name": "mouf/utils.action.action-interface",
@@ -2063,16 +2471,16 @@
         },
         {
             "name": "mouf/utils.action.common-action",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/utils.action.common-action.git",
-                "reference": "0c7a4a91849fed733cb07a7ed317b49cf6bc8dc4"
+                "reference": "9498e24435b96812953cbca91fd20daecbfc549a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/utils.action.common-action/zipball/0c7a4a91849fed733cb07a7ed317b49cf6bc8dc4",
-                "reference": "0c7a4a91849fed733cb07a7ed317b49cf6bc8dc4",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.action.common-action/zipball/9498e24435b96812953cbca91fd20daecbfc549a",
+                "reference": "9498e24435b96812953cbca91fd20daecbfc549a",
                 "shasum": ""
             },
             "require": {
@@ -2108,7 +2516,7 @@
                 "actioninterface",
                 "mouf"
             ],
-            "time": "2013-10-29 18:21:59"
+            "time": "2015-01-23 11:09:24"
         },
         {
             "name": "mouf/utils.cache.apc-cache",
@@ -2222,20 +2630,21 @@
         },
         {
             "name": "mouf/utils.cache.file-cache",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/utils.cache.file-cache.git",
-                "reference": "0b3aec796b36f4a7b934b4d4c8b036e53542d560"
+                "reference": "6d29e6ce0460896483edac7c1eddbf89ce47a25a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/utils.cache.file-cache/zipball/0b3aec796b36f4a7b934b4d4c8b036e53542d560",
-                "reference": "0b3aec796b36f4a7b934b4d4c8b036e53542d560",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.cache.file-cache/zipball/6d29e6ce0460896483edac7c1eddbf89ce47a25a",
+                "reference": "6d29e6ce0460896483edac7c1eddbf89ce47a25a",
                 "shasum": ""
             },
             "require": {
                 "mouf/utils.cache.cache-interface": "~2.0",
+                "mouf/utils.constants.secret": "~1.0",
                 "php": ">=5.3.0",
                 "psr/log": "~1.0"
             },
@@ -2244,16 +2653,16 @@
                 "mouf": {
                     "install": [
                         {
-                            "file": "src/install.php",
-                            "type": "file"
+                            "class": "Mouf\\Utils\\Cache\\FileCacheInstaller",
+                            "type": "class"
                         }
                     ],
                     "logo": "logo.png"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Mouf\\Utils\\Cache": "src/"
+                "psr-4": {
+                    "Mouf\\Utils\\Cache\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2274,7 +2683,7 @@
                 "file",
                 "mouf"
             ],
-            "time": "2013-11-12 09:33:59"
+            "time": "2015-01-26 15:34:39"
         },
         {
             "name": "mouf/utils.cache.in-memory-cache",
@@ -2378,16 +2787,16 @@
         },
         {
             "name": "mouf/utils.common.conditioninterface",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/utils.common.conditioninterface.git",
-                "reference": "61b5d6a0904d02bf0ed8578c195b08fb666f8a65"
+                "reference": "d38b67427a68bd7e37615c08ba28182e6c1867f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/utils.common.conditioninterface/zipball/61b5d6a0904d02bf0ed8578c195b08fb666f8a65",
-                "reference": "61b5d6a0904d02bf0ed8578c195b08fb666f8a65",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.common.conditioninterface/zipball/d38b67427a68bd7e37615c08ba28182e6c1867f1",
+                "reference": "d38b67427a68bd7e37615c08ba28182e6c1867f1",
                 "shasum": ""
             },
             "require": {
@@ -2416,7 +2825,123 @@
                 "condition",
                 "interface"
             ],
-            "time": "2013-10-29 18:21:59"
+            "time": "2015-01-28 15:50:43"
+        },
+        {
+            "name": "mouf/utils.common.doctrine-annotations-wrapper",
+            "version": "1.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/utils.common.doctrine-annotations-wrapper.git",
+                "reference": "b095eb95c905f363ca1556ecf706254a5e9bcdb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.common.doctrine-annotations-wrapper/zipball/b095eb95c905f363ca1556ecf706254a5e9bcdb5",
+                "reference": "b095eb95c905f363ca1556ecf706254a5e9bcdb5",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "~1.2",
+                "mouf/utils.common.doctrine-cache-wrapper": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "mouf-library",
+            "extra": {
+                "mouf": {
+                    "install": [
+                        {
+                            "type": "class",
+                            "class": "Mouf\\Utils\\Common\\Doctrine\\Annotations\\AnnotationReaderInstaller"
+                        }
+                    ],
+                    "logo": "logo.png"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mouf\\Utils\\Common\\Doctrine\\Annotations\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Camille Koppel",
+                    "email": "c.koppel@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "Provide an install script for a Doctrine's AnnotationReader in Mouf Framework.",
+            "homepage": "https://mouf-php.com/packages/mouf/utils.common.doctrine-annotations-wrapper",
+            "keywords": [
+                "annotations",
+                "doctrine",
+                "mouf",
+                "wrapper"
+            ],
+            "time": "2015-02-11 14:36:50"
+        },
+        {
+            "name": "mouf/utils.common.doctrine-cache-wrapper",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/utils.common.doctrine-cache-wrapper.git",
+                "reference": "245aad41f02f033a57093864bacce92d202bc0fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.common.doctrine-cache-wrapper/zipball/245aad41f02f033a57093864bacce92d202bc0fd",
+                "reference": "245aad41f02f033a57093864bacce92d202bc0fd",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "~1.4",
+                "mouf/utils.cache.cache-interface": "~2.0",
+                "mouf/utils.constants.debug": "~1.0",
+                "mouf/utils.constants.secret": "~1.0",
+                "php": ">=5.3.0"
+            },
+            "type": "mouf-library",
+            "extra": {
+                "mouf": {
+                    "install": [
+                        {
+                            "type": "class",
+                            "class": "Mouf\\Utils\\Common\\Doctrine\\Cache\\CacheInstaller"
+                        }
+                    ],
+                    "logo": "logo.png"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mouf\\Utils\\Common\\Doctrine\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "Provide an install script for a Doctrine's Cache in Mouf Framework.",
+            "homepage": "https://mouf-php.com/packages/mouf/utils.common.doctrine-cache-wrapper",
+            "keywords": [
+                "annotations",
+                "doctrine",
+                "mouf",
+                "wrapper"
+            ],
+            "time": "2014-06-16 12:01:07"
         },
         {
             "name": "mouf/utils.common.getvars",
@@ -2565,6 +3090,61 @@
             "time": "2014-06-04 16:32:03"
         },
         {
+            "name": "mouf/utils.constants.debug",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/utils.constants.debug.git",
+                "reference": "df2122944c8e3aadb1c8221aea732b5de9ce74ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.constants.debug/zipball/df2122944c8e3aadb1c8221aea732b5de9ce74ca",
+                "reference": "df2122944c8e3aadb1c8221aea732b5de9ce74ca",
+                "shasum": ""
+            },
+            "require": {
+                "mouf/mouf-installer": "~2.0",
+                "php": ">=5.3.0"
+            },
+            "type": "mouf-library",
+            "extra": {
+                "mouf": {
+                    "install": [
+                        {
+                            "type": "class",
+                            "class": "Mouf\\Utils\\Constants\\DebugInstaller"
+                        }
+                    ],
+                    "logo": "logo.png"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Mouf\\Utils\\Constants\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "This package contains a simple installer for Mouf that will create a constant 'DEBUG' in your project and initialize it to true. Useful for packages supporting a 'debug' mode.",
+            "homepage": "http://mouf-php.com/packages/mouf/utils.constants.debug",
+            "keywords": [
+                "constant",
+                "debug",
+                "mouf"
+            ],
+            "time": "2014-06-16 09:18:43"
+        },
+        {
             "name": "mouf/utils.constants.secret",
             "version": "v1.0.0",
             "source": {
@@ -2621,16 +3201,16 @@
         },
         {
             "name": "mouf/utils.i18n.fine",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/utils.i18n.fine.git",
-                "reference": "e1abc929dc9db3a65c03ed9748037148e3823245"
+                "reference": "79c7f20960b5fb963db5cae3a9b8b02276ac72ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/utils.i18n.fine/zipball/e1abc929dc9db3a65c03ed9748037148e3823245",
-                "reference": "e1abc929dc9db3a65c03ed9748037148e3823245",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.i18n.fine/zipball/79c7f20960b5fb963db5cae3a9b8b02276ac72ec",
+                "reference": "79c7f20960b5fb963db5cae3a9b8b02276ac72ec",
                 "shasum": ""
             },
             "require": {
@@ -2692,7 +3272,7 @@
                     "homepage": "http://mouf-php.com"
                 },
                 {
-                    "name": "Marc Teyssier",
+                    "name": "Marc TEYSSIER",
                     "email": "m.teyssier@thecodingmachine.com",
                     "homepage": "http://mouf-php.com"
                 }
@@ -2705,7 +3285,7 @@
                 "internationalisation",
                 "mouf"
             ],
-            "time": "2014-03-16 18:10:37"
+            "time": "2014-05-28 11:52:15"
         },
         {
             "name": "mouf/utils.log.errorlog_logger",
@@ -2973,6 +3553,57 @@
             "time": "2013-10-29 18:22:00"
         },
         {
+            "name": "mouf/whoops-stackphp",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/whoops-stackphp.git",
+                "reference": "3b103939b5b516bde5d97266809c89f802845be0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/whoops-stackphp/zipball/3b103939b5b516bde5d97266809c89f802845be0",
+                "reference": "3b103939b5b516bde5d97266809c89f802845be0",
+                "shasum": ""
+            },
+            "require": {
+                "filp/whoops": "~1.0",
+                "mouf/utils.common.conditioninterface": "~2.0",
+                "php": ">=5.3.0",
+                "symfony/http-kernel": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "mouf": {
+                    "logo": "logo.png"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Whoops\\StackPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": "This package provides a StackPHP middleware for using the Whoops error handling library",
+            "homepage": "https://github.com/thecodingmachine/whoops-library",
+            "keywords": [
+                "StackPHP",
+                "mouf",
+                "whoops"
+            ],
+            "time": "2014-12-17 16:28:08"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v1.0.2",
             "source": {
@@ -3018,6 +3649,52 @@
             "time": "2014-11-04 22:12:46"
         },
         {
+            "name": "pimple/pimple",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "reference": "2019c145fe393923f3441b23f29bbdfaa5c58c4d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
+            "homepage": "http://pimple.sensiolabs.org",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "time": "2013-11-22 08:30:29"
+        },
+        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -3054,6 +3731,50 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "robloach/component-installer",
+            "version": "0.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobLoach/component-installer.git",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "1.*"
+            },
+            "type": "composer-installer",
+            "extra": {
+                "class": "ComponentInstaller\\Installer"
+            },
+            "autoload": {
+                "psr-0": {
+                    "ComponentInstaller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Loach",
+                    "email": "robloach@gmail.com",
+                    "homepage": "http://robloach.net"
+                }
+            ],
+            "description": "Allows installation of Components via Composer.",
+            "time": "2013-08-31 23:46:48"
         },
         {
             "name": "seld/jsonlint",
@@ -3102,18 +3823,100 @@
             "time": "2015-01-04 21:18:15"
         },
         {
+            "name": "silex/silex",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Silex.git",
+                "reference": "57c98ea0cb47664096094912920951fde1f4631a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/57c98ea0cb47664096094912920951fde1f4631a",
+                "reference": "57c98ea0cb47664096094912920951fde1f4631a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "pimple/pimple": "~1.0",
+                "symfony/event-dispatcher": "~2.3,<3.0",
+                "symfony/http-foundation": "~2.3,<3.0",
+                "symfony/http-kernel": "~2.3,<3.0",
+                "symfony/routing": "~2.3,<3.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "~2.2",
+                "monolog/monolog": "~1.4,>=1.4.1",
+                "swiftmailer/swiftmailer": "5.*",
+                "symfony/browser-kit": "~2.3,<3.0",
+                "symfony/config": "~2.3,<3.0",
+                "symfony/css-selector": "~2.3,<3.0",
+                "symfony/debug": "~2.3,<3.0",
+                "symfony/dom-crawler": "~2.3,<3.0",
+                "symfony/finder": "~2.3,<3.0",
+                "symfony/form": "~2.3,<3.0",
+                "symfony/locale": "~2.3,<3.0",
+                "symfony/monolog-bridge": "~2.3,<3.0",
+                "symfony/options-resolver": "~2.3,<3.0",
+                "symfony/process": "~2.3,<3.0",
+                "symfony/security": "~2.3,<3.0",
+                "symfony/serializer": "~2.3,<3.0",
+                "symfony/translation": "~2.3,<3.0",
+                "symfony/twig-bridge": "~2.3,<3.0",
+                "symfony/validator": "~2.3,<3.0",
+                "twig/twig": ">=1.8.0,<2.0-dev"
+            },
+            "suggest": {
+                "symfony/browser-kit": "~2.3",
+                "symfony/css-selector": "~2.3",
+                "symfony/dom-crawler": "~2.3",
+                "symfony/form": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Silex": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                }
+            ],
+            "description": "The PHP micro-framework based on the Symfony2 Components",
+            "homepage": "http://silex.sensiolabs.org",
+            "keywords": [
+                "microframework"
+            ],
+            "time": "2015-01-20 16:45:58"
+        },
+        {
             "name": "symfony/console",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476"
+                "reference": "e44154bfe3e41e8267d7a3794cd9da9a51cfac34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
-                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/e44154bfe3e41e8267d7a3794cd9da9a51cfac34",
+                "reference": "e44154bfe3e41e8267d7a3794cd9da9a51cfac34",
                 "shasum": ""
             },
             "require": {
@@ -3156,11 +3959,129 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-06 17:50:02"
+            "time": "2015-01-25 04:39:26"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Component/Debug",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/Debug.git",
+                "reference": "150c80059c3ccf68f96a4fceb513eb6b41f23300"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/150c80059c3ccf68f96a4fceb513eb6b41f23300",
+                "reference": "150c80059c3ccf68f96a4fceb513eb6b41f23300",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0"
+            },
+            "conflict": {
+                "symfony/http-kernel": ">=2.3,<2.3.24|~2.4.0|>=2.5,<2.5.9|>=2.6,<2.6.2"
+            },
+            "require-dev": {
+                "symfony/class-loader": "~2.2",
+                "symfony/http-foundation": "~2.1",
+                "symfony/http-kernel": "~2.3.24|~2.5.9|~2.6,>=2.6.2"
+            },
+            "suggest": {
+                "symfony/http-foundation": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Debug\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Debug Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-01-21 20:57:55"
+        },
+        {
+            "name": "symfony/event-dispatcher",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Component/EventDispatcher",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/EventDispatcher.git",
+                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f75989f3ab2743a82fe0b03ded2598a2b1546813",
+                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "psr/log": "~1.0",
+                "symfony/config": "~2.0,>=2.0.5",
+                "symfony/dependency-injection": "~2.6",
+                "symfony/expression-language": "~2.6",
+                "symfony/stopwatch": "~2.3"
+            },
+            "suggest": {
+                "symfony/dependency-injection": "",
+                "symfony/http-kernel": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\EventDispatcher\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony EventDispatcher Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-02-01 16:10:57"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
@@ -3207,7 +4128,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
@@ -3253,18 +4174,148 @@
             "time": "2015-01-03 08:01:59"
         },
         {
+            "name": "symfony/http-foundation",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Component/HttpFoundation",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/HttpFoundation.git",
+                "reference": "8fa63d614d56ccfe033e30411d90913cfc483ff6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/8fa63d614d56ccfe033e30411d90913cfc483ff6",
+                "reference": "8fa63d614d56ccfe033e30411d90913cfc483ff6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/expression-language": "~2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\HttpFoundation\\": ""
+                },
+                "classmap": [
+                    "Symfony/Component/HttpFoundation/Resources/stubs"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-02-01 16:10:57"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Component/HttpKernel",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/HttpKernel.git",
+                "reference": "27abf3106d8bd08562070dd4e2438c279792c434"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/27abf3106d8bd08562070dd4e2438c279792c434",
+                "reference": "27abf3106d8bd08562070dd4e2438c279792c434",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "psr/log": "~1.0",
+                "symfony/debug": "~2.6,>=2.6.2",
+                "symfony/event-dispatcher": "~2.5.9|~2.6,>=2.6.2",
+                "symfony/http-foundation": "~2.5,>=2.5.4"
+            },
+            "require-dev": {
+                "symfony/browser-kit": "~2.3",
+                "symfony/class-loader": "~2.1",
+                "symfony/config": "~2.0,>=2.0.5",
+                "symfony/console": "~2.3",
+                "symfony/css-selector": "~2.0,>=2.0.5",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/dom-crawler": "~2.0,>=2.0.5",
+                "symfony/expression-language": "~2.4",
+                "symfony/finder": "~2.0,>=2.0.5",
+                "symfony/process": "~2.0,>=2.0.5",
+                "symfony/routing": "~2.2",
+                "symfony/stopwatch": "~2.3",
+                "symfony/templating": "~2.2",
+                "symfony/translation": "~2.0,>=2.0.5",
+                "symfony/var-dumper": "~2.6"
+            },
+            "suggest": {
+                "symfony/browser-kit": "",
+                "symfony/class-loader": "",
+                "symfony/config": "",
+                "symfony/console": "",
+                "symfony/dependency-injection": "",
+                "symfony/finder": "",
+                "symfony/var-dumper": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\HttpKernel\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony HttpKernel Component",
+            "homepage": "http://symfony.com",
+            "time": "2015-02-02 18:02:30"
+        },
+        {
             "name": "symfony/process",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "319794f611bd8bdefbac72beb3f05e847f8ebc92"
+                "reference": "ecfc23e89d9967999fa5f60a1e9af7384396e9ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/319794f611bd8bdefbac72beb3f05e847f8ebc92",
-                "reference": "319794f611bd8bdefbac72beb3f05e847f8ebc92",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/ecfc23e89d9967999fa5f60a1e9af7384396e9ae",
+                "reference": "ecfc23e89d9967999fa5f60a1e9af7384396e9ae",
                 "shasum": ""
             },
             "require": {
@@ -3297,20 +4348,88 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-06 22:47:52"
+            "time": "2015-01-25 04:39:26"
         },
         {
-            "name": "twig/twig",
-            "version": "v1.17.0",
+            "name": "symfony/routing",
+            "version": "v2.6.4",
+            "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "2493970fa4d587eca73f77e6d8bd48a8bdd4c608"
+                "url": "https://github.com/symfony/Routing.git",
+                "reference": "bda1c3c67f2a33bbeabb1d321feaf626a0ca5698"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/2493970fa4d587eca73f77e6d8bd48a8bdd4c608",
-                "reference": "2493970fa4d587eca73f77e6d8bd48a8bdd4c608",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/bda1c3c67f2a33bbeabb1d321feaf626a0ca5698",
+                "reference": "bda1c3c67f2a33bbeabb1d321feaf626a0ca5698",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "doctrine/annotations": "~1.0",
+                "doctrine/common": "~2.2",
+                "psr/log": "~1.0",
+                "symfony/config": "~2.2",
+                "symfony/expression-language": "~2.4",
+                "symfony/http-foundation": "~2.3",
+                "symfony/yaml": "~2.0,>=2.0.5"
+            },
+            "suggest": {
+                "doctrine/annotations": "For using the annotation loader",
+                "symfony/config": "For using the all-in-one router or any loader",
+                "symfony/expression-language": "For using expression matching",
+                "symfony/yaml": "For using the YAML loader"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.6-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Symfony\\Component\\Routing\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Symfony Routing Component",
+            "homepage": "http://symfony.com",
+            "keywords": [
+                "router",
+                "routing",
+                "uri",
+                "url"
+            ],
+            "time": "2015-01-15 12:15:12"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.18.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/4cf7464348e7f9893a93f7096a90b73722be99cf",
+                "reference": "4cf7464348e7f9893a93f7096a90b73722be99cf",
                 "shasum": ""
             },
             "require": {
@@ -3319,7 +4438,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17-dev"
+                    "dev-master": "1.18-dev"
                 }
             },
             "autoload": {
@@ -3354,7 +4473,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-01-14 10:15:49"
+            "time": "2015-01-25 17:32:08"
         }
     ],
     "packages-dev": [
@@ -3726,17 +4845,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.6.3",
+            "version": "v2.6.4",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "82462a90848a52c2533aa6b598b107d68076b018"
+                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/82462a90848a52c2533aa6b598b107d68076b018",
-                "reference": "82462a90848a52c2533aa6b598b107d68076b018",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/60ed7751671113cf1ee7d7778e691642c2e9acd8",
+                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8",
                 "shasum": ""
             },
             "require": {
@@ -3769,14 +4888,12 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 15:33:07"
+            "time": "2015-01-25 04:39:26"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "mouf/html.template.bootstrap": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

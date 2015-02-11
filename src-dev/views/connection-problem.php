@@ -1,6 +1,6 @@
 <?php use Mouf\Reflection\MoufReflectionProxy; ?>
 <h1>Mouf status</h1>
-<div class="alert alert-error">A problem occured with your Mouf installation</div>
+<div class="alert alert-danger">A problem occured with your Mouf installation</div>
 
 <p>For Mouf to work correctly, Mouf needs to be able to call itself from the server, via HTTP requests.</p>
 
@@ -8,7 +8,7 @@
 <img src="<?php echo MOUF_URL ?>src-dev/views/images/connection-problem.png" />
 </p>
 
-<div class="alert alert-error">There is a problem with your installation of Mouf. You can successfully call Mouf from your browser,
+<div class="alert alert-danger">There is a problem with your installation of Mouf. You can successfully call Mouf from your browser,
 but <strong>Mouf cannot call itself from the server</strong>. This kind of errors does not usually
 happens when accessing Mouf on your localhost.</div>
 

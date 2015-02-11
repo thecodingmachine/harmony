@@ -11,3 +11,4 @@ mouf/no_commit/*
 composer-harmony-dependencies.json
 composer-harmony-dependencies.lock
 containers.php
+components/

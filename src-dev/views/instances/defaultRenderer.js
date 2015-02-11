@@ -785,7 +785,7 @@ MoufDefaultRenderer = (function () {
 			MoufUI.validatePHPCode(code).done(function(result) {
 				if (result.status == 'fail') {
 					field.find("pre").addClass("error");
-					jQuery("<p/>").addClass('alert alert-error').text(result.data.message + " on line " + result.data.line).appendTo(field.find('.messageHolder'));
+					jQuery("<p/>").addClass('alert alert-danger').text(result.data.message + " on line " + result.data.line).appendTo(field.find('.messageHolder'));
 				}
 			});
 			

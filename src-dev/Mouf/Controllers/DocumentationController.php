@@ -18,7 +18,7 @@ use MoufAdmin;
 use Mouf\MoufManager;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\MoufDocumentationPageDescriptor;
-
+use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
 use Mouf\DocumentationUtils;
@@ -26,7 +26,6 @@ use Mouf\DocumentationUtils;
 /**
  * The controller displaying the documentation related to packages.
  *
- * @Component
  */
 class DocumentationController extends Controller {
 

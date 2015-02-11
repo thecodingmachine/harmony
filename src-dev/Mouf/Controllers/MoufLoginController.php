@@ -17,7 +17,6 @@ use Mouf\Security\Controllers\SimpleLoginController;
  * It is actually getting its behaviour from the SimpleLoginController with one simple addition:
  * if the MoufUsers.php file does not exist, it will guide the user towards a solution to be able to get logged.
  *
- * @Component
  */
 class MoufLoginController extends SimpleLoginController {
 	

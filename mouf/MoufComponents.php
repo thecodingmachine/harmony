@@ -4,17 +4,10 @@
  */
 use Mouf\MoufManager;
 use Interop\Container\ContainerInterface;
-MoufManager::initMoufManager('/home/david/projects/mouf/mouf2/vendor/mouf/mouf/src/Mouf/../../mouf/instances.php', 'Mouf\\AdminContainer', 'src-dev/Mouf/AdminContainer.php');
+MoufManager::initMoufManager('/home/david/projects/mouf/mouf2/vendor/mouf/mouf/src/Mouf/../../mouf/instances.php', 'Mouf\\AdminContainer', 'src-dev/Mouf/AdminContainer.php', 'mouf/config_tpl.php', 'mouf/variables.php');
 $moufManager = MoufManager::getMoufManager();
 
-$moufManager->getConfigManager()->setConstantsDefinitionArray(array (
-  'ROOT_URL' => 
-  array (
-    'defaultValue' => '',
-    'type' => 'string',
-    'comment' => 'The ROOT_URL of the Mouf web application. This is the URL, starting and ending with a slash, that you use to access the Mouf administration interface.',
-  ),
-));
+$moufManager->getConfigManager()->setConstantsDefinitionArray([]);
 
 $moufManager->setAllVariables(array (
 ));
