@@ -48,6 +48,10 @@
         "type": "vcs",
         "url": "https://github.com/moufmouf/mouf-installer"
       },
+      {
+        "type": "vcs",
+        "url": "https://github.com/moufmouf/mouf"
+      },
         {
             "type": "package",
             "package": {
