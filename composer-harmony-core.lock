@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c8dcfda8db3391396b4ad9948d3b4e98",
+    "hash": "27807e9fcaff664ef34e3da767ea6b54",
     "packages": [
         {
             "name": "acclimate/container",
@@ -1774,12 +1774,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/mouf.git",
-                "reference": "f3d7aff16ef519898982a12548d76222e85204d8"
+                "reference": "6828466141d30cdc7edde628c6c177b4b0d2e5f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/mouf/zipball/f3d7aff16ef519898982a12548d76222e85204d8",
-                "reference": "f3d7aff16ef519898982a12548d76222e85204d8",
+                "url": "https://api.github.com/repos/moufmouf/mouf/zipball/6828466141d30cdc7edde628c6c177b4b0d2e5f8",
+                "reference": "6828466141d30cdc7edde628c6c177b4b0d2e5f8",
                 "shasum": ""
             },
             "require": {
@@ -1792,7 +1792,7 @@
             "conflict": {
                 "mouf/database.tdbm": "<3.3"
             },
-            "type": "mouf-framework",
+            "type": "library",
             "extra": {
                 "mouf": {
                     "doc": [
@@ -1920,7 +1920,7 @@
                 "issues": "https://github.com/thecodingmachine/mouf/issues",
                 "source": "https://github.com/thecodingmachine/mouf/"
             },
-            "time": "2015-02-12 15:33:09"
+            "time": "2015-02-12 17:26:08"
         },
         {
             "name": "mouf/mouf-installer",
