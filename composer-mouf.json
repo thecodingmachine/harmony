@@ -58,6 +58,7 @@
         }
     ],
     "require": {
+      "mouf/mouf": "dev-harmony"
         "mouf/mouf-installer": "~2.1.0",
     	"mouf/mouf-validators-interface": "~2.0",
         "mouf/html.template.mouftemplate": "~2.0",

@@ -1,18 +1,14 @@
 {
-	"name" : "mouf/mouf",
-	"description" : "The Mouf PHP framework: an open-source PHP framework providing an easy way to download, install, use and reuse components, with a graphical user interface.",
+	"name" : "harmony/harmony",
+	"description" : "A web-based development helper for any PHP project. Because command-line sucks!",
 	"keywords" : [
-		"mouf",
-		"dependency injection",
-		"DI",
-		"IOC",
-		"inversion of control",
-		"framework"
+		"harmony",
+		"web-based IDE",
 	],
 	"homepage" : "http://mouf-php.com",
 	"support" : {
-		"issues" : "https://github.com/thecodingmachine/mouf/issues",
-		"source" : "https://github.com/thecodingmachine/mouf/"
+		"issues" : "https://github.com/thecodingmachine/harmony/issues",
+		"source" : "https://github.com/thecodingmachine/harmony/"
 	},
 	"type" : "mouf-framework",
 	"license" : "MIT",
@@ -23,15 +19,12 @@
 		}
 	],
 	"require" : {
-		"php" : ">=5.3.9",
+		"php" : ">=5.4.4",
 		"mouf/mouf-installer" : "~2.1.0",
 		"mouf/root-container" : "~1.0",
 		"mouf/mouf-validators-interface" : "~2.0",
 		"container-interop/container-interop" : "~1.0",
 		"symfony/filesystem" : ">=2.3, <4.0"
-	},
-	"conflict" : {
-		"mouf/database.tdbm" : "<3.3"
 	},
 	"autoload" : {
 		"psr-0" : {
