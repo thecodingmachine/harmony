@@ -1927,12 +1927,12 @@
             "version": "2.1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thecodingmachine/mouf-installer.git",
+                "url": "https://github.com/moufmouf/mouf-installer.git",
                 "reference": "d278a9894d957860e45b06d06349205f7f55418c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/mouf-installer/zipball/d278a9894d957860e45b06d06349205f7f55418c",
+                "url": "https://api.github.com/repos/moufmouf/mouf-installer/zipball/d278a9894d957860e45b06d06349205f7f55418c",
                 "reference": "d278a9894d957860e45b06d06349205f7f55418c",
                 "shasum": ""
             },
@@ -1952,7 +1952,6 @@
                     "Mouf\\Installer\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1969,6 +1968,9 @@
                 "install",
                 "mouf"
             ],
+            "support": {
+                "source": "https://github.com/moufmouf/mouf-installer/tree/2.1"
+            },
             "time": "2015-01-21 18:14:06"
         },
         {
