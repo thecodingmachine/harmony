@@ -3,7 +3,7 @@
 	"description" : "A web-based development helper for any PHP project. Because command-line sucks!",
 	"keywords" : [
 		"harmony",
-		"web-based IDE",
+		"web-based IDE"
 	],
 	"homepage" : "http://mouf-php.com",
 	"support" : {
