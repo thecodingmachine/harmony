@@ -21,7 +21,6 @@
 	"require" : {
 		"php" : ">=5.4.4",
 		"harmony/harmony-installer" : "~1.0",
-		"mouf/root-container" : "~1.0",
 		"mouf/mouf-validators-interface" : "~2.0",
 		"container-interop/container-interop" : "~1.0",
 		"symfony/filesystem" : ">=2.3, <4.0"
