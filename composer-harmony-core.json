@@ -40,6 +40,14 @@
             "type": "vcs",
             "url": "https://github.com/moufmouf/security.userservice-splash"
         },
+      {
+        "type": "vcs",
+        "url": "https://github.com/moufmouf/harmony-installer"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/moufmouf/mouf-installer"
+      },
         {
             "type": "package",
             "package": {
@@ -58,7 +66,7 @@
         }
     ],
     "require": {
-      "mouf/mouf": "dev-harmony"
+      "mouf/mouf": "dev-harmony",
         "mouf/mouf-installer": "~2.1.0",
     	"mouf/mouf-validators-interface": "~2.0",
         "mouf/html.template.mouftemplate": "~2.0",

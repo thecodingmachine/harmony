@@ -33,7 +33,7 @@ class ConsoleApplication extends Application implements
 	public function getEmbeddedComposer() {
 		// Check where autoload would be
 		
-		putenv("COMPOSER=composer-mouf.json");
+		putenv("COMPOSER=composer-harmony-core.json");
 		
 		if (!$classLoader = @include __DIR__.'/../../../vendor/autoload.php') {
 			throw new MoufException('You must set up the project dependencies. Did you skip plugins when installing Mouf via Composer?');
