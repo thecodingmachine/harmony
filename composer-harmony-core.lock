@@ -1928,12 +1928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/mouf-installer.git",
-                "reference": "04b328b1ee32b589657b26dccb9152d7a1fe56fb"
+                "reference": "b2f47fa6d80faedf7e54c1138a3c9241d70a3241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/mouf-installer/zipball/04b328b1ee32b589657b26dccb9152d7a1fe56fb",
-                "reference": "04b328b1ee32b589657b26dccb9152d7a1fe56fb",
+                "url": "https://api.github.com/repos/moufmouf/mouf-installer/zipball/b2f47fa6d80faedf7e54c1138a3c9241d70a3241",
+                "reference": "b2f47fa6d80faedf7e54c1138a3c9241d70a3241",
                 "shasum": ""
             },
             "require": {
@@ -1971,7 +1971,7 @@
             "support": {
                 "source": "https://github.com/moufmouf/mouf-installer/tree/2.1"
             },
-            "time": "2015-02-12 18:43:27"
+            "time": "2015-02-12 18:48:15"
         },
         {
             "name": "mouf/mouf-validators-interface",
