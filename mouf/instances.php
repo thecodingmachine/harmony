@@ -628,6 +628,7 @@ return array (
         12 => 'messageServiceLibrary',
         13 => 'weblibrary.qtip2',
         15 => 'javascript.highlight.js',
+        16 => 'bootstrapValidatorLibrary'
       ),
     ),
       'constructor' =>
@@ -1335,6 +1336,27 @@ return array (
     ),
   ),
 
+    'bootstrapValidatorLibrary' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'setterProperties' =>
+                array (
+                    'setJsFiles' =>
+                        array (
+                            'value' =>
+                                array (
+                                    0 => 'src-dev/views/javascript/bootstrap-validator/validator.min.js',
+                                ),
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
   'javascript.chooseInstancePopupJs' => 
   array (
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
@@ -1983,7 +2005,7 @@ return array (
       'contentBlock' => 'block.content',
     ),
   ),
-  'moufInstallController' => 
+  'install' =>
   array (
     'class' => 'Mouf\\Controllers\\MoufInstallController',
     'external' => false,
@@ -1991,11 +2013,42 @@ return array (
     'fieldProperties' => 
     array (
     ),
-    'fieldBinds' => 
-    array (
-      'template' => 'moufInstallTemplate',
-      'contentBlock' => 'block.content',
-    ),
+
+
+      'constructor' =>
+          array (
+              0 =>
+                  array (
+                      'value' => 'moufInstallTemplate',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+              1 =>
+                  array (
+                      'value' => 'block.content',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+              2 =>
+                  array (
+                      'value' => 'twigEnvironment',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
+
+          ),
+
+
+
   ),
   'moufInstallTemplate' => 
   array (
@@ -2852,7 +2905,7 @@ return array (
     array (
       'userFile' => 
       array (
-        'value' => '../../../mouf/no_commit/MoufUsers.php',
+        'value' => '../../../harmony/no_commit/HarmonyUsers.php',
         'type' => 'string',
         'metadata' => 
         array (
@@ -3571,4 +3624,48 @@ return $driver;
                         ),
                 ),
         ),
+
+
+    'twigEnvironment' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\Twig\\MoufTwigEnvironment',
+            'external' => false,
+            'weak' => false,
+            'setterBinds' =>
+                array (
+                    'setExtensions' =>
+                        array (
+                            0 => 'moufTwigExtension',
+                            1 => 'twigDebugExtension',
+                        ),
+                ),
+        ),
+
+    'moufTwigExtension' =>
+        array (
+            'class' => 'Mouf\\Html\\Renderer\\Twig\\MoufTwigExtension',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'return $container;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
+    'twigDebugExtension' =>
+        array (
+            'class' => 'Twig_Extension_Debug',
+            'external' => false,
+            'weak' => false,
+        ),
+
+
 );

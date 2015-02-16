@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+if (file_exists(__DIR__.'/../composer-harmony-core.json')) {
+    $harmonyRootDir = __DIR__.'/../';
+} elseif (file_exists(__DIR__.'/../harmony/harmony/composer-harmony-core.json')) {
+    $harmonyRootDir = __DIR__.'/../harmony/harmony/';
+} elseif (file_exists(__DIR__.'/../vendor/harmony/harmony/composer-harmony-core.json')) {
+    $harmonyRootDir = __DIR__.'/../vendor/harmony/harmony/';
+} else {
+    throw new Exception('Sorry, unable to find harmony directory');
+}
+
+chdir($harmonyRootDir);
+
+// TODO: check port availability
+// TODO: check parameters to pass another port than 8000.
+
+echo "Starting Harmony web server on http://localhost:8000\n";
+passthru(PHP_BINARY.' -S localhost:8000 src/internal_web_server_router.php');

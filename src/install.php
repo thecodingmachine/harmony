@@ -96,7 +96,7 @@ if (!file_exists("../../../../config.php")) {
 }
 
 // Finally 3 :), let's generate the MoufUsers.php file:
-if (!file_exists("../../../../mouf/no_commit/MoufUsers.php")) {
+if (!file_exists("../../../../harmony/no_commit/HarmonyUsers.php")) {
 	$moufConfig = "<?php
 /**
  * This contains the users allowed to access the Mouf framework.
@@ -105,8 +105,8 @@ if (!file_exists("../../../../mouf/no_commit/MoufUsers.php")) {
 	
 ?>";
 	
-	file_put_contents("../../../../mouf/no_commit/MoufUsers.php", $moufConfig);
-	chmod("../../../../mouf/no_commit/MoufUsers.php", 0664);
+	file_put_contents("../../../../harmony/no_commit/HarmonyUsers.php", $moufConfig);
+	chmod("../../../../harmony/no_commit/HarmonyUsers.php", 0664);
 }
 
 function install_userinput_to_plainstring($str) {

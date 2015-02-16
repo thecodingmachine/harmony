@@ -5,7 +5,7 @@ if (file_exists(__DIR__.'/../vendor-harmony/autoload.php')) {
 	require_once __DIR__.'/../vendor-harmony/autoload.php';
 }
 
-if (!file_exists(__DIR__.'/../../../../mouf/no_commit/MoufUsers.php')) {
+if (!file_exists(__DIR__.'/../../../../harmony/no_commit/HarmonyUsers.php')) {
 	
 	$rootUrl = $_SERVER['BASE']."/";
 	

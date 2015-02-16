@@ -1,5 +1,5 @@
 <?php /* @var $this Mouf\Controllers\MoufInstallController */ ?>
-<img src="src-dev/views/images/MoufLogo.png">
+<img src="<?= ROOT_URL ?>src-dev/views/images/MoufLogo.png">
 <h1>Welcome!</h1>
 
 <?php
@@ -81,39 +81,43 @@ sudo chown <?php echo $processUserName.":".$processUserName." ".realpath(MOUF_DI
 }
 ?>
 
-<form action="<?php echo ROOT_URL; ?>install" method="post" class="form-horizontal">
+<form action="<?php echo ROOT_URL; ?>install/install" method="post" role="form" data-toggle="validator">
 
-	<p>Apparently, this is the first time you are running Mouf. You will need to install it.</p>
-	<?php if (file_exists(MOUF_DIR."/../../../mouf/no_commit/MoufUsers.php")): ?>
+	<p>Apparently, this is the first time you are running Harmony. You will need to install it.</p>
+	<?php if (file_exists(MOUF_DIR."/../../../harmony/no_commit/HarmonyUsers.php")): ?>
 		<p>The <code>MoufUsers.php</code> file has been detected. Logins/passwords from this file will be used to access Mouf.
 		If you want to reset your login or password, delete the MoufUsers.php file and start again the installation procedure.</p>
 	<?php else: ?>
-				<p>In order to connect to Mouf, you will need to create a login and a password.</p>
+				<p>In order to connect to Harmony, you will need to create a login and a password.</p>
 
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="login">Login</label>
-		<div class="controls">
-			<input name="login" id="login" value="admin" type="text" required />
+		<div class="input-group">
+			<input name="login" id="login" value="admin" type="text" placeholder="Your login" class="form-control" required />
+			<div class="help-block with-errors"></div>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="password">Password</label>
-		<div class="controls">
-			<input name="password" id="password" value="" type="password" required />
+		<div class="input-group">
+			<input name="password" id="password" value="" type="password" placeholder="Your password" class="form-control" required />
+			<div class="help-block with-errors"></div>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="password2">Password (check)</label>
-		<div class="controls">
-			<input name="password2" id="password2" value="" type="password" required data-validation-matches-match="password" data-validation-matches-message=
-"Passwords must match"   />
+		<div class="input-group">
+			<input name="password2" id="password2" value="" type="password" placeholder="Confirm password" class="form-control" required data-match="#password" data-match-error="Passwords must match"   />
+			<div class="help-block with-errors"></div>
 		</div>
 	</div>
-	
+
 			<?php endif ?>
-	<p>Please click the install button below. This will create and install a <code>config.php</code> file in your root 
-	directory and a <code>mouf</code> directory containing a number of files (if they don't already exist)</p>
+	<p>Please click the install button below. This will create and install a <code>harmony</code> directory containing a number of files
+		(if they don't already exist)</p>
+	<?php if (empty(PHP_BINARY)) { ?>
 	<p>Please make sure that the root directory is writable by your web-server.</p>
+	<?php } ?>
 
 	<input type="submit" value="Install" class="btn btn-primary" />
 </form>

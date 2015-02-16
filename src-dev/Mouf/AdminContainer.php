@@ -62,6 +62,14 @@ class AdminContainer extends MoufContainer {
                     },
                 ],
             ],
+            'moufTwigExtension' => [
+                'constructor' => [
+                    0 => function(ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+
             'annotationReader' => function(ContainerInterface $container) {
                 // Using composer autoloader
                 $loader = require ROOT_PATH . 'vendor/autoload.php';

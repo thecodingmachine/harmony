@@ -9,6 +9,10 @@
  */
 namespace Mouf\Controllers;
 
+use Harmony\Services\FileNotWritableException;
+use Harmony\Services\FileService;
+use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
+use Mouf\Html\Renderer\Twig\TwigTemplate;
 use Mouf\Html\Template\TemplateInterface;
 
 use Mouf\Html\Widgets\MessageService\Service\UserMessageInterface;
@@ -20,6 +24,7 @@ use Mouf\Installer\ComposerInstaller;
 use Mouf\Html\HtmlElement\HtmlBlock;
 
 use Mouf\Mvc\Splash\Controllers\Controller;
+use Mouf\Mvc\Splash\HtmlResponse;
 
 
 /**
@@ -33,28 +38,85 @@ class MoufInstallController extends Controller {
 	 *
 	 * @var TemplateInterface
 	 */
-	public $template;
+	private $template;
 	
 	/**
 	 * The content block the template will be writting into.
 	 *
 	 * @var HtmlBlock
 	 */
-	public $contentBlock;
-	
+	private $contentBlock;
+
+	/**
+	 * @var MoufTwigEnvironment
+	 */
+	private $twigEnvironment;
+
+	/**
+	 * @param $template
+	 * @param $contentBlock
+	 * @param $twigEnvironment
+	 */
+	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment)
+	{
+		$this->template = $template;
+		$this->contentBlock = $contentBlock;
+		$this->twigEnvironment = $twigEnvironment;
+	}
+
+
 	/**
 	 * Displays the page to install Mouf.
 	 * Note: this is not a typical controller. This controller is called directly from index.php
-	 * 
+	 *
+	 * @URL install/
 	 */
 	public function index() {
+
+		$root_path = dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))));
+		$harmonyUsersFile = $root_path.'/harmony/no_commit/HarmonyUsers.php';
+
+
+		try {
+			FileService::detectWriteIssues($harmonyUsersFile);
+		} catch(FileNotWritableException $ex) {
+			$dirname = $ex->getNotWritableFile();
+			$isDir = is_dir($dirname);
+			$stat = stat($dirname);
+			if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+				$isWin = true;
+			} else {
+				$isWin = false;
+			}
+			$user = posix_getpwuid($stat['uid']);
+			$group = posix_getgrgid($stat['gid']);
+			$phpUser = posix_getpwuid(posix_geteuid());
+			$perms = fileperms($dirname);
+			$phpUserMemberOfGroup = array_search($phpUser['name'], $group['members']);
+
+			$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/rights_issue.twig',
+				array(
+					"dirname"=>$dirname,
+					"harmonyUsersFile"=>$harmonyUsersFile,
+					"isDirectory"=>$isDir,
+					"isWin"=>$isWin,
+					"group"=>$group,
+					"user"=>$user,
+					"phpUser"=>$phpUser,
+					"userWritable"=>($perms & 0x0080),
+					"groupWritable"=>($perms & 0x0010),
+					"rootPath"=>$root_path,
+					"phpUserMemberOfGroup"=>$phpUserMemberOfGroup
+				)));
+			return new HtmlResponse($this->template);
+		}
 
 		if (!extension_loaded("curl")) {
 			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/missing_curl.php", $this);
 		} else {
 			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/welcome.php", $this);
 		}
-		
+
 		$this->template->toHtml();	
 	}
 
@@ -71,10 +133,10 @@ class MoufInstallController extends Controller {
 	/**
 	 * Performs the installation by creating all required files.
 	 * 
-	 * @URL install
+	 * @URL install/install
 	 */
 	public function install() {
-		if (file_exists(__DIR__.'/../../../../../../mouf/no_commit/MoufUsers.php')) {
+		if (file_exists(__DIR__.'/../../../../../../harmony/no_commit/HarmonyUsers.php')) {
 			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/moufusers_exists.php", $this);
 			$this->template->toHtml();
 			return;
@@ -158,7 +220,7 @@ MoufManager::initMoufManager();
 		}
 		
 		// Finally 3 :), let's generate the MoufUsers.php file:
-		if (!file_exists(__DIR__."/../../../../../../mouf/no_commit/MoufUsers.php")) {
+		if (!file_exists(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php")) {
 			$moufConfig = "<?php
 /**
  * This contains the users allowed to access the Mouf framework.
@@ -167,8 +229,8 @@ MoufManager::initMoufManager();
 		
 ?>";
 		
-			file_put_contents(__DIR__."/../../../../../../mouf/no_commit/MoufUsers.php", $moufConfig);
-			chmod(__DIR__."/../../../../../../mouf/no_commit/MoufUsers.php", 0664);
+			file_put_contents(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php", $moufConfig);
+			chmod(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php", 0664);
 		}
 		
 		umask($oldUmask);
@@ -178,4 +240,3 @@ MoufManager::initMoufManager();
 		
 	}
 }
-?>

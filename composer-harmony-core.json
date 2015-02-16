@@ -107,7 +107,10 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "psr-0": {"Mouf": ["src/", "src-dev/", "tests/"]}
+      "psr-0": {"Mouf": ["src/", "src-dev/", "tests/"]},
+      "psr-4": {
+        "Harmony\\": "src-dev/Harmony"
+      }
     },
     "autoload-dev": {
         "psr-4": {"GeneratedClasses\\" : "tests/GeneratedClasses/"}

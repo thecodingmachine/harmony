@@ -14,6 +14,12 @@ return [
         'enable' => true,
     ],
     [
+        'name' => 'harmony-installer-module',
+        'description' => 'Module to redirect to install pages',
+        'module' => new Harmony\Installer\InstallerModule(),
+        'enable' => true,
+    ],
+    [
         'name' => 'splash-module',
         'description' => 'Splash middleware that manages most pages',
         'module' => new Mouf\FrameworkInterop\SplashModule($moufModule),
