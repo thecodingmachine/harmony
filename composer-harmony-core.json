@@ -83,7 +83,7 @@
         "mouf/utils.log.errorlog_logger": "~2.0",
         "mouf/html.widgets.menu" : "~3.0",
         "mouf/security.simplelogincontroller" : "~3.1",
-        "mouf/security.userfiledao" : "~2.0",
+        "mouf/security.userfiledao" : "~3.0",
         "mouf/utils.cache.file-cache" : "~2.0",
         "mouf/utils.log.errorlog_logger" : "~2.0",
         "mouf/utils.common.getvars" : "~2.0",

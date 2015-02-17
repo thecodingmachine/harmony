@@ -28,7 +28,7 @@
 	"autoload" : {
 		"psr-4" : {
 			"Mouf\\" : "src/Mouf"
-		},
+		}
 	},
     "bin": [
     	"bin/harmony"

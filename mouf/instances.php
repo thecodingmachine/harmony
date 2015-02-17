@@ -2044,6 +2044,15 @@ return array (
                           array (
                           ),
                   ),
+              3 =>
+                  array (
+                      'value' => 'userFileDao',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' =>
+                          array (
+                          ),
+                  ),
 
           ),
 
@@ -2901,17 +2910,19 @@ return array (
   array (
     'class' => 'Mouf\\Security\\UserFileDao\\UserFileDao',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'userFile' => 
-      array (
-        'value' => '../../../harmony/no_commit/HarmonyUsers.php',
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
+        'constructor' =>
+            array (
+                0 =>
+                    array (
+                        'value' => 'generated/users.php',
+                        'parametertype' => 'primitive',
+                        'type' => 'string',
+                        'metadata' =>
+                            array (
+                            ),
+                    ),
+
+            ),
   ),
   'userMessageService' => 
   array (

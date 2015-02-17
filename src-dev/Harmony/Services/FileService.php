@@ -1,6 +1,8 @@
 <?php
 namespace Harmony\Services;
 
+use Symfony\Component\Filesystem\Filesystem;
+
 /**
  * This file is in charge of ensuring files can possibly be written.
  *
@@ -10,7 +12,7 @@ class FileService {
 
     /**
      * Tests if a file can be written.
-     * Will throw a FileNotWritableException if the file is not writtable or the directory that might contain the file
+     * Will throw a FileNotWritableException if the file is not writable or the directory that might contain the file
      * is not writable.
      *
      * @param string $filename
@@ -21,7 +23,16 @@ class FileService {
         do {
             if (file_exists($iterablefilename)) {
                 if (!is_writable($iterablefilename)) {
-                    throw new FileNotWritableException($iterablefilename);
+
+                    $message = "File system error: ";
+                    if (is_dir($iterablefilename)) {
+                        $message .= "Directory ";
+                    } else {
+                        $message .= "File ";
+                    }
+                    $message .= "'$iterablefilename' is not writable.";
+
+                    throw new FileNotWritableException($message, 0, null, $iterablefilename);
                 } else {
                     return;
                 }
@@ -36,25 +47,15 @@ class FileService {
      *
      * @param string $file
      */
-    public static function setupFile($filename) {
+    public static function prepareDirectory($filename) {
+        self::detectWriteIssues($filename);
+
         $fs = new Filesystem();
 
         $dirname = dirname($filename);
 
         if (!is_dir($dirname)) {
-            try {
-                $fs->mkdir($dirname, 0775);
-            } catch (IOExceptionInterface $e) {
-                throw new MoufException("An error occurred while creating your directory at '".$e->getPath()."'", 1, $e);
-            }
-        }
-
-        if ($fs->exists($filename) && !is_writable($filename)) {
-            throw new MoufException("Error, unable to write file '".$filename."'");
-        }
-
-        if (!$fs->exists($filename) && !is_writable($dirname)) {
-            throw new MoufException("Error, unable to write a file in directory '".$dirname."'");
+            $fs->mkdir($dirname, 0775);
         }
     }
 }

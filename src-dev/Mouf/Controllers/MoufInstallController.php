@@ -14,17 +14,12 @@ use Harmony\Services\FileService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Renderer\Twig\TwigTemplate;
 use Mouf\Html\Template\TemplateInterface;
-
-use Mouf\Html\Widgets\MessageService\Service\UserMessageInterface;
-
-use Mouf\Installer\AbstractInstallTask;
-
-use Mouf\Installer\ComposerInstaller;
-
 use Mouf\Html\HtmlElement\HtmlBlock;
-
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Mvc\Splash\HtmlResponse;
+use Mouf\Security\UserFileDao\UserFileBean;
+use Mouf\Security\UserFileDao\UserFileDao;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 /**
@@ -53,15 +48,21 @@ class MoufInstallController extends Controller {
 	private $twigEnvironment;
 
 	/**
+	 * @var UserFileDao
+	 */
+	private $userFileDao;
+
+	/**
 	 * @param $template
 	 * @param $contentBlock
 	 * @param $twigEnvironment
 	 */
-	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment)
+	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment, UserFileDao $userFileDao)
 	{
 		$this->template = $template;
 		$this->contentBlock = $contentBlock;
 		$this->twigEnvironment = $twigEnvironment;
+		$this->userFileDao = $userFileDao;
 	}
 
 
@@ -74,13 +75,13 @@ class MoufInstallController extends Controller {
 	public function index() {
 
 		$root_path = dirname(dirname(dirname(dirname(dirname(dirname(__DIR__))))));
-		$harmonyUsersFile = $root_path.'/harmony/no_commit/HarmonyUsers.php';
+		$harmonyUsersFile = $this->userFileDao->getUserFilePath();
 
 
 		try {
 			FileService::detectWriteIssues($harmonyUsersFile);
 		} catch(FileNotWritableException $ex) {
-			$dirname = $ex->getNotWritableFile();
+			$dirname = $ex->getPath();
 			$isDir = is_dir($dirname);
 			$stat = stat($dirname);
 			if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
@@ -92,7 +93,7 @@ class MoufInstallController extends Controller {
 			$group = posix_getgrgid($stat['gid']);
 			$phpUser = posix_getpwuid(posix_geteuid());
 			$perms = fileperms($dirname);
-			$phpUserMemberOfGroup = array_search($phpUser['name'], $group['members']);
+			$phpUserMemberOfGroup = array_search($phpUser['name'], $group['members']) !== false;
 
 			$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/rights_issue.twig',
 				array(
@@ -114,10 +115,16 @@ class MoufInstallController extends Controller {
 		if (!extension_loaded("curl")) {
 			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/missing_curl.php", $this);
 		} else {
-			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/welcome.php", $this);
+			$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/welcome.twig',
+				array(
+					"isUserfileAvailable"=>$this->userFileDao->isUserFileAvailable(),
+					"harmonyUsersFile"=>$harmonyUsersFile,
+				)));
+
+			//$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/welcome.php", $this);
 		}
 
-		$this->template->toHtml();	
+		return new HtmlResponse($this->template);
 	}
 
 	/**
@@ -135,108 +142,26 @@ class MoufInstallController extends Controller {
 	 * 
 	 * @URL install/install
 	 */
-	public function install() {
-		if (file_exists(__DIR__.'/../../../../../../harmony/no_commit/HarmonyUsers.php')) {
-			$this->contentBlock->addFile(dirname(__FILE__)."/../../views/mouf_installer/moufusers_exists.php", $this);
+	public function install($login, $password) {
+		if ($this->userFileDao->isUserFileAvailable()) {
+			$this->contentBlock->addFile(__DIR__."/../../views/mouf_installer/moufusers_exists.php", $this);
 			$this->template->toHtml();
 			return;
 		}
-		
+
+		$harmonyUsersFile = $this->userFileDao->getUserFilePath();
+
+		$userFileBean = new UserFileBean($login);
+		$userFileBean->setClearTextPassword($password);
+		$this->userFileDao->registerUser($userFileBean);
+
 		$oldUmask = umask();
 		umask(0);
-		
-		// Now, let's write the basic Mouf files:
-		if (!file_exists(__DIR__."/../../../../../../mouf")) {
-			mkdir(__DIR__."/../../../../../../mouf", 0775);
-		}
-		if (!file_exists(__DIR__."/../../../../../../mouf/no_commit")) {
-			mkdir(__DIR__."/../../../../../../mouf/no_commit", 0775);
-		}
-		
-		
-		// Write Mouf.php (always):
-		//if (!file_exists(__DIR__."/../../../../../../mouf/Mouf.php")) {
-			$moufStr = "<?php
-define('ROOT_PATH', realpath(__DIR__.'/..').DIRECTORY_SEPARATOR);
-require_once __DIR__.'/../config.php';
-if (defined('ROOT_URL')) {
-	define('MOUF_URL', ROOT_URL.'vendor/mouf/mouf/');
-}
-		
-require_once __DIR__.'/../vendor/autoload.php';
-		
-require_once 'MoufComponents.php';
-?>";
-		
-			file_put_contents(__DIR__."/../../../../../../mouf/Mouf.php", $moufStr);
-			// Change rights on Mouf.php, but ignore errors (the file might be writable but still belong to someone else).
-			@chmod(__DIR__."/../../../../../../mouf/Mouf.php", 0664);
-		//}
-		
-		
-		
-		// Write MoufComponents.php:
-		if (!file_exists(__DIR__."/../../../../../../mouf/MoufComponents.php")) {
-			$moufComponentsStr = "<?php
-/**
- * This is a file automatically generated by the Mouf framework. Do not modify it, as it could be overwritten.
- */
-		
-use Mouf\MoufManager;
-MoufManager::initMoufManager();
-\$moufManager = MoufManager::getMoufManager();
-		
-?>";
-		
-			file_put_contents(__DIR__."/../../../../../../mouf/MoufComponents.php", $moufComponentsStr);
-			chmod(__DIR__."/../../../../../../mouf/MoufComponents.php", 0664);
-		}
-		
-		// Finally, let's generate the MoufUI.php file:
-		if (!file_exists(__DIR__."/../../../../../../mouf/MoufUI.php")) {
-			$moufUIStr = "<?php
-/**
- * This is a file automatically generated by the Mouf framework. Do not modify it, as it could be overwritten.
- */
-		
-	?>";
-		
-			file_put_contents(__DIR__."/../../../../../../mouf/MoufUI.php", $moufUIStr);
-			chmod(__DIR__."/../../../../../../mouf/MoufUI.php", 0664);
-		}
-		
-		// Finally 2, let's generate the config.php file:
-		if (!file_exists(__DIR__."/../../../../../../config.php")) {
-			$moufConfig = "<?php
-/**
- * This is a file automatically generated by the Mouf framework. Do not modify it, as it could be overwritten.
- * Use the UI to edit it instead.
- */
-		
-?>";
-		
-			file_put_contents(__DIR__."/../../../../../../config.php", $moufConfig);
-			chmod(__DIR__."/../../../../../../config.php", 0664);
-		}
-		
-		// Finally 3 :), let's generate the MoufUsers.php file:
-		if (!file_exists(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php")) {
-			$moufConfig = "<?php
-/**
- * This contains the users allowed to access the Mouf framework.
- */
-\$users[".var_export(userinput_to_plainstring($_REQUEST['login']), true)."] = array('password'=>".var_export(sha1(userinput_to_plainstring($_REQUEST['password'])), true).", 'options'=>null);
-		
-?>";
-		
-			file_put_contents(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php", $moufConfig);
-			chmod(__DIR__."/../../../../../../harmony/no_commit/HarmonyUsers.php", 0664);
-		}
-		
+		$this->userFileDao->write();
+		chmod($harmonyUsersFile, 0664);
+
 		umask($oldUmask);
-		
-		header("Location: ".ROOT_URL);
-		
-		
+
+		return new RedirectResponse(ROOT_URL);
 	}
 }

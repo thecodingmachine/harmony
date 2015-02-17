@@ -16,8 +16,8 @@
 About <code>{{ dirname }}</code>:
 
 <ul>
-    <li>Owner: {{ user.name }}</li>
-    <li>Group: {{ group.name }}</li>
+    <li>Owner: <code>{{ user.name }}</code> - Writable by owner: <strong>{{ userWritable?"Yes":"No" }}</strong></li>
+    <li>Group: <code>{{ group.name }}</code> - Writable by group: <strong>{{ groupWritable?"Yes":"No" }}</strong></li>
 </ul>
 
 The user running PHP is <code>{{ phpUser.name }}</code>.
@@ -66,7 +66,7 @@ The user running PHP is <code>{{ phpUser.name }}</code>.
     {% if phpUserMemberOfGroup == true %}
         <h2>Solution</h2>
 
-        The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> belongs to group {{ group.name }} but
+        The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> belongs to group <code>{{ group.name }}</code> but
         is not writable for the group. You need to make it writable for the group:
 
         <pre><code>sudo chmod g+w {{ dirname }}</code></pre>
@@ -80,7 +80,7 @@ The user running PHP is <code>{{ phpUser.name }}</code>.
         <h3>Solution 1</h3>
 
         Make <code>{{ phpUser.name }}</code> a member of group <code>{{ group.name }}</code>
-        {% if not groupWritable %} and make {{ isDirectory?"directory":"file" }} writable to group.{% endif %}:
+        {% if not groupWritable %} and make {{ isDirectory?"directory":"file" }} writable to group{% endif %}:
 
         <pre><code>sudo adduser {{ phpUser.name }} {{ group.name }}
 {% if not groupWritable %}
@@ -98,3 +98,9 @@ sudo chmod g+w {{ dirname }}
 {% endif %}
 
 <div class="alert alert-info">Refresh this page when you have performed those changes.</div>
+
+<p>If after running the commands above and refreshing this page, you are still seeing this page, you might want to consider one of the following troubleshooting advices:</p>
+<ul>
+    <li>If you are running SELinux: be sure that the directories are parts of the SELinux Apache context. <a href="http://wiki.centos.org/HowTos/SELinux">Get more info about SELinux</a></li>
+    <li>If you are running Plesk and virtual domains: in Plesk, in your domain settings, you might want to switch "PHP Support" from "Apache module" to "FastCGI application".</li>
+</ul>

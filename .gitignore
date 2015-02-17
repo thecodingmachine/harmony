@@ -12,3 +12,6 @@ composer-harmony-dependencies.json
 composer-harmony-dependencies.lock
 containers.php
 components/
+generated/*
+!generated/.gitkeep
+

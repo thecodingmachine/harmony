@@ -43,7 +43,7 @@ class InstallerMiddleware implements HttpKernelInterface {
      */
     public function handle(Request $request, $type = self::MASTER_REQUEST, $catch = true)
     {
-        if (!file_exists(__DIR__.'/../../../../harmony/no_commit/HarmonyUsers.php')) {
+        if (!file_exists(__DIR__.'/../../../generated/users.php')) {
             $uri = substr($request->getRequestUri(), strlen(ROOT_URL));
 
             if (strpos($uri, "install/") !== 0) {
