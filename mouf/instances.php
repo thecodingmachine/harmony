@@ -3679,4 +3679,68 @@ return $driver;
         ),
 
 
+
+
+
+
+
+
+
+
+
+
+    'testController' =>
+        array (
+            'class' => 'Harmony\\Controllers\\TestController',
+            'external' => false,
+            'weak' => false,
+            'fieldProperties' =>
+                array (
+                ),
+
+
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'moufTemplate',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    1 =>
+                        array (
+                            'value' => 'block.content',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    2 =>
+                        array (
+                            'value' => 'block.left',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    3 =>
+                        array (
+                            'value' => 'twigEnvironment',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+
+                ),
+
+
+
+        ),
 );

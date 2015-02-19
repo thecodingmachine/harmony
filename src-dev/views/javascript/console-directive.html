@@ -1,0 +1,17 @@
+<div class="console-tab">
+    <span class="glyphicon glyphicon-play console-running" ng-show="object.status == 'running'" title="Running"></span>
+    <span class="glyphicon glyphicon-ok-sign console-stopped" ng-show="object.status == 'stopped'" title="Finished"></span>
+    <span class="glyphicon glyphicon-remove-sign console-error" ng-show="object.status == 'error'" title="Error"></span>
+
+    {{object.name}}
+
+    <button ng-show="object.status == 'running'" ng-click="kill({ name: object.name })" type="button" class="btn btn-link" title="Kill process">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <button ng-show="object.status != 'running'" ng-click="remove({ name: object.name })" type="button" class="btn btn-link" title="Remove">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</div>
+
+
+<div class="console"><div ng-repeat="outputLine in object.output track by $index" class="{{outputLine.error?'stderr':'' }}">{{ outputLine.text }}</div><div class="errorExitCode" ng-show="object.status == 'error' && object.exitCode != 0 && object.exitCode">Exited with code {{object.exitCode}}</div><div class="errorExitCode" ng-show="object.status == 'error' && object.terminationSignal">Program terminated (signal {{object.terminationSignal}})</div></div>

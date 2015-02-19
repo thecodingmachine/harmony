@@ -1,0 +1,51 @@
+div.console {
+    white-space: pre;
+    cursor: text;
+    word-break: break-all;
+    word-wrap: break-word;
+    font: 13px "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro",monospace;
+    background-color: #2B2B2B;
+    color: #94B792;
+    overflow: auto;
+    padding: 10px;
+}
+
+span.console-running {
+    color: blue;
+}
+
+span.console-stopped {
+    color: green;
+}
+
+span.console-error {
+    color: red;
+}
+
+.stderr {
+    background-color: #da4f49;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.errorExitCode {
+    font-weight: bold;
+    background-color: #da4f49;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.console-tab {
+    background-color: #424D5F;
+    border-top: solid #566172 1px;
+    border-left: solid #566172 1px;
+    border-right: solid #566172 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    padding-left: 5px;
+}
