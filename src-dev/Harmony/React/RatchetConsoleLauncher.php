@@ -16,11 +16,11 @@ use React\EventLoop\LoopInterface;
 class RatchetConsoleLauncher implements HttpServerInterface {
 
     /**
-     * @var RatchetConsole
+     * @var ConsoleRepository
      */
     private $consoleRepository;
 
-    function __construct(ConsoleRepository $consoleRepository)
+    public function __construct(ConsoleRepository $consoleRepository)
     {
         $this->consoleRepository = $consoleRepository;
     }
@@ -30,7 +30,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
      * @param  ConnectionInterface $conn The socket/connection that is closing/closed
      * @throws \Exception
      */
-    function onClose(ConnectionInterface $conn)
+    public function onClose(ConnectionInterface $conn)
     {
         // TODO: Implement onClose() method.
     }
@@ -42,7 +42,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
      * @param  \Exception $e
      * @throws \Exception
      */
-    function onError(ConnectionInterface $conn, \Exception $e)
+    public function onError(ConnectionInterface $conn, \Exception $e)
     {
         // TODO: Implement onError() method.
     }
@@ -76,7 +76,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
      * @param  string $msg The message received
      * @throws \Exception
      */
-    function onMessage(ConnectionInterface $from, $msg)
+    public function onMessage(ConnectionInterface $from, $msg)
     {
         // TODO: Implement onMessage() method.
     }

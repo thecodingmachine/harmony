@@ -51,6 +51,13 @@ class TestController extends Controller {
 	private $leftBlock;
 
 	/**
+	 * The content block the template will be writting into.
+	 *
+	 * @var HtmlBlock
+	 */
+	private $footerBlock;
+
+	/**
 	 * @var MoufTwigEnvironment
 	 */
 	private $twigEnvironment;
@@ -62,12 +69,13 @@ class TestController extends Controller {
 	 * @param HtmlBlock $leftBlock
 	 * @param MoufTwigEnvironment $twigEnvironment
 	 */
-	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, HtmlBlock $leftBlock, MoufTwigEnvironment $twigEnvironment)
+	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, HtmlBlock $leftBlock, HtmlBlock $footerBlock, MoufTwigEnvironment $twigEnvironment)
 	{
 		$this->template = $template;
 		$this->contentBlock = $contentBlock;
 		$this->leftBlock = $leftBlock;
 		$this->twigEnvironment = $twigEnvironment;
+		$this->footerBlock = $footerBlock;
 	}
 
 
@@ -99,9 +107,9 @@ class TestController extends Controller {
 </script>
 		');*/
 
-		$this->contentBlock->addText('<div ng-app="consoleApp">
+		$this->footerBlock->addText('<div class="footer" ng-app="consoleApp">
 
-<div ng-controller="ConsoleController">
+<div ng-controller="ConsoleController" class="console-footer">
 
 
         <div ng-repeat="console in consoles">

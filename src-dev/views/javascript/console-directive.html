@@ -3,12 +3,12 @@
     <span class="glyphicon glyphicon-ok-sign console-stopped" ng-show="object.status == 'stopped'" title="Finished"></span>
     <span class="glyphicon glyphicon-remove-sign console-error" ng-show="object.status == 'error'" title="Error"></span>
 
-    {{object.name}}
+    <span class="title">{{object.name}}</span>
 
-    <button ng-show="object.status == 'running'" ng-click="kill({ name: object.name })" type="button" class="btn btn-link" title="Kill process">
+    <button ng-show="object.status == 'running'" ng-click="kill({ name: object.name })" type="button" class="btn btn-link console-remove-button" title="Kill process">
         <span class="glyphicon glyphicon-remove"></span>
     </button>
-    <button ng-show="object.status != 'running'" ng-click="remove({ name: object.name })" type="button" class="btn btn-link" title="Remove">
+    <button ng-show="object.status != 'running'" ng-click="remove({ name: object.name })" type="button" class="btn btn-link console-remove-button" title="Remove">
         <span class="glyphicon glyphicon-remove"></span>
     </button>
 </div>

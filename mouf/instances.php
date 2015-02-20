@@ -3730,6 +3730,15 @@ return $driver;
                         ),
                     3 =>
                         array (
+                            'value' => 'block.footer',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                    4 =>
+                        array (
                             'value' => 'twigEnvironment',
                             'parametertype' => 'object',
                             'type' => 'string',
