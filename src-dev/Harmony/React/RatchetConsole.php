@@ -8,6 +8,9 @@ use Ratchet\Wamp\WampServerInterface;
 
 class RatchetConsole implements WampServerInterface {
 
+    /**
+     * @var ConsoleRepository
+     */
     private $consoleRepository;
 
     function __construct(ConsoleRepository $consoleRepository)
@@ -59,6 +62,12 @@ class RatchetConsole implements WampServerInterface {
     {
         if ($topic->getId() == "kill") {
             $this->consoleRepository->killProcess($params[0]);
+            $conn->callResult($id, $topic, "done");
+        } elseif ($topic->getId() == "keyPressed") {
+            $console = $params[0];
+            $charCode = $params[1];
+            $which = $params[2];
+            $this->consoleRepository->sendKeyPress($console, $charCode, $which);
             $conn->callResult($id, $topic, "done");
         } else {
             $conn->callError($id, $topic, 'This RPC method is not supported on this application');

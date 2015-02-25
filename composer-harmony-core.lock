@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1752328696dd2d5c00596f57d2284162",
+    "hash": "d79fd02dd0ba44a348ae93752990de36",
     "packages": [
         {
             "name": "acclimate/container",
@@ -485,6 +485,43 @@
                 "web"
             ],
             "time": "2015-01-22 12:14:01"
+        },
+        {
+            "name": "components/font-awesome",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/font-awesome.git",
+                "reference": "73acf4d65eadd8d127bafc7bd510240ea3979e83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/73acf4d65eadd8d127bafc7bd510240ea3979e83",
+                "reference": "73acf4d65eadd8d127bafc7bd510240ea3979e83",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3.x-dev"
+                },
+                "component": {
+                    "styles": [
+                        "css/font-awesome.css"
+                    ],
+                    "files": [
+                        "css/font-awesome.min.css",
+                        "fonts/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "OFL-1.1"
+            ],
+            "description": "The iconic font designed for use with Twitter Bootstrap.",
+            "time": "2015-01-26 11:26:16"
         },
         {
             "name": "components/jquery",
@@ -1943,16 +1980,16 @@
         },
         {
             "name": "mouf/html.renderer.twig-extensions",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/html.renderer.twig-extensions.git",
-                "reference": "f6da3776c75f23d3ef6b0728a00852018482cb02"
+                "reference": "c9a70a4f2ff85dc2e5ccc969cd5da71e1fe80b14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/html.renderer.twig-extensions/zipball/f6da3776c75f23d3ef6b0728a00852018482cb02",
-                "reference": "f6da3776c75f23d3ef6b0728a00852018482cb02",
+                "url": "https://api.github.com/repos/thecodingmachine/html.renderer.twig-extensions/zipball/c9a70a4f2ff85dc2e5ccc969cd5da71e1fe80b14",
+                "reference": "c9a70a4f2ff85dc2e5ccc969cd5da71e1fe80b14",
                 "shasum": ""
             },
             "require": {
@@ -2004,7 +2041,7 @@
                 "render",
                 "tohtml"
             ],
-            "time": "2015-02-17 10:05:21"
+            "time": "2015-02-20 13:29:34"
         },
         {
             "name": "mouf/html.template.bootstrap",

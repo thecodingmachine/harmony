@@ -97,4 +97,13 @@ class ConsoleRepository {
             error_log("Unable to kill process $processName. Maybe it is already killed?");
         }
     }
+
+    public function sendKeyPress($processName, $charCode, $which) {
+        if (isset($this->consoles[$processName])) {
+            $this->consoles[$processName]->sendKeyPress($charCode, $which);
+        } else {
+            // TODO: turn this into an error that we catch.
+            error_log("Unable to kill process $processName. Maybe it is already killed?");
+        }
+    }
 }

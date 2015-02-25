@@ -1,0 +1,16 @@
+<div class="console-tab {{ (selected == object.name)?'selected':'' }}">
+    <span class="glyphicon glyphicon-play console-running" ng-show="object.status == 'running'" title="Running"></span>
+    <span class="glyphicon glyphicon-ok-sign console-stopped" ng-show="object.status == 'stopped'" title="Finished"></span>
+    <span class="glyphicon glyphicon-remove-sign console-error" ng-show="object.status == 'error'" title="Error"></span>
+
+    <span class="title" ng-click="select({ name: object.name })">{{object.name}}</span>
+
+    <i class="fa fa-minus-square-o console-minimize" title="Minimize" ng-show="mode == 'main'" ng-click="minimize()"></i>
+
+    <button ng-show="object.status == 'running'" ng-click="kill({ name: object.name })" type="button" class="btn btn-link console-remove-button" title="Kill process">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <button ng-show="object.status != 'running'" ng-click="remove({ name: object.name })" type="button" class="btn btn-link console-remove-button" title="Remove">
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+</div>

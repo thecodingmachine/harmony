@@ -88,9 +88,11 @@ class TestController extends Controller {
 		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/autobahn/autobahn.min.js');
 		$this->template->getWebLibraryManager()->addJsFile('components/angularjs/angular.js');
 		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-app.js');
+		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-tab-directive.js');
 		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-directive.js');
 		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-controller.js');
 
+		$this->template->getWebLibraryManager()->addCssFile('components/font-awesome/css/font-awesome.min.css');
 		$this->template->getWebLibraryManager()->addCssFile('src-dev/views/javascript/console.css');
 
 		/*$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/welcome.twig',
@@ -109,12 +111,19 @@ class TestController extends Controller {
 
 		$this->footerBlock->addText('<div class="footer" ng-app="consoleApp">
 
-<div ng-controller="ConsoleController" class="console-footer">
+<div ng-controller="ConsoleController">
 
-
+	<div class="main-console">
         <div ng-repeat="console in consoles">
-        	<console object="console" kill="kill(name)" remove="remove(name)"></console>
+        	<console object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" minimize="minimize()" sendchar="onkey(event)" ng-if="console.name == selectedConsole"></console>
         </div>
+	</div>
+
+	<div class="console-footer">
+        <div ng-repeat="console in consoles">
+        	<consoletab object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" select="select(name)" minimize="minimize()"></consoletab>
+        </div>
+	</div>
 
 </div>
 

@@ -3,6 +3,7 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
         'learn angular': {name:'learn angular', output:[{text:"toto"}], "status":"running"},
         'composer': {name:'composer', output:[{text:"toto", error:true}], "status":"running"}
     };
+    $scope.selectedConsole = "composer";
 
     $scope.safeApply = function(fn) {
         var phase = this.$root.$$phase;
@@ -26,6 +27,7 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
             "output": [{text:"", error:false}],
             "status": "running"
         };
+        $scope.selectedConsole = name;
     };
 
     /**
@@ -104,4 +106,25 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
         $scope.kill(name);
         delete $scope.consoles[name];
     };
+
+    $scope.select = function(name) {
+        $scope.selectedConsole = name;
+    };
+
+    $scope.minimize = function() {
+        $scope.selectedConsole = null;
+    };
+
+    $scope.onkey = function($event) {
+        // A key is pressed in the selected console.
+        // Let's send it back!
+        //console.log($event);
+
+        conn.call("keyPressed", $scope.selectedConsole, $event.charCode, $event.which).then(function (result) {
+            //console.log("Key pressed!");
+        }, function(error) {
+            console.error(error);
+        });
+    }
+
 }]);

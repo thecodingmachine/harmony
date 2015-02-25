@@ -3752,4 +3752,32 @@ return $driver;
 
 
         ),
+
+
+    'mainApplication' =>
+        array (
+            'class' => 'Harmony\\MainConsole\\MainApplication',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'value' => 'runHarmonyCommand',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
+    'runHarmonyCommand' =>
+        array (
+            'class' => 'Harmony\\MainConsole\\RunHarmonyCommand',
+            'external' => false,
+            'weak' => false,
+
+        ),
 );

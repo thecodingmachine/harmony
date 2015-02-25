@@ -76,4 +76,26 @@ class Console implements \JsonSerializable {
             'output' => $this->output
         ];
     }
+
+    /**
+     * Sends a key pressed signal to the process.
+     *
+     * @param string $charCode
+     * @param string $which
+     */
+    public function sendKeyPress($charCode, $which) {
+        //$process->stdin->resume() ???
+        $key = $charCode?:$which;
+        echo("SENDING CHAR ".chr($key)." - code ".$key."\n");
+
+        //$this->process->stdout->write(chr($key));
+
+        // Translate 13 to 10
+        if ($key == 13) {
+            $this->process->stdin->write(chr(10));
+            //$this->process->stdout->write(chr(10));
+        } else {
+            $this->process->stdin->write(chr($key));
+        }
+    }
 }
