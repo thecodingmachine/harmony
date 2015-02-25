@@ -22,7 +22,8 @@ consoleApp.directive('console', function() {
 
                 // Let's keep the console at the bottom if the user puts the scroll at the bottom.
                 consoleElem.scroll(function() {
-                    if (consoleElem.scrollTop() == consoleElem.prop("scrollHeight") - consoleElem.outerHeight(true)) {
+                    // Note: -16 is a workaround
+                    if (consoleElem.scrollTop() >= consoleElem.prop("scrollHeight") - consoleElem.outerHeight(true) - 16) {
                         trackBottom = true;
                     } else {
                         trackBottom = false;
@@ -34,6 +35,20 @@ consoleApp.directive('console', function() {
                     $scope.sendchar({event: $event});
                 }
 
+                var maximized = false;
+
+                $scope.maximize = function() {
+                    if (!maximized) {
+                        // Note: -16 is a workaround
+                        consoleElem.height($(window).height() - jQuery('.console-footer').outerHeight() - element.find('.console-tab').outerHeight() - 16);
+                        consoleElem.css("max-height", "none");
+                        maximized = true;
+                    } else {
+                        consoleElem.css('height', '');
+                        consoleElem.css("max-height", '');
+                        maximized = false;
+                    }
+                }
             }
         };
     });

@@ -1,9 +1,11 @@
 consoleApp.controller('ConsoleController', ['$scope', function($scope) {
-    $scope.consoles = {
-        'learn angular': {name:'learn angular', output:[{text:"toto"}], "status":"running"},
+    $scope.consoles = {};
+    $scope.selectedConsole = null;
+    /*    'learn angular': {name:'learn angular', output:[{text:"toto"}], "status":"running"},
         'composer': {name:'composer', output:[{text:"toto", error:true}], "status":"running"}
     };
-    $scope.selectedConsole = "composer";
+    $scope.selectedConsole = "composer";*/
+    $scope.status = 'connecting'; // 3 statuses: "connecting", "connected", "disconnected"
 
     $scope.safeApply = function(fn) {
         var phase = this.$root.$$phase;
@@ -56,13 +58,13 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
         $scope.consoles[name].terminationSignal = terminationSignal;
     };
 
-    var conn = new ab.Session('ws://localhost:8001/console',
+    // Whether the user is changing page or not.
+    var exiting = false;
+
+    var conn = new ab.Session('ws://localhost:'+harmonyWsPort+'/console',
         function() {
+            $scope.status = 'connected';
             conn.subscribe('console_main', function(topic, data) {
-                // This is where you would add the new article to the DOM (beyond the scope of this tutorial)
-                //console.log('New article published to category "' + topic + '" : ' + data.title);
-                //console.log('Topic '+topic);
-                //console.log(data);
 
                 $scope.safeApply(function() {
 
@@ -78,6 +80,7 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
                     } else if (msg.event == "endconsole") {
                         endconsole(msg.name, msg.exitCode, msg.terminationSignal);
                     } else if (msg.event == "output") {
+                        console.log(msg);
                         outputToConsole(msg.name, msg.output, msg.error);
                     }
 
@@ -86,10 +89,20 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
             });
         },
         function() {
-            console.warn('WebSocket connection closed');
+            if (!exiting) {
+                console.warn('WebSocket connection closed');
+                $scope.safeApply(function() {
+                    $scope.status = 'disconnected';
+                });
+            }
         },
         {'skipSubprotocolCheck': true}
     );
+
+    jQuery(window).on('beforeunload', function(){
+        conn.close();
+        exiting = true;
+    });
 
     $scope.kill = function(name) {
 
@@ -108,7 +121,11 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
     };
 
     $scope.select = function(name) {
-        $scope.selectedConsole = name;
+        if ($scope.selectedConsole == name) {
+            $scope.selectedConsole = null;
+        } else {
+            $scope.selectedConsole = name;
+        }
     };
 
     $scope.minimize = function() {
@@ -120,7 +137,7 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
         // Let's send it back!
         //console.log($event);
 
-        conn.call("keyPressed", $scope.selectedConsole, $event.charCode, $event.which).then(function (result) {
+        conn.call("keyPressed", $scope.selectedConsole, $event.charCode, $event.which, $event.ctrlKey, $event.altKey, $event.shiftKey).then(function (result) {
             //console.log("Key pressed!");
         }, function(error) {
             console.error(error);

@@ -98,12 +98,12 @@ class ConsoleRepository {
         }
     }
 
-    public function sendKeyPress($processName, $charCode, $which) {
+    public function sendKeyPress($processName, $charCode, $which, $ctrlKey, $altKey, $shiftKey) {
         if (isset($this->consoles[$processName])) {
-            $this->consoles[$processName]->sendKeyPress($charCode, $which);
+            $this->consoles[$processName]->sendKeyPress($charCode, $which, $ctrlKey, $altKey, $shiftKey);
         } else {
             // TODO: turn this into an error that we catch.
-            error_log("Unable to kill process $processName. Maybe it is already killed?");
+            error_log("Unable to send key to process $processName. Maybe it is stopped?");
         }
     }
 }

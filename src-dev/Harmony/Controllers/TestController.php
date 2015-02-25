@@ -9,6 +9,7 @@
  */
 namespace Harmony\Controllers;
 
+use Harmony\Services\CommandRunner;
 use Harmony\Services\FileNotWritableException;
 use Harmony\Services\FileService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
@@ -20,6 +21,7 @@ use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Mvc\Splash\HtmlResponse;
 use Mouf\Security\UserFileDao\UserFileBean;
 use Mouf\Security\UserFileDao\UserFileDao;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
@@ -27,7 +29,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * This controller displays the Mouf install process (when Mouf is started the first time).
  *
  */
-class TestController extends Controller {
+class TestController extends Controller
+{
 
 	/**
 	 * The template used by the main page for mouf.
@@ -35,7 +38,7 @@ class TestController extends Controller {
 	 * @var TemplateInterface
 	 */
 	private $template;
-	
+
 	/**
 	 * The content block the template will be writting into.
 	 *
@@ -83,7 +86,8 @@ class TestController extends Controller {
 	 *
 	 * @URL test/
 	 */
-	public function index() {
+	public function index()
+	{
 
 		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/autobahn/autobahn.min.js');
 		$this->template->getWebLibraryManager()->addJsFile('components/angularjs/angular.js');
@@ -101,34 +105,51 @@ class TestController extends Controller {
 				"harmonyUsersFile"=>$harmonyUsersFile,
 			)));*/
 
-		/*$this->leftBlock->addText('
-		<button class="btn btn-success" id="tail error log" type="button">Tail error log</button>
+		$this->leftBlock->addText('
+		<button class="btn btn-success" id="tail_error_log" type="button">Tail error log</button>
 		<script>
-		jQuery.ajax("http://localhost:8001/run?name=tail_error_log&command=tail -f /var/log/apache2/error.log");
-
-</script>
-		');*/
+		jQuery("#tail_error_log").click(function() {
+			jQuery.ajax("/testrun/");
+		});
+		</script>
+		');
 
 		$this->footerBlock->addText('<div class="footer" ng-app="consoleApp">
 
 <div ng-controller="ConsoleController">
 
-	<div class="main-console">
-        <div ng-repeat="console in consoles">
-        	<console object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" minimize="minimize()" sendchar="onkey(event)" ng-if="console.name == selectedConsole"></console>
-        </div>
-	</div>
+	<div ng-if="status == \'connected\'">
+		<div class="main-console">
+			<div ng-repeat="console in consoles">
+				<console object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" minimize="minimize()" sendchar="onkey(event)" ng-if="console.name == selectedConsole"></console>
+			</div>
+		</div>
 
-	<div class="console-footer">
-        <div ng-repeat="console in consoles">
-        	<consoletab object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" select="select(name)" minimize="minimize()"></consoletab>
-        </div>
+		<div class="console-footer">
+			<div ng-repeat="console in consoles">
+				<consoletab object="console" kill="kill(name)" remove="remove(name)" selected="selectedConsole" select="select(name)" minimize="minimize()"></consoletab>
+			</div>
+		</div>
 	</div>
-
+	<div ng-if="status == \'connecting\'">
+	Connecting
+	</div>
+	<div class="console-footer disconnected" ng-if="status == \'disconnected\'">
+	<i class="fa fa-times-circle"></i> Disconnected
+	</div>
 </div>
 
 </div>');
 		return new HtmlResponse($this->template);
 	}
 
+	/**
+	 *
+	 * @URL testrun/
+	 */
+	public function run()
+	{
+		CommandRunner::run('tail -f /var/log/apache2/error.log', 'Apache error log');
+		return new JsonResponse("ok");
+	}
 }

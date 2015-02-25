@@ -24,7 +24,7 @@ class RunHarmonyCommand extends Command
             )
             ->addOption(
                 'ws_port',
-                'wp',
+                'w',
                 InputOption::VALUE_REQUIRED,
                 'The Websocket port of Harmony',
                 8001
@@ -37,23 +37,19 @@ class RunHarmonyCommand extends Command
         $http_port = $input->getOption('http_port');
         $ws_port = $input->getOption('ws_port');
 
+        if (!ctype_digit((string)$http_port)) {
+            throw new \Exception('The http_port option must be a number. Passed value: '.$http_port);
+        }
+        if (!ctype_digit((string)$ws_port)) {
+            throw new \Exception('The ws_port option must be a number. Passed value: '.$ws_port);
+        }
+
         $pimple = new \Pimple();
         $pimple['port'] = $ws_port;
 
         $pimple['loop'] = $pimple->share(function() {
             return \React\EventLoop\Factory::create();
         });
-
-        /*$pimple['reactor'] = $pimple->share(function($pimple) {
-            $socket = new Reactor($pimple['loop']);
-            $socket->listen($pimple['port'], '127.0.0.1');
-            return $socket;
-        });*/
-
-
-        /*$pimple['ioserver'] = $pimple->share(function($pimple) {
-            return new \Ratchet\Server\IoServer(new DisplayActivityApp(), $pimple['loop']);
-        });*/
 
         $pimple['consoleRepository'] = $pimple->share(function($pimple) {
             return new \Harmony\React\ConsoleRepository($pimple['loop']);
@@ -69,21 +65,31 @@ class RunHarmonyCommand extends Command
 
         $pimple['ratchetApp'] = $pimple->share(function($pimple) {
             // TODO: put 'hostname' instead of "localhost"
+
+            // Very temporarily disabling E_USER_WARNING to remove the message about xdebug being loaded (because in
+            // a dev env, this is normal!)
+            $oldErrorReporting = error_reporting();
+            error_reporting($oldErrorReporting & ~E_USER_WARNING);
             $app =  new \Ratchet\App('localhost', $pimple['port'], '127.0.0.1', $pimple['loop']);
+            error_reporting($oldErrorReporting);
+
             $app->route('/console', $pimple['ratchetConsole']);
-            // FIXME: * is a security issue! Add security to the /run command
+            // * is a security issue, but we add security using the SECURITY_KEY that is changed on each restart
             $app->route('/run', $pimple['ratchetConsoleHttp'], ['*']);
             return $app;
         });
 
 
+        putenv("SECURITY_KEY=".bin2hex(openssl_random_pseudo_bytes(20)));
+        putenv("HARMONY_HTTP_PORT=".$http_port);
+        putenv("HARMONY_WS_PORT=".$ws_port);
 
         // Let's start the internal web server.
         $process = new Process(PHP_BINARY.' -S localhost:'.$http_port.' src/internal_web_server_router.php');
         $process->start($pimple['loop']);
 
-        $process->on('exit', function($exitCode, $terminationSignal) use ($finalName) {
-            echo "Internal web server terminated. Exiting.\n";
+        $process->on('exit', function($exitCode, $terminationSignal) {
+            echo "Internal web server terminated with exit code $exitCode. Exiting.\n";
             exit;
         });
 
@@ -95,8 +101,7 @@ class RunHarmonyCommand extends Command
             file_put_contents('php://stderr', $output);
         });
 
-
-
+        $output->writeln("Starting Harmony web-server on <info>http://localhost:".$http_port."</info>");
         $pimple['ratchetApp']->run();
     }
 }

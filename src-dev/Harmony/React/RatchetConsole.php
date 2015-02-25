@@ -67,7 +67,10 @@ class RatchetConsole implements WampServerInterface {
             $console = $params[0];
             $charCode = $params[1];
             $which = $params[2];
-            $this->consoleRepository->sendKeyPress($console, $charCode, $which);
+            $ctrlKey = $params[3];
+            $altKey = $params[4];
+            $shiftKey = $params[5];
+            $this->consoleRepository->sendKeyPress($console, $charCode, $which, $ctrlKey, $altKey, $shiftKey);
             $conn->callResult($id, $topic, "done");
         } else {
             $conn->callError($id, $topic, 'This RPC method is not supported on this application');

@@ -621,6 +621,7 @@ return array (
         2 => 'component.jqueryui',
         3 => 'component.bootstrap',
         5 => 'setRootUrlJsBlock',
+        6=> 'setHarmonyWsPort',
         7 => 'javascript.moufInstanceLibrary',
         8 => 'javascript.composer',
         9 => 'css.moufCssStyles',
@@ -2767,6 +2768,26 @@ return array (
       ),
     ),
   ),
+    'harmonyWsPortFile' =>
+        array (
+            'class' => 'Mouf\\Html\\HtmlElement\\HtmlFromFile',
+            'external' => false,
+            'weak' => false,
+            'constructor' =>
+                array (
+                    0 =>
+                        array (
+                            'type' => 'string',
+                            'value' => 'src-dev/views/javascript/harmonyWsPort.php',
+                            'parametertype' => 'primitive',
+                            'metadata' =>
+                                array (
+                                ),
+                        ),
+                ),
+        ),
+
+
   'search' => 
   array (
     'class' => 'Mouf\\Controllers\\SearchController',
@@ -2829,6 +2850,19 @@ return array (
       'setAdditionalElement' => 'rootUrlJsFile',
     ),
   ),
+    'setHarmonyWsPort' =>
+        array (
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\InlineWebLibrary',
+            'external' => false,
+            'weak' => false,
+            'setterBinds' =>
+                array (
+                    'setAdditionalElement' => 'harmonyWsPortFile',
+                ),
+        ),
+
+
+
   'simpleloginview' => 
   array (
     'class' => 'Mouf\\Security\\Views\\SimpleLoginView',

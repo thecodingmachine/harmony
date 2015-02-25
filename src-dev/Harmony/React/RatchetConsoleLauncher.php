@@ -3,6 +3,7 @@ namespace Harmony\React;
 
 
 use Guzzle\Http\Message\RequestInterface;
+use Guzzle\Http\Message\Response;
 use Ratchet\ConnectionInterface;
 use Ratchet\Http\HttpServerInterface;
 use React\EventLoop\LoopInterface;
@@ -60,14 +61,23 @@ class RatchetConsoleLauncher implements HttpServerInterface {
 
         $name = $request->getUrl(true)->getQuery()->get('name');
         $command = $request->getUrl(true)->getQuery()->get('command');
+        $securityKey = $request->getUrl(true)->getQuery()->get('key');
 
-        $conn->send("Running process '".$command."'");
+        if ($securityKey != getenv('SECURITY_KEY')) {
+            $response = new Response("403", null, "Error! Security key send to /run command is invalid. Security key sent: ".$securityKey);
+            $conn->send((string) $response);
+            $conn->close();
+            error_log("Error! Security key send to /run command is invalid. Security key sent: ".$securityKey);
+            return;
+        }
+
         error_log("Running process '".$command."'");
 
         $this->consoleRepository->launchConsole($name, $command);
 
+        $response = new Response("200", null, "Running process '".$command."'");
+        $conn->send((string) $response);
         $conn->close();
-
     }
 
     /**

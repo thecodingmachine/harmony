@@ -29,8 +29,13 @@ div.console > div.line:last-child:after {
     font-variant: normal;
     font-size: inherit;
     text-rendering: auto;
-    content: ''
+    content: "";
 }
+
+div.console:focus > div.line:last-child:after {
+    content: '';
+}
+
 
 div.console-footer div.console-tab {
     width: 200px;
@@ -109,6 +114,11 @@ div.console-tab {
     align-items: flex-end;
     flex-wrap: wrap;
     background-color: #2B2B2B;
+}
+
+.console-footer.disconnected {
+    background-color: #9F595C;
+    color: darkred;
 }
 
 .console-minimize {
