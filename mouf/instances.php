@@ -2475,7 +2475,7 @@ return array (
       ),
       'title' => 
       array (
-        'value' => 'Mouf',
+        'value' => 'Harmony',
         'type' => 'string',
         'metadata' => 
         array (

@@ -80,7 +80,6 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
                     } else if (msg.event == "endconsole") {
                         endconsole(msg.name, msg.exitCode, msg.terminationSignal);
                     } else if (msg.event == "output") {
-                        console.log(msg);
                         outputToConsole(msg.name, msg.output, msg.error);
                     }
 
@@ -116,7 +115,9 @@ consoleApp.controller('ConsoleController', ['$scope', function($scope) {
     };
 
     $scope.remove = function(name) {
-        $scope.kill(name);
+        if ($scope.consoles[name].status != "stopped" && $scope.consoles[name].status != "error") {
+            $scope.kill(name);
+        }
         delete $scope.consoles[name];
     };
 
