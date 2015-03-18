@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Mouf\TestClasses;
 
@@ -7,7 +7,6 @@ namespace Mouf\TestClasses;
  * @author david
  *
  */
-class TestSubClassA extends TestClassA {
-
+class TestSubClassA extends TestClassA
+{
 }
-?>

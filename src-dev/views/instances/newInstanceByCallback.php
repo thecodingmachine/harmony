@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* @var $this Mouf\Controllers\MoufController */
 
 ?>
@@ -30,8 +30,8 @@
 	<div class="span12">
 		<div class="alert">
 			Although it is usually a better idea to declare an instance using the <a href="newInstance2">web based UI</a>,
-			it is not always possible to use the UI to instanciate all classes. 
-			
+			it is not always possible to use the UI to instanciate all classes.
+
 			<ul>
 			<li>Sometimes, a third-party package will force you to use a factory to create
 			an instance.</li>
@@ -39,7 +39,7 @@
 			a helpful UI.</li>
 			<li>Sometimes, you want to inject a value that is computed using complex code...</li>
 			</ul>
-			
+
 			For all those cases, you can use the <strong>instance declaration via PHP code</strong>.
 		</div>
 	</div>

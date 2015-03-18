@@ -5,7 +5,8 @@ namespace Harmony\Services;
  * Runs a command.
  * The command output will be displayed in the Harmony console.
  */
-class CommandRunner {
+class CommandRunner
+{
 
     /**
      * Runs the command passed in parameter.
@@ -13,7 +14,8 @@ class CommandRunner {
      * @param string $command
      * @param string $name
      */
-    public static function run($command, $name = null) {
+    public static function run($command, $name = null)
+    {
         if ($name == null) {
             $name = substr($command, 0, 30);
         }

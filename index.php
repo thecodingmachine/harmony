@@ -14,4 +14,3 @@ require_once __DIR__.'/mouf/Mouf.php';
 
 MoufAdmin::getMoufInstallController()->htaccessNotDetected();
 exit;
-?>

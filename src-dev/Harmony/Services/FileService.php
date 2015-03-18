@@ -8,7 +8,8 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @author David Negrier <david@mouf-php.com>
  */
-class FileService {
+class FileService
+{
 
     /**
      * Tests if a file can be written.
@@ -17,13 +18,13 @@ class FileService {
      *
      * @param string $filename
      */
-    public static function detectWriteIssues($filename) {
+    public static function detectWriteIssues($filename)
+    {
         $iterablefilename = $filename;
 
         do {
             if (file_exists($iterablefilename)) {
                 if (!is_writable($iterablefilename)) {
-
                     $message = "File system error: ";
                     if (is_dir($iterablefilename)) {
                         $message .= "Directory ";
@@ -47,7 +48,8 @@ class FileService {
      *
      * @param string $file
      */
-    public static function prepareDirectory($filename) {
+    public static function prepareDirectory($filename)
+    {
         self::detectWriteIssues($filename);
 
         $fs = new Filesystem();

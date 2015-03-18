@@ -16,15 +16,17 @@ use Mouf\Security\UserService\Splash\Logged;
  * The controller displaying the PHP Info page.
  *
  */
-class PhpInfoController extends Controller {
-	
-	/**
-	 * Displays the PHP info page.
-	 * 
-	 * @Action
-	 * @Logged
-	 */
-	public function defaultAction() {
-		echo phpinfo();
-	}
+class PhpInfoController extends Controller
+{
+
+    /**
+     * Displays the PHP info page.
+     *
+     * @Action
+     * @Logged
+     */
+    public function defaultAction()
+    {
+        echo phpinfo();
+    }
 }

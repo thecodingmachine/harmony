@@ -4,12 +4,12 @@
 </form>
 <script type="text/javascript">
 jQuery(document).ready(function() {
-	
+
 	jQuery("#menupurgecodecache").click(function() {
 		jQuery('#menupurgecodecache').button('loading');
 
 		var url = MoufInstanceManager.rootUrl+"src/direct/purge_code_cache.php?selfedit="+(MoufInstanceManager.selfEdit?"true":"false");
-		 
+
 		jQuery.ajax(url)
 			.done(function(data) {
 				if (data) {
@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
 			}).fail(function() {
 				addMessage("An error occured while purging code cache", "alert alert-danger");
 			});
-		
+
 		return false;
 	})
 });

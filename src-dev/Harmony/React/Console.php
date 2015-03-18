@@ -1,11 +1,11 @@
 <?php
 namespace Harmony\React;
 
-
 use Ratchet\Wamp\Topic;
 use React\ChildProcess\Process;
 
-class Console implements \JsonSerializable {
+class Console implements \JsonSerializable
+{
 
     private $name;
     private $process;
@@ -23,11 +23,11 @@ class Console implements \JsonSerializable {
         $this->process = $process;
         $this->sizeLimit = $sizeLimit;
 
-        $process->stdout->on('data', function($output) {
+        $process->stdout->on('data', function ($output) {
             $this->broadcastOutput($output, false);
         });
 
-        $process->stderr->on('data', function($output) {
+        $process->stderr->on('data', function ($output) {
             $this->broadcastOutput($output, true);
         });
     }
@@ -36,9 +36,10 @@ class Console implements \JsonSerializable {
      * Sends some output to the browser.
      *
      * @param string $output
-     * @param bool $error
+     * @param bool   $error
      */
-    private function broadcastOutput($output, $error = false) {
+    private function broadcastOutput($output, $error = false)
+    {
         $this->output .= $output;
         $this->output = substr($this->output, 0-$this->sizeLimit);
 
@@ -47,19 +48,21 @@ class Console implements \JsonSerializable {
                 'event' => 'output',
                 'name' => $this->name,
                 'output' => $output,
-                'error' => $error
+                'error' => $error,
             ]));
         }
     }
 
-    public function registerTopic(Topic $topic) {
+    public function registerTopic(Topic $topic)
+    {
         $this->topic = $topic;
     }
 
     /**
      * Terminates the process.
      */
-    public function terminate() {
+    public function terminate()
+    {
         $this->process->terminate();
     }
 
@@ -68,7 +71,7 @@ class Console implements \JsonSerializable {
      * Specify data which should be serialized to JSON
      * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
      * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
+     *               which is a value of any type other than a resource.
      */
     public function jsonSerialize()
     {
@@ -84,9 +87,10 @@ class Console implements \JsonSerializable {
      * @param string $charCode
      * @param string $which
      */
-    public function sendKeyPress($charCode, $which, $ctrlKey, $altKey, $shiftKey) {
+    public function sendKeyPress($charCode, $which, $ctrlKey, $altKey, $shiftKey)
+    {
         //$process->stdin->resume() ???
-        $key = $charCode?:$which;
+        $key = $charCode ?: $which;
         $char = chr($key);
         echo("SENDING CHAR ".chr($key)." - code ".$key.". Ctrl: $ctrlKey\n");
 
@@ -98,6 +102,7 @@ class Console implements \JsonSerializable {
             echo("Sending ctrl-c (SIGTERM) signal\n");
             //$this->process->terminate(SIGINT);
             $this->process->terminate(SIGTERM);
+
             return;
         }
 

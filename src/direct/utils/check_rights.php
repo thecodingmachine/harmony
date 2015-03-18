@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 /**
  * This file should be included at the beginning of each file of the "/direct" folder.
  * It checks that the rights are ok.
@@ -17,17 +17,15 @@
 
 // TODO: remove this condition when everything is migrated to the new cookie propagation method.
 if ($_SERVER['REMOTE_ADDR'] == $_SERVER['SERVER_ADDR'] /*|| $_SERVER['REMOTE_ADDR'] == '::1'*/) {
-	return;
+    return;
 }
 
 if (!isset($_SESSION)) {
-	session_start();
+    session_start();
 }
 
 if (!isset($_SESSION['MoufMoufUserId'])) {
-	header('HTTP/1.1 403 Forbidden');
-	echo 'Error! You must be logged in to access this screen';
-	exit;
+    header('HTTP/1.1 403 Forbidden');
+    echo 'Error! You must be logged in to access this screen';
+    exit;
 }
-
-?>

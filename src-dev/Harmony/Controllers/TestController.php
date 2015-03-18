@@ -10,19 +10,14 @@
 namespace Harmony\Controllers;
 
 use Harmony\Services\CommandRunner;
-use Harmony\Services\FileNotWritableException;
-use Harmony\Services\FileService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Renderer\Twig\TwigTemplate;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
-use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Mvc\Splash\HtmlResponse;
-use Mouf\Security\UserFileDao\UserFileBean;
 use Mouf\Security\UserFileDao\UserFileDao;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 /**
@@ -32,80 +27,77 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class TestController extends Controller
 {
 
-	/**
-	 * The template used by the main page for mouf.
-	 *
-	 * @var TemplateInterface
-	 */
-	private $template;
+    /**
+     * The template used by the main page for mouf.
+     *
+     * @var TemplateInterface
+     */
+    private $template;
 
-	/**
-	 * The content block the template will be writting into.
-	 *
-	 * @var HtmlBlock
-	 */
-	private $contentBlock;
+    /**
+     * The content block the template will be writting into.
+     *
+     * @var HtmlBlock
+     */
+    private $contentBlock;
 
-	/**
-	 * The content block the template will be writting into.
-	 *
-	 * @var HtmlBlock
-	 */
-	private $leftBlock;
+    /**
+     * The content block the template will be writting into.
+     *
+     * @var HtmlBlock
+     */
+    private $leftBlock;
 
-	/**
-	 * The content block the template will be writting into.
-	 *
-	 * @var HtmlBlock
-	 */
-	private $footerBlock;
+    /**
+     * The content block the template will be writting into.
+     *
+     * @var HtmlBlock
+     */
+    private $footerBlock;
 
-	/**
-	 * @var MoufTwigEnvironment
-	 */
-	private $twigEnvironment;
+    /**
+     * @var MoufTwigEnvironment
+     */
+    private $twigEnvironment;
 
+    /**
+     * @param TemplateInterface   $template
+     * @param HtmlBlock           $contentBlock
+     * @param HtmlBlock           $leftBlock
+     * @param MoufTwigEnvironment $twigEnvironment
+     */
+    public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, HtmlBlock $leftBlock, HtmlBlock $footerBlock, MoufTwigEnvironment $twigEnvironment)
+    {
+        $this->template = $template;
+        $this->contentBlock = $contentBlock;
+        $this->leftBlock = $leftBlock;
+        $this->twigEnvironment = $twigEnvironment;
+        $this->footerBlock = $footerBlock;
+    }
 
-	/**
-	 * @param TemplateInterface $template
-	 * @param HtmlBlock $contentBlock
-	 * @param HtmlBlock $leftBlock
-	 * @param MoufTwigEnvironment $twigEnvironment
-	 */
-	public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, HtmlBlock $leftBlock, HtmlBlock $footerBlock, MoufTwigEnvironment $twigEnvironment)
-	{
-		$this->template = $template;
-		$this->contentBlock = $contentBlock;
-		$this->leftBlock = $leftBlock;
-		$this->twigEnvironment = $twigEnvironment;
-		$this->footerBlock = $footerBlock;
-	}
+    /**
+     *
+     * @URL test/
+     */
+    public function index()
+    {
+        $this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/autobahn/autobahn.min.js');
+        $this->template->getWebLibraryManager()->addJsFile('components/angularjs/angular.js');
+        $this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-app.js');
+        $this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-tab-directive.js');
+        $this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-directive.js');
+        $this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-controller.js');
 
+        $this->template->getWebLibraryManager()->addCssFile('components/font-awesome/css/font-awesome.min.css');
+        $this->template->getWebLibraryManager()->addCssFile('src-dev/views/javascript/console.css');
 
-	/**
-	 *
-	 * @URL test/
-	 */
-	public function index()
-	{
+        /*$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/welcome.twig',
+            array(
+                "isUserfileAvailable"=>$this->userFileDao->isUserFileAvailable(),
+                "harmonyUsersFile"=>$harmonyUsersFile,
+            )));*/
 
-		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/autobahn/autobahn.min.js');
-		$this->template->getWebLibraryManager()->addJsFile('components/angularjs/angular.js');
-		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-app.js');
-		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-tab-directive.js');
-		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-directive.js');
-		$this->template->getWebLibraryManager()->addJsFile('src-dev/views/javascript/console-controller.js');
-
-		$this->template->getWebLibraryManager()->addCssFile('components/font-awesome/css/font-awesome.min.css');
-		$this->template->getWebLibraryManager()->addCssFile('src-dev/views/javascript/console.css');
-
-		/*$this->contentBlock->addHtmlElement(new TwigTemplate($this->twigEnvironment, 'src-dev/views/harmony_installer/welcome.twig',
-			array(
-				"isUserfileAvailable"=>$this->userFileDao->isUserFileAvailable(),
-				"harmonyUsersFile"=>$harmonyUsersFile,
-			)));*/
-
-		$this->leftBlock->addText('
+        $this->leftBlock->addText('
 		<button class="btn btn-success" id="tail_error_log" type="button">Tail error log</button>
 		<script>
 		jQuery("#tail_error_log").click(function() {
@@ -114,7 +106,7 @@ class TestController extends Controller
 		</script>
 		');
 
-		$this->footerBlock->addText('<div class="footer" ng-app="consoleApp">
+        $this->footerBlock->addText('<div class="footer" ng-app="consoleApp">
 
 <div ng-controller="ConsoleController">
 
@@ -140,16 +132,18 @@ class TestController extends Controller
 </div>
 
 </div>');
-		return new HtmlResponse($this->template);
-	}
 
-	/**
-	 *
-	 * @URL testrun/
-	 */
-	public function run()
-	{
-		CommandRunner::run('tail -f /var/log/apache2/error.log', 'Apache error log');
-		return new JsonResponse("ok");
-	}
+        return new HtmlResponse($this->template);
+    }
+
+    /**
+     *
+     * @URL testrun/
+     */
+    public function run()
+    {
+        CommandRunner::run('tail -f /var/log/apache2/error.log', 'Apache error log');
+
+        return new JsonResponse("ok");
+    }
 }

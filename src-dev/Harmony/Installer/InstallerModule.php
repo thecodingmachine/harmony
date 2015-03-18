@@ -5,7 +5,8 @@ use Interop\Container\ContainerInterface;
 use Interop\Framework\HttpModuleInterface;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class InstallerModule implements HttpModuleInterface {
+class InstallerModule implements HttpModuleInterface
+{
 
     /**
      * You should return a StackPHP middleware.
@@ -23,7 +24,7 @@ class InstallerModule implements HttpModuleInterface {
      *
      * @return string
      */
-    function getName()
+    public function getName()
     {
         return "harmony-install-checker";
     }
@@ -33,19 +34,18 @@ class InstallerModule implements HttpModuleInterface {
      *
      * It will be chained to the application's root container.
      *
-     * @param ContainerInterface $rootContainer
+     * @param  ContainerInterface      $rootContainer
      * @return ContainerInterface|null
      */
-    function getContainer(ContainerInterface $rootContainer)
+    public function getContainer(ContainerInterface $rootContainer)
     {
-        return null;
+        return;
     }
 
     /**
      * You can provide init scripts here.
      */
-    function init()
+    public function init()
     {
-
     }
 }

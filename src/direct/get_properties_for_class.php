@@ -7,8 +7,6 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
-
 
 ini_set('display_errors', 1);
 // Add E_ERROR to error reporting it it is not already set
@@ -22,6 +20,3 @@ require_once '../Moufspector.php';
 require_once 'utils/check_rights.php';
 
 $res = MoufManager::getMoufManager()->findInstances($_REQUEST["class"]);
-
-
-?>

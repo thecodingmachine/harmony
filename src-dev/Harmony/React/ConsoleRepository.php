@@ -8,7 +8,8 @@ use React\EventLoop\LoopInterface;
 /**
  * This class contains the list of all open commands along the output that was passed to them.
  */
-class ConsoleRepository {
+class ConsoleRepository
+{
 
     private $loop;
 
@@ -17,7 +18,7 @@ class ConsoleRepository {
      */
     private $consoles = array();
 
-    function __construct(LoopInterface $loop)
+    public function __construct(LoopInterface $loop)
     {
         $this->loop = $loop;
     }
@@ -27,7 +28,8 @@ class ConsoleRepository {
      */
     private $topic;
 
-    public function registerMainTopic(Topic $topic) {
+    public function registerMainTopic(Topic $topic)
+    {
         if ($topic->getId() !=  'console_main') {
             throw new \Exception('Error, the topic registered with ConsoleRepository must be "console_main"');
         }
@@ -43,7 +45,8 @@ class ConsoleRepository {
      * @param string $name
      * @param string $command
      */
-    public function launchConsole($name, $command) {
+    public function launchConsole($name, $command)
+    {
         $finalName = $name;
         if (isset($this->consoles[$name])) {
             $i = 1;
@@ -56,7 +59,7 @@ class ConsoleRepository {
         $process = new Process($command);
         $process->start($this->loop);
 
-        $process->on('exit', function($exitCode, $terminationSignal) use ($finalName) {
+        $process->on('exit', function ($exitCode, $terminationSignal) use ($finalName) {
             unset($this->consoles[$finalName]);
 
             if ($this->topic) {
@@ -64,7 +67,7 @@ class ConsoleRepository {
                     'event' => 'endconsole',
                     'name' => $finalName,
                     'exitCode' => $exitCode,
-                    'terminationSignal' => $terminationSignal
+                    'terminationSignal' => $terminationSignal,
                 ]));
             }
 
@@ -76,20 +79,21 @@ class ConsoleRepository {
             $this->consoles[$finalName]->registerTopic($this->topic);
             $this->topic->broadcast(json_encode([
                 'event' => 'newconsole',
-                'name' => $finalName
+                'name' => $finalName,
             ]));
         }
-
     }
 
-    public function getConsoles() {
+    public function getConsoles()
+    {
         return $this->consoles;
     }
 
     /**
      * @param string $processName Kills console $processName
      */
-    public function killProcess($processName) {
+    public function killProcess($processName)
+    {
         if (isset($this->consoles[$processName])) {
             $this->consoles[$processName]->terminate();
             unset($this->consoles[$processName]);
@@ -98,7 +102,8 @@ class ConsoleRepository {
         }
     }
 
-    public function sendKeyPress($processName, $charCode, $which, $ctrlKey, $altKey, $shiftKey) {
+    public function sendKeyPress($processName, $charCode, $which, $ctrlKey, $altKey, $shiftKey)
+    {
         if (isset($this->consoles[$processName])) {
             $this->consoles[$processName]->sendKeyPress($charCode, $which, $ctrlKey, $altKey, $shiftKey);
         } else {

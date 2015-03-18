@@ -8,6 +8,6 @@ use Symfony\Component\Filesystem\Exception\IOException;
  *
  * @author David Negrier <david@mouf-php.com>
  */
-class FileNotWritableException extends IOException {
-
+class FileNotWritableException extends IOException
+{
 }

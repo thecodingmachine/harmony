@@ -5,11 +5,13 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 
-class MainApplication extends Application {
+class MainApplication extends Application
+{
 
     private $defaultCommand;
 
-    public function __construct(Command $defaultCommand) {
+    public function __construct(Command $defaultCommand)
+    {
         $this->defaultCommand = $defaultCommand;
         parent::__construct();
     }

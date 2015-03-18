@@ -16,16 +16,17 @@ use Mouf\Security\UserService\Splash\Logged;
  * The base controller for Mouf (when the "mouf/" url is typed).
  *
  */
-class MoufRootController extends Controller {
-	
-	/**
-	 * The default action will redirect to the MoufController defaultAction.
-	 *
-	 * @URL /
-	 * @Logged
-	 */
-	public function defaultAction() {
-		header("Location: ".ROOT_URL."validate/");
-	}
+class MoufRootController extends Controller
+{
+
+    /**
+     * The default action will redirect to the MoufController defaultAction.
+     *
+     * @URL /
+     * @Logged
+     */
+    public function defaultAction()
+    {
+        header("Location: ".ROOT_URL."validate/");
+    }
 }
-?>

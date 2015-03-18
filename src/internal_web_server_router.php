@@ -4,5 +4,5 @@
 if (preg_match('/\.(?:js|ico|gif|jpg|png|css|ttf|woff|woff2|eot|svg|html)(\?.*)?$/', $_SERVER["REQUEST_URI"])) {
     return false;
 } else {
-    include __DIR__ . '/app_router.php';
+    include __DIR__.'/app_router.php';
 }

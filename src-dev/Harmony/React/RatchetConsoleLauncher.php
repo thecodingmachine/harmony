@@ -1,12 +1,10 @@
 <?php
 namespace Harmony\React;
 
-
 use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Http\Message\Response;
 use Ratchet\ConnectionInterface;
 use Ratchet\Http\HttpServerInterface;
-use React\EventLoop\LoopInterface;
 
 /**
  * This class is used to receive HTTP methods asking to RUN some commands.
@@ -14,7 +12,8 @@ use React\EventLoop\LoopInterface;
  *
  * Answers the /run URL.
  */
-class RatchetConsoleLauncher implements HttpServerInterface {
+class RatchetConsoleLauncher implements HttpServerInterface
+{
 
     /**
      * @var ConsoleRepository
@@ -40,7 +39,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
      * If there is an error with one of the sockets, or somewhere in the application where an Exception is thrown,
      * the Exception is sent back down the stack, handled by the Server and bubbled back up the application through this method
      * @param  ConnectionInterface $conn
-     * @param  \Exception $e
+     * @param  \Exception          $e
      * @throws \Exception
      */
     public function onError(ConnectionInterface $conn, \Exception $e)
@@ -49,9 +48,9 @@ class RatchetConsoleLauncher implements HttpServerInterface {
     }
 
     /**
-     * @param \Ratchet\ConnectionInterface $conn
-     * @param \Guzzle\Http\Message\RequestInterface $request null is default because PHP won't let me overload; don't pass null!!!
-     * @throws \UnexpectedValueException if a RequestInterface is not passed
+     * @param  \Ratchet\ConnectionInterface          $conn
+     * @param  \Guzzle\Http\Message\RequestInterface $request null is default because PHP won't let me overload; don't pass null!!!
+     * @throws \UnexpectedValueException             if a RequestInterface is not passed
      */
     public function onOpen(ConnectionInterface $conn, RequestInterface $request = null)
     {
@@ -68,6 +67,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
             $conn->send((string) $response);
             $conn->close();
             error_log("Error! Security key send to /run command is invalid. Security key sent: ".$securityKey);
+
             return;
         }
 
@@ -83,7 +83,7 @@ class RatchetConsoleLauncher implements HttpServerInterface {
     /**
      * Triggered when a client sends data through the socket
      * @param  \Ratchet\ConnectionInterface $from The socket/connection that sent the message to your application
-     * @param  string $msg The message received
+     * @param  string                       $msg  The message received
      * @throws \Exception
      */
     public function onMessage(ConnectionInterface $from, $msg)
