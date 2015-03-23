@@ -2901,4 +2901,40 @@ return $driver;
             'weak' => false,
 
         ),
+
+
+
+    'validatorsController' => array(
+        'class' => 'Harmony\\Controllers\\ValidatorsController',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'moufTemplate',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            1 => array(
+                'value' => 'block.content',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            2 => array(
+                'value' => 'twigEnvironment',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
 );

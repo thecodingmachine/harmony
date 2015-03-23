@@ -26,6 +26,9 @@ class CodeProxy
 
         $serializedFn = $serializer->serialize($fn);
 
+        // Let's cheat and pretend the closure is static (in order to avoid an autoloading problem with the parent that is no more.)
+        $serializedFn = str_replace('"isStatic";b:0;', '"isStatic";b:1;', $serializedFn);
+
         $code = '<?php
             require_once "vendor/autoload.php";
 
@@ -33,10 +36,14 @@ class CodeProxy
             $fn = $serializer->unserialize('.var_export($serializedFn, true).');
 
             $ret = $fn();
-            echo serialize($fn);
+            echo serialize($ret);
         ';
 
         $process = new PhpProcess($code, __DIR__.'/../../../../../../');
+
+        // Let's increase the performance as much as possible by disabling xdebug.
+        // Also, let's set opcache.revalidate_freq to 0 to avoid caching issues with generated files.
+        $process->setPhpBinary(PHP_BINARY." -d xdebug.remote_autostart=0 -d xdebug.remote_enable=0 -d opcache.revalidate_freq=0 ");
         $process->run();
 
         if (!$process->isSuccessful()) {
