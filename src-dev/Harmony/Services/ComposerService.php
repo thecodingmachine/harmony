@@ -1,6 +1,7 @@
 <?php 
 namespace Harmony\Services;
 
+use Composer\Composer;
 use Composer\IO\IOInterface;
 use Mouf\Composer\MoufErrorLogComposerIO;
 use Composer\Factory;

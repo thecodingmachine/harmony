@@ -12,14 +12,8 @@ if (file_exists(__DIR__.'/../composer-harmony-core.json')) {
 
 chdir($harmonyRootDir);
 
-// TODO: check port availability
-// TODO: check parameters to pass another port than 8000.
-
 require_once 'src/app.php';
 
 $container = $app->getContainer();
 $consoleApplication = $container->get('mainApplication');
 $consoleApplication->run();
-
-//echo "Starting Harmony web server on http://localhost:8000\n";
-//passthru(PHP_BINARY.' -S localhost:8000 src/internal_web_server_router.php');

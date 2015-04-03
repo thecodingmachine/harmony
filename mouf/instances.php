@@ -795,7 +795,7 @@ return array(
     ),
   ),
   'fileCacheService' => array(
-    'class' => 'Mouf\\Utils\\Cache\\FileCache',
+    'class' => 'Mouf\\Utils\\Cache\\PhpFileCache',
     'external' => false,
     'weak' => false,
     'fieldProperties' => array(
@@ -2928,6 +2928,34 @@ return $driver;
             ),
             2 => array(
                 'value' => 'twigEnvironment',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            3 => array(
+                'value' => 'reflectionService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+
+    'reflectionService' => array(
+        'class' => 'Harmony\\Services\\ReflectionService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'fileCacheService',
                 'parametertype' => 'object',
                 'type' => 'string',
                 'metadata' => array(

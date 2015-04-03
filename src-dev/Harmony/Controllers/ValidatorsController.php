@@ -10,7 +10,10 @@
 namespace Harmony\Controllers;
 
 use Harmony\Proxy\CodeProxy;
+use Harmony\Services\ClassExplorer;
 use Harmony\Services\ClassMapService;
+use Harmony\Services\ComposerService;
+use Harmony\Services\ReflectionService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
@@ -47,16 +50,23 @@ class ValidatorsController extends Controller
     private $twigEnvironment;
 
     /**
+     * @var ReflectionService
+     */
+    private $reflectionService;
+
+    /**
      * @param TemplateInterface   $template
      * @param HtmlBlock           $contentBlock
      * @param HtmlBlock           $leftBlock
      * @param MoufTwigEnvironment $twigEnvironment
      */
-    public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment)
+    public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment,
+        ReflectionService $reflectionService)
     {
         $this->template = $template;
         $this->contentBlock = $contentBlock;
         $this->twigEnvironment = $twigEnvironment;
+        $this->reflectionService = $reflectionService;
     }
 
     /**
@@ -66,8 +76,21 @@ class ValidatorsController extends Controller
      */
     public function getValidatorsList()
     {
-        $classMapService = new ClassMapService(__DIR__.'/../../../../../../composer.json');
-        $list = $classMapService->getClassMap();
+        /*
+        $composerService = new ComposerService(__DIR__.'/../../../../../../composer.json');
+        $composer = $composerService->getComposer();
+
+        $classMapService = new ClassMapService($composer);
+        $classMap = $classMapService->getClassMap(ClassMapService::MODE_APPLICATION_CLASSES);
+
+        $classExplorer = new ClassExplorer();
+        $list = $classExplorer->analyze($classMap, __DIR__.'/../../../../../../vendor/autoload.php');
+        */
+
+        //var_dump($this->reflectionService->getReflectionData());
+
+        var_dump($this->reflectionService->getClassesImplementing("Symfony\\Component\\Process\\Exception\\RuntimeException"));
+
         /*
          $codeProxy = new CodeProxy();
         $list = $codeProxy->execute(function() {
@@ -108,7 +131,7 @@ class ValidatorsController extends Controller
 
 
 
-        return new JsonResponse($list);
+        //return new JsonResponse($list);
     }
 
 }
