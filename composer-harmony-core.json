@@ -52,6 +52,10 @@
         "type": "vcs",
         "url": "https://github.com/moufmouf/mouf"
       },
+      {
+        "type": "vcs",
+        "url": "https://github.com/moufmouf/harmony-validator-interface"
+      },
         {
             "type": "package",
             "package": {
@@ -73,6 +77,7 @@
       "mouf/mouf": "dev-harmony",
         "mouf/mouf-installer": "~2.1.0",
     	"mouf/mouf-validators-interface": "~2.0",
+        "harmony/validator-interface": "~1.0",
         "mouf/html.template.mouftemplate": "~2.0",
         "mouf/html.template.bootstrap": "~4.1",
         "mouf/utils.i18n.fine": "~3.0",

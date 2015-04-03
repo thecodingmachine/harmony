@@ -2934,7 +2934,7 @@ return $driver;
                 ),
             ),
             3 => array(
-                'value' => 'reflectionService',
+                'value' => 'harmonyValidatorService',
                 'parametertype' => 'object',
                 'type' => 'string',
                 'metadata' => array(
@@ -2956,6 +2956,26 @@ return $driver;
         'constructor' => array(
             0 => array(
                 'value' => 'fileCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+    'harmonyValidatorService' => array(
+        'class' => 'Harmony\\Services\\ValidatorService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'reflectionService',
                 'parametertype' => 'object',
                 'type' => 'string',
                 'metadata' => array(

@@ -14,6 +14,7 @@ use Harmony\Services\ClassExplorer;
 use Harmony\Services\ClassMapService;
 use Harmony\Services\ComposerService;
 use Harmony\Services\ReflectionService;
+use Harmony\Services\ValidatorService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
@@ -50,9 +51,9 @@ class ValidatorsController extends Controller
     private $twigEnvironment;
 
     /**
-     * @var ReflectionService
+     * @var ValidatorService
      */
-    private $reflectionService;
+    private $validatorService;
 
     /**
      * @param TemplateInterface   $template
@@ -61,12 +62,12 @@ class ValidatorsController extends Controller
      * @param MoufTwigEnvironment $twigEnvironment
      */
     public function __construct(TemplateInterface $template, HtmlBlock $contentBlock, MoufTwigEnvironment $twigEnvironment,
-        ReflectionService $reflectionService)
+        ValidatorService $validatorService)
     {
         $this->template = $template;
         $this->contentBlock = $contentBlock;
         $this->twigEnvironment = $twigEnvironment;
-        $this->reflectionService = $reflectionService;
+        $this->validatorService = $validatorService;
     }
 
     /**
@@ -89,8 +90,14 @@ class ValidatorsController extends Controller
 
         //var_dump($this->reflectionService->getReflectionData());
 
-        var_dump($this->reflectionService->getClassesImplementing("Symfony\\Component\\Process\\Exception\\RuntimeException"));
+        //var_dump($this->reflectionService->getClassesImplementing("Harmony\\Validator\\StaticValidatorInterface"));
 
+        /*$staticValidators = $this->reflectionService->getClassesImplementing("Harmony\\Validator\\StaticValidatorInterface");
+        foreach ($staticValidators as $validator) {
+
+        }*/
+
+        var_dump($this->validatorService->validate());
         /*
          $codeProxy = new CodeProxy();
         $list = $codeProxy->execute(function() {
