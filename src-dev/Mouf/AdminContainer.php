@@ -28,6 +28,13 @@ class AdminContainer extends MoufContainer
                     },
                 ],
             ],
+            'customRenderer' => [
+                'constructor' => [
+                    4 => function (ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
             'packageRenderer_mouf/html.utils.weblibrarymanager' => [
                 'constructor' => [
                     4 => function (ContainerInterface $container) {

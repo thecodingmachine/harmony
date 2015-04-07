@@ -32,7 +32,7 @@
 		}
 	},
     "bin": [
-    	"bin/harmony"
+    	"bin/harmony", "bin/harmony-console"
     ],
     "extra" : {
 		"mouf" : {

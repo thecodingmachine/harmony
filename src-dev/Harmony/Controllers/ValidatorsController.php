@@ -9,6 +9,7 @@
  */
 namespace Harmony\Controllers;
 
+use Harmony\Blocks\Validators;
 use Harmony\Proxy\CodeProxy;
 use Harmony\Services\ClassExplorer;
 use Harmony\Services\ClassMapService;
@@ -21,6 +22,7 @@ use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Moufspector;
 use Mouf\MoufManager;
+use Mouf\Mvc\Splash\HtmlResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
@@ -73,72 +75,42 @@ class ValidatorsController extends Controller
     /**
      * Returns the complete list of validators to be called.
      *
+     * @URL welcome
+     */
+    public function index()
+    {
+        $validatorClasses = $this->validatorService->getValidators();
+        $validatorsBlock = new Validators($validatorClasses);
+
+        $this->template->getWebLibraryManager()->addJsFile("vendor/bower_components/angular/angular.min.js");
+        $this->template->getWebLibraryManager()->addJsFile("vendor/bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js");
+        $this->template->getWebLibraryManager()->addJsFile("vendor/bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js");
+
+        $this->template->getWebLibraryManager()->addJsFile("src-dev/views/validators/validators-app.js");
+        $this->template->getWebLibraryManager()->addJsFile("src-dev/views/validators/validators-controller.js");
+        $this->contentBlock->addHtmlElement($validatorsBlock);
+
+        return new HtmlResponse($this->template);
+    }
+
+    /**
+     * Returns the complete list of validators to be called.
+     *
      * @URL validators/get_list
      */
     public function getValidatorsList()
     {
-        /*
-        $composerService = new ComposerService(__DIR__.'/../../../../../../composer.json');
-        $composer = $composerService->getComposer();
+        return new JsonResponse($this->validatorService->getValidators());
+    }
 
-        $classMapService = new ClassMapService($composer);
-        $classMap = $classMapService->getClassMap(ClassMapService::MODE_APPLICATION_CLASSES);
-
-        $classExplorer = new ClassExplorer();
-        $list = $classExplorer->analyze($classMap, __DIR__.'/../../../../../../vendor/autoload.php');
-        */
-
-        //var_dump($this->reflectionService->getReflectionData());
-
-        //var_dump($this->reflectionService->getClassesImplementing("Harmony\\Validator\\StaticValidatorInterface"));
-
-        /*$staticValidators = $this->reflectionService->getClassesImplementing("Harmony\\Validator\\StaticValidatorInterface");
-        foreach ($staticValidators as $validator) {
-
-        }*/
-
-        var_dump($this->validatorService->validate());
-        /*
-         $codeProxy = new CodeProxy();
-        $list = $codeProxy->execute(function() {
-
-
-            ini_set('display_errors', 1);
-            // Add E_ERROR to error reporting it it is not already set
-            error_reporting(E_ERROR | error_reporting());
-
-            define('ROOT_URL', '/');
-
-            //$moufManager = MoufManager::getMoufManager();
-
-            $response = array("instances" => array(), "classes" => array());
-
-            define('PROFILE_MOUF', false);
-
-            if (PROFILE_MOUF) {
-                error_log("PROFILING: Starting get_validators_list: ".date('H:i:s', time()));
-            }
-
-            //$instanceList = $moufManager->findInstances("Mouf\\Validator\\MoufValidatorInterface");
-            //$response["instances"] = $instanceList;
-
-            if (PROFILE_MOUF) {
-                error_log("PROFILING: findInstance done, starting getComponentsList: ".date('H:i:s', time()));
-            }
-
-            // Now, let's get the full list of absolutely all classes implementing "MoufStaticValidatorInterface".
-            $classList = Moufspector::getComponentsList("Mouf\\Validator\\MoufStaticValidatorInterface", $selfEdit);
-            $response["classes"] = $classList;
-
-            if (PROFILE_MOUF) {
-                error_log("PROFILING: Ending get_validators_list: ".date('H:i:s', time()));
-            }
-            return $response;
-        });*/
-
-
-
-        //return new JsonResponse($list);
+    /**
+     *
+     * @URL validators/get_class
+     *
+     * @param string $class
+     */
+    public function getClassValidator($class) {
+        return new JsonResponse($this->validatorService->validate($class));
     }
 
 }

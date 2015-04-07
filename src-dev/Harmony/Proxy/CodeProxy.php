@@ -52,12 +52,14 @@ class CodeProxy
 
         $output = $process->getOutput();
 
-        $obj = @unserialize($output);
+        ob_start();
+        $obj = unserialize($output);
+        $unexpectedOutput = ob_get_clean();
 
         if ($obj === false) {
             // Is this an unserialized "false" or an error in unserialization?
             if ($output != serialize(false)) {
-                throw new HarmonyException("Unable to unserialize message:\n".$output);
+                throw new HarmonyException("Unable to unserialize message:\n".$output."\n".$unexpectedOutput);
             }
         }
 

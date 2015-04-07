@@ -470,12 +470,12 @@ return array(
     'weak' => false,
     'setterBinds' => array(
       'setWebLibraries' => array(
-        0 => 'javascript.underscore',
+        //0 => 'javascript.underscore',
         1 => 'component.jquery',
         2 => 'component.jqueryui',
         3 => 'component.bootstrap',
         5 => 'setRootUrlJsBlock',
-        6 => 'setHarmonyWsPort',
+
         7 => 'javascript.moufInstanceLibrary',
         8 => 'javascript.composer',
         9 => 'css.moufCssStyles',
@@ -920,7 +920,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1583,7 +1583,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1605,7 +1605,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1641,7 +1641,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1667,7 +1667,7 @@ return array(
         ),
       ),
       'setTitle' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1781,7 +1781,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1807,7 +1807,7 @@ return array(
         ),
       ),
       'setTitle' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -1852,7 +1852,7 @@ return array(
         ),
       ),
       'title' => array(
-        'value' => 'Mouf - Build your website',
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
         'metadata' => array(
         ),
@@ -2895,12 +2895,39 @@ return $driver;
                 ),
         ),
 
+    'consoleApplication' => array(
+        'class' => 'Mouf\\Commands\\ConsoleApplication',
+        'external' => false,
+        'weak' => false,
+        'setterBinds' => array(
+            'setCommands' => array(
+                0 => 'runValidatorsCommand',
+            ),
+        ),
+    ),
+
     'runHarmonyCommand' => array(
             'class' => 'Harmony\\MainConsole\\RunHarmonyCommand',
             'external' => false,
             'weak' => false,
 
         ),
+
+    'runValidatorsCommand' => array(
+        'class' => 'Harmony\\MainConsole\\RunValidatorsCommand',
+        'external' => false,
+        'weak' => false,
+        'constructor' => array(
+            0 => array(
+                'value' => 'harmonyValidatorService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+        ),
+
+    ),
 
 
 
@@ -2984,5 +3011,49 @@ return $driver;
 
         ),
 
+    ),
+
+    'customRenderer' => array(
+        'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
+        'external' => false,
+        'weak' => false,
+        'constructor' => array(
+            0 => array(
+                'value' => 'templates',
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            1 => array(
+                'value' => 'rendererCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            2 => array(
+                'value' => 'custom',
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            3 => array(
+                'value' => 0,
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            4 => array(
+                'value' => 'return $container;',
+                'parametertype' => 'primitive',
+                'type' => 'php',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
     ),
 );
