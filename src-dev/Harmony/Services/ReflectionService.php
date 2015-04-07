@@ -1,11 +1,11 @@
 <?php
 namespace Harmony\Services;
 
-
 use Composer\Util\Filesystem;
 use Mouf\Utils\Cache\CacheInterface;
 
-class ReflectionService {
+class ReflectionService
+{
 
     // Lifetime of the cache: very short (20 seconds)
     const CACHE_DURATION = 20;
@@ -13,11 +13,13 @@ class ReflectionService {
     private $cache;
     private $reflectionData;
 
-    public function __construct(CacheInterface $cache) {
+    public function __construct(CacheInterface $cache)
+    {
         $this->cache = $cache;
     }
 
-    public function getClassesImplementing($type) {
+    public function getClassesImplementing($type)
+    {
         $reflectionData = $this->getReflectionData();
 
         $types = [];
@@ -35,6 +37,7 @@ class ReflectionService {
                 }
             }
         }
+
         return $types;
     }
 
@@ -43,7 +46,8 @@ class ReflectionService {
      *
      * @return array
      */
-    public function getReflectionData() {
+    public function getReflectionData()
+    {
         if ($this->reflectionData === null) {
             // Load precompiled data from vendor.
             $vendorReflectionData = require __DIR__."/../../../generated/vendorReflectionData.php";
@@ -57,11 +61,12 @@ class ReflectionService {
 
             $this->reflectionData = array_merge($vendorReflectionData, $appReflectionData);
         }
+
         return $this->reflectionData;
     }
 
-    private function computeAppReflectionData() {
-
+    private function computeAppReflectionData()
+    {
         if (file_exists(__DIR__.'/../../../generated/appClassMap.php')) {
             $oldClassMap = include __DIR__.'/../../../harmony/appClassMap.php';
             $oldClassMap = $oldClassMap['classMap'];

@@ -1,5 +1,6 @@
 <?php
 namespace Harmony\Services;
+
 use Harmony\Proxy\CodeProxy;
 use Harmony\Validator\StaticValidatorInterface;
 use Harmony\Validator\ValidatorResult;
@@ -8,7 +9,8 @@ use Harmony\Validator\ValidatorException;
 /**
  * This class is in charge of running Harmony validators and returning a result.
  */
-class ValidatorService {
+class ValidatorService
+{
 
     /**
      * @var ReflectionService
@@ -26,7 +28,8 @@ class ValidatorService {
     /**
      * Returns the list of all classes implementing the StaticValidatorInterface
      */
-    public function getValidators() {
+    public function getValidators()
+    {
         return $this->reflectionService->getClassesImplementing("Harmony\\Validator\\StaticValidatorInterface");
     }
 
@@ -36,7 +39,8 @@ class ValidatorService {
      *
      * @param string $className A class name or an array of class names or null.
      */
-    public function validate($className = null) {
+    public function validate($className = null)
+    {
         if ($className === null) {
             $classes = $this->getValidators();
         } elseif (!is_array($className)) {
@@ -48,7 +52,8 @@ class ValidatorService {
         return $this->doValidate($classes);
     }
 
-    private function doValidate($classes) {
+    private function doValidate($classes)
+    {
         $codeProxy = new CodeProxy();
         $ret = $codeProxy->execute(function () use ($classes) {
             $results = [];
@@ -71,8 +76,10 @@ class ValidatorService {
                 }
                 $results = array_merge($results, $result);
             }
+
             return $results;
         });
+
         return $ret;
     }
 }

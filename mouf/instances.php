@@ -2929,8 +2929,6 @@ return $driver;
 
     ),
 
-
-
     'validatorsController' => array(
         'class' => 'Harmony\\Controllers\\ValidatorsController',
         'external' => false,
@@ -2971,7 +2969,6 @@ return $driver;
         ),
 
     ),
-
 
     'reflectionService' => array(
         'class' => 'Harmony\\Services\\ReflectionService',

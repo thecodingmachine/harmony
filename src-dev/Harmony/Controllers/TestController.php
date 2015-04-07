@@ -19,7 +19,6 @@ use Mouf\Mvc\Splash\HtmlResponse;
 use Mouf\Security\UserFileDao\UserFileDao;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-
 /**
  * This controller displays the Mouf install process (when Mouf is started the first time).
  *

@@ -10,21 +10,13 @@
 namespace Harmony\Controllers;
 
 use Harmony\Blocks\Validators;
-use Harmony\Proxy\CodeProxy;
-use Harmony\Services\ClassExplorer;
-use Harmony\Services\ClassMapService;
-use Harmony\Services\ComposerService;
-use Harmony\Services\ReflectionService;
 use Harmony\Services\ValidatorService;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Mvc\Splash\Controllers\Controller;
-use Mouf\Moufspector;
-use Mouf\MoufManager;
 use Mouf\Mvc\Splash\HtmlResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 
 /**
  * This controller is in charge of running validators.
@@ -109,8 +101,8 @@ class ValidatorsController extends Controller
      *
      * @param string $class
      */
-    public function getClassValidator($class) {
+    public function getClassValidator($class)
+    {
         return new JsonResponse($this->validatorService->validate($class));
     }
-
 }

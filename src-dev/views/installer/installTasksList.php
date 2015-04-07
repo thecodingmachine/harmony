@@ -23,11 +23,13 @@ $(document).ready(function() {
 </form>
 <br/>
 
-<?php 
+<?php
+
     } else {
         ?>
 <div class="alert alert-success">All install tasks have been executed.</div>
-<?php 
+<?php
+
     }
     ?>
 
@@ -82,9 +84,11 @@ $(document).ready(function() {
     ?>
 </table>
 
-<?php 
+<?php
+
 } else {
     ?>
 	<div class="alert alert-success">No installed packages have install processes</div>
-<?php 
+<?php
+
 } ?>
