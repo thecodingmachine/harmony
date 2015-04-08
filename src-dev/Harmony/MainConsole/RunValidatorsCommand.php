@@ -39,33 +39,43 @@ class RunValidatorsCommand extends Command
 
         $nbOk = $nbWarn = $nbError = 0;
 
+        $tags = [
+            ValidatorResult::SUCCESS => "info",
+            ValidatorResult::WARN => "comment",
+            ValidatorResult::ERROR => "error",
+        ];
+
+        $nbByType = [
+            "info" => 0,
+            "comment" => 0,
+            "error" => 0,
+        ];
+
         foreach ($results as $result) {
-            switch ($result->getCode()) {
-                case ValidatorResult::SUCCESS:
-                    if ($output->isVerbose()) {
-                        $output->writeln("<info>".$result->getTextMessage()."</info>");
-                    }
-                    $nbOk++;
-                    break;
-                case ValidatorResult::WARN:
-                    $output->writeln("<comment>".$result->getTextMessage()."</comment>");
-                    $nbWarn++;
-                    break;
-                case ValidatorResult::ERROR:
-                    $output->writeln("<error>".$result->getTextMessage()."</error>");
-                    $nbError++;
-                    break;
+            if (!$output->isVerbose() && $result->getCode() == ValidatorResult::SUCCESS) {
+                continue;
             }
+            $tag = $tags[$result->getCode()];
+            $output->writeln(sprintf("<%s>%s</%s>", $tag, $result->getTextMessage(), $tag));
+            $nbByType[$tag] += 1;
         }
 
         $output->writeln("");
-        $output->writeln(sprintf("Validation finished. <info>%d %s</info> succeeded, <comment>%d %s</comment>"
-            ." returned a warning and <error>%d %s</error> failed.",
-            $nbOk,
-            $nbOk>1 ? "tests" : "test",
-            $nbWarn,
-            $nbWarn>1 ? "tests" : "test",
-            $nbError,
-            $nbError>1 ? "tests" : "test"));
+        $output->writeln(sprintf("Validation finished. <info>%s</info> succeeded, <comment>%s</comment>"
+            ." returned a warning and <error>%s</error> failed.",
+            $this->getTestString($nbByType["info"]),
+            $this->getTestString($nbByType["comment"]),
+            $this->getTestString($nbByType["error"])));
+    }
+
+    private function getTestString($nbTest)
+    {
+        if ($nbTest == 0) {
+            return "no test";
+        } elseif ($nbTest == 1) {
+            return "1 test";
+        } else {
+            return $nbTest." tests";
+        }
     }
 }
