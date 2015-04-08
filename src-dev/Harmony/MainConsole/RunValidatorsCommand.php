@@ -52,12 +52,12 @@ class RunValidatorsCommand extends Command
         ];
 
         foreach ($results as $result) {
+            $tag = $tags[$result->getCode()];
+            $nbByType[$tag] += 1;
             if (!$output->isVerbose() && $result->getCode() == ValidatorResult::SUCCESS) {
                 continue;
             }
-            $tag = $tags[$result->getCode()];
             $output->writeln(sprintf("<%s>%s</%s>", $tag, $result->getTextMessage(), $tag));
-            $nbByType[$tag] += 1;
         }
 
         $output->writeln("");
