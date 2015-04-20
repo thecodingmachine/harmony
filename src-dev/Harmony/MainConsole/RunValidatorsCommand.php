@@ -37,8 +37,6 @@ class RunValidatorsCommand extends Command
         $output->writeln("Status:");
         $output->writeln("=======");
 
-        $nbOk = $nbWarn = $nbError = 0;
-
         $tags = [
             ValidatorResult::SUCCESS => "info",
             ValidatorResult::WARN => "comment",
