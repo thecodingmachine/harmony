@@ -3005,6 +3005,13 @@ return $driver;
                 'metadata' => array(
                 ),
             ),
+            1 => array(
+                'value' => 'containerService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
 
         ),
 
@@ -3052,5 +3059,25 @@ return $driver;
             ),
 
         ),
+    ),
+
+    'containerService' => array(
+        'class' => 'Harmony\\Services\\ContainerService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'fileCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
     ),
 );

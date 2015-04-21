@@ -71,8 +71,7 @@ class ValidatorsController extends Controller
      */
     public function index()
     {
-        $validatorClasses = $this->validatorService->getValidators();
-        $validatorsBlock = new Validators($validatorClasses);
+        $validatorsBlock = new Validators();
 
         $this->template->getWebLibraryManager()->addJsFile("vendor/bower_components/angular/angular.min.js");
         $this->template->getWebLibraryManager()->addJsFile("vendor/bower_components/angular-ui-bootstrap-bower/ui-bootstrap.min.js");
@@ -92,7 +91,10 @@ class ValidatorsController extends Controller
      */
     public function getValidatorsList()
     {
-        return new JsonResponse($this->validatorService->getValidators());
+        return new JsonResponse([
+            "classes" => $this->validatorService->getClassValidators(),
+            "instances" => $this->validatorService->getInstanceValidators()
+        ]);
     }
 
     /**
@@ -103,6 +105,17 @@ class ValidatorsController extends Controller
      */
     public function getClassValidator($class)
     {
-        return new JsonResponse($this->validatorService->validate($class));
+        return new JsonResponse($this->validatorService->validateClass($class));
+    }
+
+    /**
+     *
+     * @URL validators/get_instance
+     *
+     * @param string $class
+     */
+    public function getInstanceValidator($instance)
+    {
+        return new JsonResponse($this->validatorService->validateInstance($instance));
     }
 }

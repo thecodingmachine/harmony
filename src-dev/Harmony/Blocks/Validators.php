@@ -9,15 +9,7 @@ class Validators implements HtmlElementInterface
 
     use Renderable;
 
-    /**
-     * A list of fully qualified class names that implement the StaticValidatorInterface.
-     *
-     * @var string[]
-     */
-    protected $classes;
-
-    public function __construct($classes)
+    public function __construct()
     {
-        $this->classes = $classes;
     }
 }

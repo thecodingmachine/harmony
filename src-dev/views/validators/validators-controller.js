@@ -56,7 +56,7 @@ validatorsApp.controller('ValidatorsController', ['$scope', '$http', '$sce', fun
         success(function(data, status, headers, config) {
             $scope.pendingResponses = data.length;
 
-            data.forEach(function(className) {
+            data.classes.forEach(function(className) {
                 $http.get(MoufInstanceManager.rootUrl+'validators/get_class?class='+className).
                     success(function(data2, status2, headers2, config2) {
                         data2.forEach(function(validator) {
@@ -72,6 +72,21 @@ validatorsApp.controller('ValidatorsController', ['$scope', '$http', '$sce', fun
                     });
             });
 
+            data.instances.forEach(function(instanceName) {
+                $http.get(MoufInstanceManager.rootUrl+'validators/get_instance?instance='+instanceName).
+                    success(function(data2, status2, headers2, config2) {
+                        data2.forEach(function(validator) {
+                            validator.htmlMessage = $sce.trustAsHtml(validator.htmlMessage);
+                            $scope.validators.push(validator);
+                        });
+                        $scope.pendingResponses --;
+                    }).
+                    error(function(data2, status2, headers2, config2) {
+                        // Mark the output HTML as trusted
+                        $scope.error = $sce.trustAsHtml(data2);
+                        $scope.pendingResponses --;
+                    });
+            });
         }).
         error(function(data, status, headers, config) {
             // Mark the output HTML as trusted
