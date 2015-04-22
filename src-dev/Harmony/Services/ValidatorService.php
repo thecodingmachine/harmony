@@ -109,28 +109,30 @@ class ValidatorService
                 $results = array_merge($results, $result);
             }
 
-            $containerExplorerService = ContainerExplorerService::create();
-            foreach ($instances as $instanceName) {
-                /* @var $instance ValidatorInterface */
+            if (file_exists(__DIR__.'/../../../../../../modules.php')) {
+                $containerExplorerService = ContainerExplorerService::create();
+                foreach ($instances as $instanceName) {
+                    /* @var $instance ValidatorInterface */
 
-                $instance = $containerExplorerService->getCompositeContainer()->get($instanceName);
+                    $instance = $containerExplorerService->getCompositeContainer()->get($instanceName);
 
-                try {
-                    $result = $instance->validateInstance();
-                } catch (\Exception $e) {
-                    $result = new ValidatorResult(ValidatorResult::ERROR,
-                        "An exception was triggered while running validation for instance '$instanceName': '".$e->getMessage()."'<pre>".$e->getTraceAsString()."</pre>",
-                        "An exception was triggered while running validation for instance '$instanceName': '".$e->getMessage()."'\n".$e->getTraceAsString());
-                }
-                if (!is_array($result)) {
-                    $result = [ $result ];
-                }
-                foreach ($result as $item) {
-                    if (!$item instanceof ValidatorResult) {
-                        throw new ValidatorException("Error while running validator for instance '$instanceName', expected a ValidatorResult or an array of ValidatorResult as answer.");
+                    try {
+                        $result = $instance->validateInstance();
+                    } catch (\Exception $e) {
+                        $result = new ValidatorResult(ValidatorResult::ERROR,
+                            "An exception was triggered while running validation for instance '$instanceName': '".$e->getMessage()."'<pre>".$e->getTraceAsString()."</pre>",
+                            "An exception was triggered while running validation for instance '$instanceName': '".$e->getMessage()."'\n".$e->getTraceAsString());
                     }
+                    if (!is_array($result)) {
+                        $result = [ $result ];
+                    }
+                    foreach ($result as $item) {
+                        if (!$item instanceof ValidatorResult) {
+                            throw new ValidatorException("Error while running validator for instance '$instanceName', expected a ValidatorResult or an array of ValidatorResult as answer.");
+                        }
+                    }
+                    $results = array_merge($results, $result);
                 }
-                $results = array_merge($results, $result);
             }
 
             return $results;
