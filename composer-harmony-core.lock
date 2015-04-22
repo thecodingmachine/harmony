@@ -1720,12 +1720,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/harmony-installer.git",
-                "reference": "5cf81fcc35f6f504a3d3b656a18795f1292bac02"
+                "reference": "2850c168ad08309c562dab076f8b6112f28a9ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/harmony-installer/zipball/5cf81fcc35f6f504a3d3b656a18795f1292bac02",
-                "reference": "5cf81fcc35f6f504a3d3b656a18795f1292bac02",
+                "url": "https://api.github.com/repos/moufmouf/harmony-installer/zipball/2850c168ad08309c562dab076f8b6112f28a9ca9",
+                "reference": "2850c168ad08309c562dab076f8b6112f28a9ca9",
                 "shasum": ""
             },
             "require": {
@@ -1762,7 +1762,7 @@
             "support": {
                 "source": "https://github.com/moufmouf/harmony-installer/tree/1.0"
             },
-            "time": "2015-04-03 12:28:48"
+            "time": "2015-04-22 15:42:57"
         },
         {
             "name": "harmony/validator-interface",
@@ -2807,12 +2807,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/mouf.git",
-                "reference": "043ba0b77a7287427af18d08ead7e0f48d13d614"
+                "reference": "a7ff1c65c15ff1961f3385b76f0553707307f128"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/mouf/zipball/043ba0b77a7287427af18d08ead7e0f48d13d614",
-                "reference": "043ba0b77a7287427af18d08ead7e0f48d13d614",
+                "url": "https://api.github.com/repos/moufmouf/mouf/zipball/a7ff1c65c15ff1961f3385b76f0553707307f128",
+                "reference": "a7ff1c65c15ff1961f3385b76f0553707307f128",
                 "shasum": ""
             },
             "require": {
@@ -2953,7 +2953,7 @@
                 "issues": "https://github.com/thecodingmachine/mouf/issues",
                 "source": "https://github.com/thecodingmachine/mouf/"
             },
-            "time": "2015-02-16 18:24:28"
+            "time": "2015-04-22 15:37:14"
         },
         {
             "name": "mouf/mouf-installer",
