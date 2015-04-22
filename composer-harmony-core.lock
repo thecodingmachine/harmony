@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b19bc4dc0c8bdafc718d9d3355537aa7",
+    "hash": "b6b50d761772091735e425f489e4b80e",
     "packages": [
         {
             "name": "acclimate/container",
@@ -1713,6 +1713,56 @@
                 "stream"
             ],
             "time": "2014-10-12 19:18:40"
+        },
+        {
+            "name": "harmony/harmony-installer",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moufmouf/harmony-installer.git",
+                "reference": "5cf81fcc35f6f504a3d3b656a18795f1292bac02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moufmouf/harmony-installer/zipball/5cf81fcc35f6f504a3d3b656a18795f1292bac02",
+                "reference": "5cf81fcc35f6f504a3d3b656a18795f1292bac02",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0",
+                "php": ">=5.4.0",
+                "symfony/filesystem": "~2.0 || ~3.0",
+                "symfony/process": "~2.0 || ~3.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Harmony\\Installer\\HarmonyPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Harmony\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Négrier",
+                    "email": "d.negrier@thecodingmachine.com",
+                    "homepage": "http://mouf-php.com"
+                }
+            ],
+            "description": " The harmony-installer package is a composer plugin in charge of installing Harmony.",
+            "homepage": "http://mouf-php.com",
+            "keywords": [
+                "harmony",
+                "install"
+            ],
+            "support": {
+                "source": "https://github.com/moufmouf/harmony-installer/tree/1.0"
+            },
+            "time": "2015-04-03 12:28:48"
         },
         {
             "name": "harmony/validator-interface",
@@ -3717,16 +3767,16 @@
         },
         {
             "name": "mouf/utils.cache.file-cache",
-            "version": "v2.1.3",
+            "version": "2.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/utils.cache.file-cache.git",
-                "reference": "e4f4301eccf8e6cd1bae508b186bd0a4226b3634"
+                "reference": "8f0534d3e9ca1769578a820935e06d2e6b6ed357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/utils.cache.file-cache/zipball/e4f4301eccf8e6cd1bae508b186bd0a4226b3634",
-                "reference": "e4f4301eccf8e6cd1bae508b186bd0a4226b3634",
+                "url": "https://api.github.com/repos/thecodingmachine/utils.cache.file-cache/zipball/8f0534d3e9ca1769578a820935e06d2e6b6ed357",
+                "reference": "8f0534d3e9ca1769578a820935e06d2e6b6ed357",
                 "shasum": ""
             },
             "require": {
@@ -3770,7 +3820,7 @@
                 "file",
                 "mouf"
             ],
-            "time": "2015-03-19 10:45:17"
+            "time": "2015-04-10 09:03:10"
         },
         {
             "name": "mouf/utils.cache.in-memory-cache",
