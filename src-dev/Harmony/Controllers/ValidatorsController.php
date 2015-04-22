@@ -102,6 +102,7 @@ class ValidatorsController extends Controller
      * @URL validators/get_class
      *
      * @param string $class
+     * @return JsonResponse
      */
     public function getClassValidator($class)
     {
@@ -112,7 +113,8 @@ class ValidatorsController extends Controller
      *
      * @URL validators/get_instance
      *
-     * @param string $class
+     * @param string $instance
+     * @return JsonResponse
      */
     public function getInstanceValidator($instance)
     {

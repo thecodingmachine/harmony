@@ -32,7 +32,7 @@ class RunValidatorsCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $results = $this->validatorService->validate();
+        $results = $this->validatorService->validateAll();
 
         $output->writeln("Status:");
         $output->writeln("=======");

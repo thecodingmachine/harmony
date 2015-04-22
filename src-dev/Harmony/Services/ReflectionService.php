@@ -54,7 +54,7 @@ class ReflectionService
 
             $appReflectionData = $this->cache->get('appReflectionData');
 
-            if ($appReflectionData === false) {
+            if ($appReflectionData === null) {
                 $appReflectionData = $this->computeAppReflectionData();
                 $this->cache->set('appReflectionData', $appReflectionData, self::CACHE_DURATION);
             }

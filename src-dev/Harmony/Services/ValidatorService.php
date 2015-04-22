@@ -113,8 +113,7 @@ class ValidatorService
             foreach ($instances as $instanceName) {
                 /* @var $instance ValidatorInterface */
 
-                // TODO: we must access the instance from the modules!!!!!
-                $instance = $containerExplorerService->get($instanceName);
+                $instance = $containerExplorerService->getCompositeContainer()->get($instanceName);
 
                 try {
                     $result = $instance->validateInstance();

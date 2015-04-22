@@ -28,11 +28,12 @@ class ContainerService
      * @return string[] An array of instances name.
      */
     public function getInstancesImplementing($type) {
+
         $instances = $this->cache->get('instances_by_type_'.$type);
 
         if ($instances === null) {
             $instances = $this->_getInstancesImplementingWithoutCache($type);
-            $this->cache->set('instances_by_type_'.$type, $instances);
+            $this->cache->set('instances_by_type_'.$type, $instances, self::CACHE_DURATION);
         }
         return $instances;
     }

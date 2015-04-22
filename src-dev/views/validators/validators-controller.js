@@ -54,7 +54,7 @@ validatorsApp.controller('ValidatorsController', ['$scope', '$http', '$sce', fun
 
     $http.get(MoufInstanceManager.rootUrl+'validators/get_list').
         success(function(data, status, headers, config) {
-            $scope.pendingResponses = data.length;
+            $scope.pendingResponses = data.classes.length + data.instances.length;
 
             data.classes.forEach(function(className) {
                 $http.get(MoufInstanceManager.rootUrl+'validators/get_class?class='+className).
