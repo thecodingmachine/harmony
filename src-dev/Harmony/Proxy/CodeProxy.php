@@ -53,7 +53,7 @@ class CodeProxy
         $output = $process->getOutput();
 
         ob_start();
-        $obj = unserialize($output);
+        $obj = @unserialize($output);
         $unexpectedOutput = ob_get_clean();
 
         if ($obj === false) {
