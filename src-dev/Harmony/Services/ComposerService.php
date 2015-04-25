@@ -2,6 +2,7 @@
 namespace Harmony\Services;
 
 use Composer\Composer;
+use Composer\IO\BufferIO;
 use Composer\IO\IOInterface;
 use Mouf\Composer\MoufErrorLogComposerIO;
 use Composer\Factory;
@@ -52,7 +53,7 @@ class ComposerService
         if (null === $this->composer) {
             $this->configureEnv();
 
-            $this->io = new MoufErrorLogComposerIO();
+            $this->io = new BufferIO();
             $this->composer = Factory::create($this->io);
         }
 
