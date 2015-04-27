@@ -27,6 +27,6 @@ class MoufRootController extends Controller
      */
     public function defaultAction()
     {
-        header("Location: ".ROOT_URL."validate/");
+        header("Location: ".ROOT_URL."welcome");
     }
 }

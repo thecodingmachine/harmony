@@ -117,7 +117,7 @@ class ValidatorService
                     $instance = $containerExplorerService->getCompositeContainer()->get($instanceName);
 
                     try {
-                        $result = $instance->validateInstance();
+                        $result = $instance->validateInstance($instanceName);
                     } catch (\Exception $e) {
                         $result = new ValidatorResult(ValidatorResult::ERROR,
                             "An exception was triggered while running validation for instance '$instanceName': '".$e->getMessage()."'<pre>".$e->getTraceAsString()."</pre>",

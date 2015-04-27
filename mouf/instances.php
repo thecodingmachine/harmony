@@ -2159,6 +2159,15 @@ return array(
   'sessionManager' => array(
     'class' => 'Mouf\\Utils\\Session\\SessionManager\\DefaultSessionManager',
     'external' => false,
+      'fieldProperties' => array(
+          'cookieName' => array(
+              'value' => 'HARMONYSESSID',
+              'type' => 'string',
+              'metadata' => array(
+              ),
+          ),
+      ),
+
   ),
   'setRootUrlJsBlock' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\InlineWebLibrary',

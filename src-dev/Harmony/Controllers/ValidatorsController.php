@@ -11,6 +11,7 @@ namespace Harmony\Controllers;
 
 use Harmony\Blocks\Validators;
 use Harmony\Services\ValidatorService;
+use Harmony\Validator\ValidatorResultInterface;
 use Mouf\Html\Renderer\Twig\MoufTwigEnvironment;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
@@ -106,7 +107,7 @@ class ValidatorsController extends Controller
      */
     public function getClassValidator($class)
     {
-        return new JsonResponse($this->validatorService->validateClass($class));
+        return new JsonResponse($this->toJson($this->validatorService->validateClass($class)));
     }
 
     /**
@@ -118,6 +119,19 @@ class ValidatorsController extends Controller
      */
     public function getInstanceValidator($instance)
     {
-        return new JsonResponse($this->validatorService->validateInstance($instance));
+        return new JsonResponse($this->toJson($this->validatorService->validateInstance($instance)));
+    }
+
+    /**
+     * @param ValidatorResultInterface[] $validators
+     */
+    private function toJson(array $validators) {
+        return array_map(function(ValidatorResultInterface $result) {
+            return array(
+                "code"=>$result->getCode(),
+                "htmlMessage"=>$result->getHtmlMessage(),
+                "textMessage"=>$result->getTextMessage(),
+            );
+        }, $validators);
     }
 }

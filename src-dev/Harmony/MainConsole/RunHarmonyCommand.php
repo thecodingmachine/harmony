@@ -1,6 +1,7 @@
 <?php
 namespace Harmony\MainConsole;
 
+use Harmony\Services\BrowserService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,13 +13,18 @@ class RunHarmonyCommand extends Command
     {
         $this
             ->setName('run')
-            ->setDescription('Start the Harmony server. Harmony runs on 2 ports that you can configure using optional parameter')
+            ->setDescription('Start the Harmony server. Harmony runs on a HTTP port that you can configure using an optional parameter')
             ->addOption(
                 'http_port',
                 'p',
                 InputOption::VALUE_REQUIRED,
                 'The HTTP port of Harmony',
-                8000
+                8000)
+            ->addOption(
+                'browser',
+                'b',
+                InputOption::VALUE_NONE,
+                'Starts a browser'
             )
         ;
     }
@@ -36,6 +42,11 @@ class RunHarmonyCommand extends Command
 
         // Let's start the internal web server.
         $output->writeln("Starting Harmony web-server on <info>http://localhost:".$http_port."</info>");
+
+        if ($input->getOption('browser')) {
+            $browserService = new BrowserService($output);
+            $browserService->openBrowser("http://localhost:".$http_port."/");
+        }
 
         // For performance, we disable xdebug
         // Also, we set opcache.revalidate_freq to 0 to avoid bugs when instances file is modified.
