@@ -1,7 +1,7 @@
-Extending Mouf's user interface
-===============================
+Extending Harmony's user interface
+==================================
 
-Mouf has a great user interface, but what makes it really powerful is that it can be extended and
+Harmony has a great user interface. What makes it really powerful is that it can be extended and
 modified by any package (and even by the root application). 
 
 In your package, you can write custom controllers and views in order to add your own user interface.
@@ -14,39 +14,42 @@ There are plenty of hook points that let you:
 
 Let's focus on the most common use case: adding a controller.
 
-Understanding Mouf structure
-----------------------------
+Understanding Harmony structure
+-------------------------------
 
-Mouf is a twin-head beast. On one side, there is the application the user is developping. On the other side (in the `vendor/mouf/mouf` folder), there is Mouf's web-based IDE. So basically, **there are 2 applications in one**. Each application has its **own set of dependencies and autoloader**.
+Harmony is a twin-head beast. On one side, there is the application the user is developing.
+On the other side (in the `vendor/harmony/harmony` folder), there is Harmony's web-based IDE. 
+So basically, **there are 2 applications in one**. Each application has its **own set of dependencies and autoloader**.
 
-Like with any Composer application, dependencies of the application are stored in the `vendor` folder. The dependencies of Mouf are stored in the `vendor/mouf/mouf/vendor` folder.
+Like with any Composer application, dependencies of the application are stored in the `vendor` folder. 
+The dependencies of Harmony are stored in the `vendor/harmony/harmony/vendor` folder.
 
-... and in case you are wondering, Mouf is developed using Mouf (yes, it is recursive!)
+When you write an extension for the Harmony user interface, you want to add classes / controllers / views / dependencies
+to the Harmony application, not your application.
 
-When you write an extension for the Mouf user interface, you want to add classes / controllers / views / dependencies
-to the Mouf application, not your application.
-
-To do this, starting with Mouf 2.1, any package (including the root package) can have **2 composer files**:
-
+To do this, any package (including the root package) can have **2 composer files**:
 
 - the regular `composer.json` file contains the settings of the main application
-- an additional `composer-harmony.json` file contains the settings of the Mouf web-based IDE
+- an additional `composer-harmony.json` file contains the settings of the Harmony web-based IDE
 
-Controllers, classes, views, dependencies dedicated to Mouf web-based IDE must go in the `composer-harmony.json` file.
+Controllers, classes, views, dependencies dedicated to Harmony web-based IDE must go in the `composer-harmony.json` file.
 
-<div class="alert alert-info">Mouf's own packages are stored in the <code>/vendor/mouf/mouf/vendor</code> directory.
-The dependencies added by packages using <code>composer-harmony.json</code> will be stored in the <code>/vendor/mouf/mouf/vendor-harmony</code> directory.</div>
+<div class="alert alert-info">Harmony's own packages are stored in the <code>/vendor/harmony/harmony/vendor</code> directory.
+The dependencies added by packages using <code>composer-harmony.json</code> will be stored in the <code>/vendor/harmony/harmony/vendor-harmony</code> directory.</div>
 
-More about Mouf web-based UI
-----------------------------
+More about Harmony web-based UI
+-------------------------------
 
-Mouf IDE uses a number of packages:
+Harmony IDE uses a number of packages:
 
 - Splash for the MVC part
 - A Bootstrap based template
+- Mouf as a DI container
 - ...
 
-Therefore, when extending Mouf, you will have to [write Splash controllers](http://mouf-php.com/packages/mouf/mvc.splash/index.md).
+// TODO: change this: framework interop
+
+Therefore, when extending Harmony, you will have to [write Splash controllers](http://mouf-php.com/packages/mouf/mvc.splash/index.md).
 Finally, you will have to declare the controller instance manually, but we will see this in the next chapter. Before reading through this document, please be sure you understand [the way Splash works](http://mouf-php.com/packages/mouf/mvc.splash/index.md)!
 
 <div class="alert alert-info">
