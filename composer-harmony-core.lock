@@ -1720,12 +1720,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/harmony-installer.git",
-                "reference": "2850c168ad08309c562dab076f8b6112f28a9ca9"
+                "reference": "89a71315bda9813999443f0350ef1b83ab444b9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/harmony-installer/zipball/2850c168ad08309c562dab076f8b6112f28a9ca9",
-                "reference": "2850c168ad08309c562dab076f8b6112f28a9ca9",
+                "url": "https://api.github.com/repos/moufmouf/harmony-installer/zipball/89a71315bda9813999443f0350ef1b83ab444b9c",
+                "reference": "89a71315bda9813999443f0350ef1b83ab444b9c",
                 "shasum": ""
             },
             "require": {
@@ -1762,7 +1762,7 @@
             "support": {
                 "source": "https://github.com/moufmouf/harmony-installer/tree/1.0"
             },
-            "time": "2015-04-22 15:42:57"
+            "time": "2015-04-30 15:43:53"
         },
         {
             "name": "harmony/validator-interface",
@@ -1770,12 +1770,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moufmouf/harmony-validator-interface.git",
-                "reference": "d0a32ade93e73d414674d8be586bae21ca2eaf63"
+                "reference": "64519f433f100edda2a3f0d93d74f4a2963a7caf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moufmouf/harmony-validator-interface/zipball/d0a32ade93e73d414674d8be586bae21ca2eaf63",
-                "reference": "d0a32ade93e73d414674d8be586bae21ca2eaf63",
+                "url": "https://api.github.com/repos/moufmouf/harmony-validator-interface/zipball/64519f433f100edda2a3f0d93d74f4a2963a7caf",
+                "reference": "64519f433f100edda2a3f0d93d74f4a2963a7caf",
                 "shasum": ""
             },
             "require": {
@@ -1806,7 +1806,7 @@
             "support": {
                 "source": "https://github.com/moufmouf/harmony-validator-interface/tree/1.0"
             },
-            "time": "2015-04-07 21:08:47"
+            "time": "2015-04-26 17:21:26"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -3245,16 +3245,16 @@
         },
         {
             "name": "mouf/nodejs-installer",
-            "version": "v1.0.2",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/nodejs-installer.git",
-                "reference": "f16187efd7b8b7160a4f718c852af2933ca003c8"
+                "reference": "68dfb4432ce10a72d610d8e86b4f97bd12504d51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/nodejs-installer/zipball/f16187efd7b8b7160a4f718c852af2933ca003c8",
-                "reference": "f16187efd7b8b7160a4f718c852af2933ca003c8",
+                "url": "https://api.github.com/repos/thecodingmachine/nodejs-installer/zipball/68dfb4432ce10a72d610d8e86b4f97bd12504d51",
+                "reference": "68dfb4432ce10a72d610d8e86b4f97bd12504d51",
                 "shasum": ""
             },
             "require": {
@@ -3297,7 +3297,7 @@
                 "nodejs",
                 "npm"
             ],
-            "time": "2015-04-12 16:32:03"
+            "time": "2015-04-27 08:15:25"
         },
         {
             "name": "mouf/root-container",
