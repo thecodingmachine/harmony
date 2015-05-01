@@ -60,6 +60,10 @@
         "type": "vcs",
         "url": "https://github.com/moufmouf/harmony-installer"
       },
+      {
+        "type": "vcs",
+        "url": "https://github.com/framework-interop/module-autoinstaller.git"
+      },
         {
             "type": "package",
             "package": {
@@ -110,7 +114,8 @@
 		"dflydev/embedded-composer-console": "~1.0",
         "composer/composer": "> 1.0.0-alpha9",
         "framework-interop/application" : "~1.0",
-        "mouf/html.renderer" : "~1.3",
+      "framework-interop/module-autoinstaller": "~1.0",
+      "mouf/html.renderer" : "~1.3",
         "mouf/root-container" : "~2.0",
         "mouf/html.utils.weblibrarymanager" : "~3.1",
       "cboden/ratchet": "dev-master",

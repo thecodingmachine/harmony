@@ -40,6 +40,32 @@ The dependencies added by packages using <code>composer-harmony.json</code> will
 More about Harmony web-based UI
 -------------------------------
 
+Harmony is built on top of *framework-interop*, a thin layer that brings framework interoperability to PHP projects.
+This means you can write a module using your preferred framework, and hopefully plug it into Harmony.
+
+In this tutorial, we will study how to write an Harmony plugin based on Silex (a microframework based on Symfony components).
+
+The first step is to declare a dependency on the Silex module for *framework-interop*. This will add Silex module into Harmony.
+Notice how the dependency is added to `composer-harmony.json` instead of `composer.json`. 
+ 
+**composer-harmony.json**
+```json
+{
+    "require": {
+        "framework-interop/silex-module": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyModule\\": "src/"
+        }
+    }
+}
+```
+
+// TODO: extra section with framework-interop
+
+
+
 Harmony IDE uses a number of packages:
 
 - Splash for the MVC part
