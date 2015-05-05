@@ -14,4 +14,4 @@ containers.php
 components/
 generated/*
 !generated/.gitkeep
-
+node_modules/
