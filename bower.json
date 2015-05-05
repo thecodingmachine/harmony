@@ -1,1 +1,1 @@
-{"name":"temp-composer-extra-asssets","repository":{"type":"git"},"dependencies":{"angular-ui-bootstrap-bower":"0.12.*"}}
+{"name":"temp-composer-extra-asssets","repository":{"type":"git"},"dependencies":{"jquery":"1.11.*","jquery-ui":"1.11.*","jquery-validation":"1.13.*","angular-ui-bootstrap-bower":"0.12.*"}}

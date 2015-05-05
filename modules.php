@@ -31,4 +31,19 @@ return [
         'module' => new Mouf\RootContainer\RootContainerModule(),
         'enable' => true,
     ],
+
+
+
+    [
+        'name' => 'silex-module',
+        'description' => 'Module for Silex',
+        'module' => $silexModule = new \Interop\Framework\Silex\SilexFrameworkModule(),
+        'enable' => true,
+    ],
+    [
+        'name' => 'doctrine-orm-ui-module',
+        'description' => 'Module for Doctrine ORM',
+        'module' => new Harmony\Doctrine\DoctrineOrmUiModule($silexModule),
+        'enable' => true,
+    ],
 ];
