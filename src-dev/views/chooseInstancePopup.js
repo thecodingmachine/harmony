@@ -12,7 +12,7 @@
  */
 function chooseInstancePopup(type, url, rooturl, title, selfedit) {
 
-	jQuery.getJSON(rooturl+"src/direct/get_instances.php",{class: type, encode:"json", selfedit:selfedit?"true":"false", ajax: 'true'}, function(j){
+	jQuery.getJSON(rooturl+"get_instances",{type: type, encode:"json", selfedit:selfedit?"true":"false", ajax: 'true'}, function(j){
 		chooseInstancePopupOnComponentsListLoaded(j, type, url, title, selfedit);
 	}).fail(function(e) {
 		//alert("Error while trying to display choose instance popup");

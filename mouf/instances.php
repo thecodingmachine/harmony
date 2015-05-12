@@ -2938,6 +2938,27 @@ return $driver;
 
     ),
 
+    'searchInstancesController' => array(
+        'class' => 'Harmony\\Controllers\\SearchInstancesController',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'containerService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+
     'validatorsController' => array(
         'class' => 'Harmony\\Controllers\\ValidatorsController',
         'external' => false,

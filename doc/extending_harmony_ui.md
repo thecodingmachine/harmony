@@ -37,15 +37,21 @@ Controllers, classes, views, dependencies dedicated to Harmony web-based IDE mus
 <div class="alert alert-info">Harmony's own packages are stored in the <code>/vendor/harmony/harmony/vendor</code> directory.
 The dependencies added by packages using <code>composer-harmony.json</code> will be stored in the <code>/vendor/harmony/harmony/vendor-harmony</code> directory.</div>
 
-More about Harmony web-based UI
--------------------------------
+Framework-agnostic modules
+--------------------------
 
 Harmony is built on top of *framework-interop*, a thin layer that brings framework interoperability to PHP projects.
-This means you can write a module using your preferred framework, and hopefully plug it into Harmony.
+This means **you can write a module using your preferred framework**, and plug it into Harmony.
 
-In this tutorial, we will study how to write an Harmony plugin based on Silex (a microframework based on Symfony components).
+Creating a Silex-based module
+-----------------------------
 
-The first step is to declare a dependency on the Silex module for *framework-interop*. This will add Silex module into Harmony.
+In this tutorial, we will study how to write an **Harmony plugin based on Silex** (a microframework based on Symfony components).
+
+The first step is to declare a dependency on the Silex module for *framework-interop*.
+We do that by adding the [framework-interop/silex-module](https://github.com/framework-interop/silex-module) to the 
+list of dependencies. This module is a wrapper of Silex that allows us to use Silex with framework-interop.
+
 Notice how the dependency is added to `composer-harmony.json` instead of `composer.json`. 
  
 **composer-harmony.json**
@@ -58,11 +64,155 @@ Notice how the dependency is added to `composer-harmony.json` instead of `compos
         "psr-4": {
             "MyModule\\": "src/"
         }
+    },
+    "extra": {
+        "framework-interop": {
+            "module-factory": [
+                {
+                    "name" : "my-module",
+                    "description" : "This is my module for Harmony",
+                    "module" : "new MyModule\\Module($silexModule)",
+                    "priority" : 10
+                }
+            ]
+        }
     }
 }
 ```
 
-// TODO: extra section with framework-interop
+You certainly noticed the strange "extra/framework-interop/module-factory" section.
+This is a section that allows Harmony to automatically register your module.
+
+The important part is the `module` key. It must contain valid PHP code that returns an instance of
+an object implementing `Interop\Framework\ModuleInterface`.
+
+Automatic detection of framework-interop modules is actually provided by 
+[framework-interop's module-autoinstaller](https://github.com/framework-interop/module-autoinstaller). Check the
+documentation of this package if you want to learn more about it.
+
+Now, let's have a closer look at the module file.
+
+**src/Module.php**
+```
+<?php
+namespace MyModule;
+
+use Harmony\Doctrine\Controllers\EntitiesListController;
+use Interop\Container\ContainerInterface;
+use Interop\Framework\ModuleInterface;
+use Interop\Framework\Silex\AbstractSilexModule;
+use Silex\Application;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * This module provides a hook for registering controllers inside Silex.
+ */
+class Module extends AbstractSilexModule implements ModuleInterface
+{
+    // The $rootContainer is a composite container containing all containers
+    // used by your module.
+    private $rootContainer;
+
+    public function getName()
+    {
+        return 'my-module';
+    }
+
+    public function getContainer(ContainerInterface $rootContainer)
+    {
+        $this->rootContainer = $rootContainer;
+        return null;
+    }
+
+    public function init()
+    {
+        // Let's get the silex application
+        $app = $this->getSilexApp();
+
+        // Here, you can declare your routes!
+        $app->get('/my-route', function (Application $app) {
+            return new Response('Hello world!');
+        });
+    }
+}
+```
+
+This simple module will answer "Hello world!" when you hit the `/my-route` URL.
+
+A few interesting points you should notice:
+
+- the module is implementing the `Interop\Framework\ModuleInterface`
+- because we write a Silex-based module, we implement the `Interop\Framework\Silex\AbstractSilexModule` class. This
+  class provides a useful `getSilexApp()` method that returns the Silex application object.
+- the `getContainer` method can be used to inject a container into Harmony. Right now, we don't need to, so we return
+  *null*.
+- the `init` method is used to perform initialization steps. In our case, we use Silex to declare a route on `/my-route`
+  URL.
+
+
+Adding a menu in Harmony
+------------------------
+
+For your module to be accessed, you will certainly want to add a link in the global Harmony menu.
+You can edit menu items using the `Harmony\Services\MenuService` class.
+
+**Module.php**
+```php
+// This is the class for your module
+class Module implements ModuleInterface
+{
+    private $rootContainer;
+
+    //...
+
+    public function getContainer(ContainerInterface $rootContainer)
+    {
+        $this->rootContainer = $rootContainer;
+        return null;
+    }
+
+    public function init()
+    {
+        // The MenuService class is a helper class to edit the menu.
+        $menuService = new MenuService($this->rootContainer);
+        // Let's get an instance of the main menu.
+        $mainMenu = $menuService->getMainMenu();
+        // Let's register a "My module" menu in this main menu.
+        $moduleMenu = $menuService->registerMenuItem("My module", null, $mainMenu);
+        // Finally, let's register a "Main doctrine page" menu in the Doctrine menu.
+        $menuService->registerMenuItem("My page", "/my-page", $moduleMenu);
+
+        //...
+    }
+
+}
+```
+
+You will typically invoke the `MenuService` class in the `init` method of your module.
+The `MenuService` takes in parameter the root container.
+
+`MenuService` provides 3 useful methods:
+
+- `getMainMenu()` returns the main menu object.
+- `registerMenuItem($label, $url, $parentMenuItem, $priority)` is a utility function to easily add additional
+  menu items to the `$parentMenuItem`.
+- TODO: registerMenuItem for instance
+
+
+Using Harmony's templating engine
+---------------------------------
+
+At some point, you will want to create a controller and display the Harmony template with your content in it.
+
+// TODO: template + content block + left block, etc....
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
 
 
 
