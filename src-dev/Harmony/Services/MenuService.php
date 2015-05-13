@@ -47,11 +47,11 @@ class MenuService {
 	 * Note: this function takes care of duplicates. The menu will not be registered if another menu item has the same label
 	 * and same url.
 	 *
-	 * @param string $label
-	 * @param string $url
-	 * @param MenuItem|Menu $parentMenuItem
+	 * @param string $label The label of the menu
+	 * @param string $url The URL of the link
+	 * @param MenuItem|Menu $parentMenuItem The parent menu item
 	 * @param float $priority The position of the menu
-	 * @return MenuItem
+	 * @return MenuItemInterface
 	 */
 	public function registerMenuItem($label, $url, $parentMenuItem, $priority = 50.0) {
 		foreach ($parentMenuItem->getChildren() as $child) {
@@ -76,13 +76,15 @@ class MenuService {
 
 	/**
 	 * Registers a new menuItem instance to be displayed in Harmony main menu that triggers
-	 * a popup to choose an instance.
+	 * a popup to choose an instance from type $type.
+	 * The name of the instance will automatically be added to the URL: [URL]?name=[instance_name]
 	 *
-	 * @param string $label
-	 * @param string $url
-	 * @param string $type
-	 * @param string $parentMenuItem The parent menu item
+	 * @param string $label The label of the menu
+	 * @param string $url The URL of the link
+	 * @param string $type A fully qualified class name or interface that instances should implement
+	 * @param MenuItem|Menu $parentMenuItem The parent menu item
 	 * @param float $priority The position of the menu
+	 * @return ChooseInstanceMenuItem
 	 */
 	public function registerChooseInstanceMenuItem($label, $url, $type, $parentMenuItem, $priority = 50.0) {
 
