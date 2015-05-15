@@ -59,7 +59,7 @@ class ReflectionService
                 $this->cache->set('appReflectionData', $appReflectionData, self::CACHE_DURATION);
             }
 
-            $this->reflectionData = array_merge($vendorReflectionData, $appReflectionData);
+            $this->reflectionData = array_merge($vendorReflectionData?:array(), $appReflectionData?:array());
         }
 
         return $this->reflectionData;

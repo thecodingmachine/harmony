@@ -50,6 +50,6 @@ class RunHarmonyCommand extends Command
 
         // For performance, we disable xdebug
         // Also, we set opcache.revalidate_freq to 0 to avoid bugs when instances file is modified.
-        passthru(PHP_BINARY.' -S localhost:'.$http_port.' -d xdebug.remote_autostart=0 -d xdebug.remote_enable=0 -d opcache.revalidate_freq=0 src/internal_web_server_router.php');
+        passthru(PHP_BINARY.' -S localhost:'.$http_port.' -d xdebug.remote_autostart=0 -d xdebug.remote_enable=0 -d xdebug.max_nesting_level=10000 -d opcache.revalidate_freq=0 src/internal_web_server_router.php');
     }
 }
