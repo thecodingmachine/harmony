@@ -12,42 +12,40 @@ use Mouf\MoufManager;
 
 define('ROOT_PATH', realpath(__DIR__."/..").DIRECTORY_SEPARATOR);
 
-
 // Let's add to the project's autoloader to the Mouf classes.
 // For Mouf classes to be detected before the projet's classes, projects classes must be autoloaded first.
 if (!class_exists('Composer\\Autoload\\ClassLoader')) {
-	require __DIR__.'/../vendor/composer/ClassLoader.php';
+    require __DIR__.'/../vendor/composer/ClassLoader.php';
 }
 
 $loader = new \Composer\Autoload\ClassLoader();
-if (file_exists(__DIR__ . '/../../../composer/autoload_namespaces.php')) {
-	$map = require __DIR__ . '/../../../composer/autoload_namespaces.php';
-	foreach ($map as $namespace => $path) {
-		$loader->add($namespace, $path);
-	}
+if (file_exists(__DIR__.'/../../../composer/autoload_namespaces.php')) {
+    $map = require __DIR__.'/../../../composer/autoload_namespaces.php';
+    foreach ($map as $namespace => $path) {
+        $loader->add($namespace, $path);
+    }
 }
 
-if (file_exists(__DIR__ . '/../../../composer/autoload_psr4.php')) {
-	$map = require __DIR__ . '/../../../composer/autoload_psr4.php';
-	foreach ($map as $namespace => $path) {
-		$loader->addPsr4($namespace, $path);
-	}
+if (file_exists(__DIR__.'/../../../composer/autoload_psr4.php')) {
+    $map = require __DIR__.'/../../../composer/autoload_psr4.php';
+    foreach ($map as $namespace => $path) {
+        $loader->addPsr4($namespace, $path);
+    }
 }
 
-if (file_exists(__DIR__ . '/../../../composer/autoload_classmap.php')) {
-	$classMap = require __DIR__ . '/../../../composer/autoload_classmap.php';
-	if ($classMap) {
-		$loader->addClassMap($classMap);
-	}
+if (file_exists(__DIR__.'/../../../composer/autoload_classmap.php')) {
+    $classMap = require __DIR__.'/../../../composer/autoload_classmap.php';
+    if ($classMap) {
+        $loader->addClassMap($classMap);
+    }
 }
 $loader->register(true);
-
 
 // Now, let's use Mouf autoloader.
 require_once __DIR__.'/../vendor/autoload.php';
 
 if (file_exists(__DIR__.'/../../../../mouf/MoufComponents.php')) {
-	require_once __DIR__.'/../../../../mouf/MoufComponents.php';
+    require_once __DIR__.'/../../../../mouf/MoufComponents.php';
 }
 
 // FIXME: rewrite this to support many MoufComponents!!!
@@ -57,33 +55,28 @@ if (file_exists(__DIR__.'/../../../../mouf/MoufComponents.php')) {
 MoufManager::switchToHidden();
 require_once 'MoufComponents.php';
 
-
-
 /*if (file_exists(__DIR__.'/../config.php')) {
-	require_once __DIR__.'/../config.php';
+    require_once __DIR__.'/../config.php';
 }*/
 
 define('MOUF_URL', ROOT_URL);
 
-
 // We are part of mouf, let's chain with the main autoloader if it exists.
 /*if (file_exists(__DIR__.'/../../../../vendor/autoload.php')) {
-	require_once __DIR__.'/../../../../vendor/autoload.php';
+    require_once __DIR__.'/../../../../vendor/autoload.php';
 }*/
 
 // Finally, let's include the MoufUI if it exists.
 // Note: acting on the _REQUEST is not the cleanest thing to do!!!
 if (isset($_REQUEST['selfedit']) && $_REQUEST['selfedit'] == 'true') {
-	if (file_exists(__DIR__.'/MoufUI.php')) {
-		require_once __DIR__.'/MoufUI.php';
-	}
+    if (file_exists(__DIR__.'/MoufUI.php')) {
+        require_once __DIR__.'/MoufUI.php';
+    }
 } else {
-	if (file_exists(__DIR__.'/../../../../mouf/MoufUI.php')) {
-		require_once __DIR__.'/../../../../mouf/MoufUI.php';
-	}
+    if (file_exists(__DIR__.'/../../../../mouf/MoufUI.php')) {
+        require_once __DIR__.'/../../../../mouf/MoufUI.php';
+    }
 }
-
 
 // And let's start the session
 MoufAdmin::getSessionManager()->start();
-?>

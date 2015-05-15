@@ -1,0 +1,4 @@
+
+<consoletab object="object" kill="kill({ name: object.name })" remove="remove({ name: object.name })" mode="'main'" minimize="minimize()" select="maximize()" ></consoletab>
+
+<div class="console" tabindex="1" ng-keypress="onKeyPress($event)"><div ng-repeat="outputLine in object.output track by $index" class="line {{outputLine.error?'stderr':'' }}">{{ outputLine.text }}</div><div class="errorExitCode" ng-if="object.status == 'error' && object.exitCode != 0 && object.exitCode">Exited with code {{object.exitCode}}</div><div class="errorExitCode" ng-if="object.status == 'error' && object.terminationSignal">Program terminated (signal {{object.terminationSignal}})</div></div>

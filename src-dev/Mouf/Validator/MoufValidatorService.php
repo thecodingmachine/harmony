@@ -14,32 +14,34 @@ use Mouf\Html\HtmlElement\HtmlElementInterface;
 /**
  * Service specialized in validating the environment.
  * The validator service centralizes the validation steps provided by "Validation Providers" (implementing the MoufValidationProviderInterface).
- * 
+ *
  * @Component
  */
-class MoufValidatorService implements HtmlElementInterface {
-	
-	/**
-	 * The array of validators that will be run when validation is triggered.
-	 * 
-	 * @Property
-	 * @var array<MoufValidationProviderInterface>
-	 */
-	public $validators;
-	
-	/**
-	 * Whether we are in selfEdit mode or not.
-	 * Note: this is a string! It must be "true" to be in selfedit mode.
-	 * 
-	 * @var string
-	 */
-	public $selfEdit;
-	
-	public function toHtml() {
-?>	
+class MoufValidatorService implements HtmlElementInterface
+{
+
+    /**
+     * The array of validators that will be run when validation is triggered.
+     *
+     * @Property
+     * @var array<MoufValidationProviderInterface>
+     */
+    public $validators;
+
+    /**
+     * Whether we are in selfEdit mode or not.
+     * Note: this is a string! It must be "true" to be in selfedit mode.
+     *
+     * @var string
+     */
+    public $selfEdit;
+
+    public function toHtml()
+    {
+        ?>
 		<div id="validators"></div>
 		<script type="text/javascript">
-				
+
 		function addValidator(name, url) {
 
 
@@ -67,50 +69,50 @@ class MoufValidatorService implements HtmlElementInterface {
 				error: function(jqXHR, textStatus, errorThrown) {
 					ValidatorMessages.turnMessageIntoError(container, "Unable to run '"+name+"': "+textStatus);
 				}
-								
+
 			});
-			
+
 		}
 		jQuery(document).ready(function() {
 			jQuery(document).on("click", ".seeErrorDetails", function(evt) {
 				jQuery(evt.target).parent().find("div").toggle();
 				return false;
 			});
-			
-<?php 
+
+<?php
 
 
-			foreach ($this->validators as $validator) {
-				/* @var $validator MoufValidationProviderInterface */
-				echo "addValidator('".addslashes($validator->getName())."', '".addslashes($validator->getUrl())."')\n";
-			}
-?>
+            foreach ($this->validators as $validator) {
+                /* @var $validator MoufValidationProviderInterface */
+                echo "addValidator('".addslashes($validator->getName())."', '".addslashes($validator->getUrl())."')\n";
+            }
+        ?>
 		});
 		</script>
-<?php 
-		// TODO: add a script that searches for instances / classes in JS, and add a validator in JS directly.
-		// Doing so in Ajax will allow us to be sure the page displays fast enough.
-	}
-	
-	/**
-	 * Registers dynamically a new validator. 
-	 * 
-	 * @param string $name
-	 * @param string $url
-	 * @param array<string> $propagatedUrlParameters
-	 */
-	public function registerBasicValidator($name, $url, $propagatedUrlParameters = null) {
-		$this->validators[] = new MoufBasicValidationProvider($name, $url, $propagatedUrlParameters);
-	}
-	
-	/**
-	 * Registers dynamically a new validator. 
-	 * 
-	 * @param MoufValidationProviderInterface $validationProvider
-	 */
-	public function registerValidator(MoufValidationProviderInterface $validationProvider) {
-		$this->validators[] = $validationProvider;
-	}
-}
+<?php
+        // TODO: add a script that searches for instances / classes in JS, and add a validator in JS directly.
+        // Doing so in Ajax will allow us to be sure the page displays fast enough.
+    }
 
-?>
+    /**
+     * Registers dynamically a new validator.
+     *
+     * @param string        $name
+     * @param string        $url
+     * @param array<string> $propagatedUrlParameters
+     */
+    public function registerBasicValidator($name, $url, $propagatedUrlParameters = null)
+    {
+        $this->validators[] = new MoufBasicValidationProvider($name, $url, $propagatedUrlParameters);
+    }
+
+    /**
+     * Registers dynamically a new validator.
+     *
+     * @param MoufValidationProviderInterface $validationProvider
+     */
+    public function registerValidator(MoufValidationProviderInterface $validationProvider)
+    {
+        $this->validators[] = $validationProvider;
+    }
+}

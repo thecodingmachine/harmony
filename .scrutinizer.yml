@@ -1,0 +1,4 @@
+build:
+    environment:
+        variables: 
+             COMPOSER: composer-harmony-core.json

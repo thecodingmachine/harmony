@@ -1,14 +1,46 @@
 Utility functions
 =================
 
-When you write custom controllers for your package (extended actions or custom UI pages), you will often need
-to access your application's context. This is one of the main difficulties when you develop packages for Mouf.
-Mouf is loaded with all its classes, but you often need to trigger a function call in your application.
+When you write plugins for Harmony, you will often need
+to access your application's context. This is one of the main difficulties when you develop Harmony plugins.
+Harmony runs in its own context. It has its own classes, its own autoloader. Still, you often need to trigger a function 
+call in your application.
 
 For instance, you might want to modify a session variable in you application (but the session of your application
-is not shared with Mouf's session).
+is not shared with Harmony session).
 
-Hopefully, Mouf comes with utility classes (proxies) that can help you to perform function calls in your application.
+Hopefully, Harmony comes with a number of tools to help you bridge the gap between Harmony's context and your application's
+context.
+
+Running code in the application's context from your Harmony plugin
+------------------------------------------------------------------
+
+Harmony comes with a powerful tool named `CodeProxy`. This is a class that will let you run code inside your application's context.
+Usage is fairly simple:
+
+```php
+// This code is part of an Harmony plugin. Therefore it runs in Harmony's context.
+
+$codeProxy = new CodeProxy();
+$result = $codeProxy->execute(function() {
+    // Your code here runs in the context of your application!
+    
+    // The return value is passed back as the result of the "execute" function.
+    return "Hello world!";
+});
+
+// Prints "Hello world"
+echo $result;
+```
+
+<div class="alert alert-info">Behind the scene, the CodeProxy is starting additional PHP programs.
+This means that the closure you are passing in parameter to "execute" is serialized, and that the return value
+is also serialized (thanks to the [fantastic jeremeamia/super-closure library] TODO provide link).
+You can therefore pass primitive types easily (strings, arrays...) If you want to pass objects
+as parameters or as return values, the class must be available in your application and in Harmony's context.</div>
+
+
+TODO: check if ClassProxy and InstanceProxy are still relevant?
 
 Performing a static method call from Mouf context in your application context
 -----------------------------------------------------------------------------

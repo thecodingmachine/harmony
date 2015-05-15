@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* @var $this Mouf\Controllers\MoufController */
 
 ?>
@@ -73,7 +73,7 @@ jQuery(document).ready(function() {
 
 		return false;
 	}
-	
+
 	//MoufUI.displayInstanceOfType("#classesList", "NoRenderer", false, true);
 	MoufUI.renderClassesList({
 		onSelect: function(classDescriptor, classElem) {
@@ -91,16 +91,18 @@ jQuery(document).ready(function() {
 
 	jQuery("#selectaclassbutton").click(openSelectClass);
 
-	<?php 
-	if ($this->instanceClass) {		
-	?>
+	<?php
+    if ($this->instanceClass) {
+        ?>
 	jQuery("#selectaclassbutton").hide();
-	MoufInstanceManager.getClass(<?php echo json_encode($this->instanceClass); ?>).then(function(classDescriptor) {
+	MoufInstanceManager.getClass(<?php echo json_encode($this->instanceClass);
+        ?>).then(function(classDescriptor) {
 		classDescriptor.render().appendTo("#selectedclasscontainer").click(openSelectClass);
 	});
-	<?php 
-	}
-	?>
+	<?php
+
+    }
+    ?>
 
 	jQuery("#createInstanceForm").submit(function() {
 		if (jQuery("input[name=instanceName]").val() == "") {
@@ -112,9 +114,9 @@ jQuery(document).ready(function() {
 			return false;
 		}
 
-		
+
 		jQuery("#createInstanceForm button").attr("disabled", true);
-		
+
 		var classDescriptor = jQuery("#selectedclasscontainer div").data("class");
 
 		if (classDescriptor.getExportMode() != 'all') {
@@ -124,7 +126,7 @@ jQuery(document).ready(function() {
 		} else {
 			MoufInstanceManager.newInstance(classDescriptor, jQuery("input[name=instanceName]").val(), false);
 		}
-		
+
 		return false;
 	});
 

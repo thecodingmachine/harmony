@@ -7,15 +7,12 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 /**
  * Returns a serialized string representing the array for all components declarations (classes with the @Component annotation),
  * along additional interesting infos (subclasses, name of the declaration file, etc...)
  */
-
-
 use Mouf\Moufspector;
-
 use Mouf\MoufManager;
 
 ini_set('display_errors', 1);
@@ -24,21 +21,21 @@ error_reporting(E_ERROR | error_reporting());
 
 // Disable output buffering
 while (ob_get_level() != 0) {
-	ob_end_clean();
+    ob_end_clean();
 }
 
-if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"]!="true") {
-	define('ROOT_URL', $_SERVER['BASE']."/../../../");
-	
-	require_once '../../../../../mouf/Mouf.php';
+if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"] != "true") {
+    define('ROOT_URL', $_SERVER['BASE']."/../../../");
+
+    require_once '../../../../../mouf/Mouf.php';
 } else {
-	define('ROOT_URL', $_SERVER['BASE']."/");
-	
-	require_once '../../mouf/Mouf.php';
-	/*require_once '../MoufManager.php';
-	MoufManager::initMoufManager();
-	require_once '../../MoufUniversalParameters.php';
-	require_once '../MoufAdmin.php';*/
+    define('ROOT_URL', $_SERVER['BASE']."/");
+
+    require_once '../../mouf/Mouf.php';
+    /*require_once '../MoufManager.php';
+    MoufManager::initMoufManager();
+    require_once '../../MoufUniversalParameters.php';
+    require_once '../MoufAdmin.php';*/
 }
 //require_once '../Moufspector.php';
 
@@ -48,30 +45,29 @@ require_once 'utils/check_rights.php';
 
 //MoufManager::getMoufManager()->forceAutoload();
 
-$file=null;
-$line=null;
+$file = null;
+$line = null;
 $isSent = headers_sent($file, $line);
 
 if ($isSent) {
-	echo "\n<error>Error! Output started on line ".$line." in file ".$file."</error>";
-	exit;
+    echo "\n<error>Error! Output started on line ".$line." in file ".$file."</error>";
+    exit;
 }
 
 $type = null;
 if (isset($_REQUEST["type"])) {
-	$type = $_REQUEST["type"];
+    $type = $_REQUEST["type"];
 }
 
 $encode = "php";
-if (isset($_REQUEST["encode"]) && $_REQUEST["encode"]="json") {
-	$encode = "json";
+if (isset($_REQUEST["encode"]) && $_REQUEST["encode"] = "json") {
+    $encode = "json";
 }
 
 if ($encode == "php") {
-	echo serialize(Moufspector::getEnhancedComponentsList($type, $_REQUEST["selfedit"]=="true"));
+    echo serialize(Moufspector::getEnhancedComponentsList($type, $_REQUEST["selfedit"] == "true"));
 } elseif ($encode == "json") {
-	echo json_encode(Moufspector::getEnhancedComponentsList($type, $_REQUEST["selfedit"]=="true"));
+    echo json_encode(Moufspector::getEnhancedComponentsList($type, $_REQUEST["selfedit"] == "true"));
 } else {
-	echo "invalid encode parameter";
+    echo "invalid encode parameter";
 }
-?>

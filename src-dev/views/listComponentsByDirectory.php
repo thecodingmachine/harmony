@@ -9,73 +9,77 @@
  */
 
 if ($this->showAnonymous) {
-	?>
+    ?>
 <a href="<?php echo ROOT_URL ?>mouf/?selfedit=<?php echo $this->selfedit ?>&query=<?php echo $this->query ?>&show_anonymous=false" class="btn btn-danger pull-right">Hide anonymous instances</a>
-<?php 
+<?php
+
 } else {
-?>
+    ?>
 <a href="<?php echo ROOT_URL ?>mouf/?selfedit=<?php echo $this->selfedit ?>&query=<?php echo $this->query ?>&show_anonymous=true" class="btn btn-success pull-right">Show anonymous instances</a>
-<?php 
+<?php
+
 }
 
-
 if (empty($this->instancesByPackage)) {
-?><div class="alert alert-info">No instances found</div>
+    ?><div class="alert alert-info">No instances found</div>
 <p>Use the <strong>Instances &gt; Create a new instance</strong> menu to populate your app with new instances.</p>
-<?php 
+<?php
+
 } elseif ($this->query) {
-?>
+    ?>
 <h2>Instances list found</h2>
-<?php 
+<?php
+
 } else {
-?>
+    ?>
 <h1>Available instances</h1>
-<?php 
+<?php
+
 }
 
 $count = 0;
-foreach ($this->instancesByPackage as $package=>$instancesByClass) {
-	foreach ($instancesByClass as $class=>$instances) {
-		$count += count($instances);
-	}
+foreach ($this->instancesByPackage as $package => $instancesByClass) {
+    foreach ($instancesByClass as $class => $instances) {
+        $count += count($instances);
+    }
 }
 ?>
 Nb instances found: <strong><?php echo $count; ?></strong>
-<?php 
+<?php
 
 
 if (!$this->ajax && !empty($this->inErrorInstances)) {
-	echo "<div class='error'>";
-	echo "The following instances are erroneous. They are pointing to a class that no longer exist. You should delete those to avoid any problem.<br/><ul>";
-	foreach ($this->inErrorInstances as $instanceName=>$className) {
-		echo "<li>".$instanceName." - class not found: ".$className." : <a href='".ROOT_URL."mouf/deleteInstance?instanceName=".plainstring_to_htmlprotected($instanceName)."&selfedit=".$this->selfedit."'>Delete</a></li>";
-	}
-	echo "</ul>";
-	echo "</div>";
+    echo "<div class='error'>";
+    echo "The following instances are erroneous. They are pointing to a class that no longer exist. You should delete those to avoid any problem.<br/><ul>";
+    foreach ($this->inErrorInstances as $instanceName => $className) {
+        echo "<li>".$instanceName." - class not found: ".$className." : <a href='".ROOT_URL."mouf/deleteInstance?instanceName=".plainstring_to_htmlprotected($instanceName)."&selfedit=".$this->selfedit."'>Delete</a></li>";
+    }
+    echo "</ul>";
+    echo "</div>";
 }
 
 if ($this->unkownPhpCodeInstances) {
-	echo "<div class='directorytitle'>Unclassifiable instances declared by PHP code</div>";
-	echo "<div class='directorycontent'>";
-	foreach ($this->unkownPhpCodeInstances as $instance=>$desc) {
-		echo "<a href='".ROOT_URL."ajaxinstance/?name=".plainstring_to_urlprotected($instance)."&selfedit=".$this->selfedit."'>";
-		echo plainstring_to_htmlprotected(isset($this->anonymousNames[$instance])?$this->anonymousNames[$instance]:$instance);
-		echo "</a> - ".(isset($desc['error'])?"<span class='phperror'>".$desc['error']."</span>":$desc['class'])."<br/>";	
-	}
-	echo "</div>";
+    echo "<div class='directorytitle'>Unclassifiable instances declared by PHP code</div>";
+    echo "<div class='directorycontent'>";
+    foreach ($this->unkownPhpCodeInstances as $instance => $desc) {
+        echo "<a href='".ROOT_URL."ajaxinstance/?name=".plainstring_to_urlprotected($instance)."&selfedit=".$this->selfedit."'>";
+        echo plainstring_to_htmlprotected(isset($this->anonymousNames[$instance]) ? $this->anonymousNames[$instance] : $instance);
+        echo "</a> - ".(isset($desc['error']) ? "<span class='phperror'>".$desc['error']."</span>" : $desc['class'])."<br/>";
+    }
+    echo "</div>";
 }
 
-foreach ($this->instancesByPackage as $package=>$instancesByClass) {
-	echo "<div class='directorytitle'>$package</div>";
-	echo "<div class='directorycontent'>";
-	foreach ($instancesByClass as $class=>$instances) {
-		foreach ($instances as $instance) {
-			echo "<a href='".ROOT_URL."ajaxinstance/?name=".plainstring_to_urlprotected($instance)."&selfedit=".$this->selfedit."'>";
-			echo plainstring_to_htmlprotected(isset($this->anonymousNames[$instance])?$this->anonymousNames[$instance]:$instance);
-			echo "</a> - ".plainstring_to_htmlprotected($class)."<br/>";	
-		}
-	}
-	echo "</div>";
+foreach ($this->instancesByPackage as $package => $instancesByClass) {
+    echo "<div class='directorytitle'>$package</div>";
+    echo "<div class='directorycontent'>";
+    foreach ($instancesByClass as $class => $instances) {
+        foreach ($instances as $instance) {
+            echo "<a href='".ROOT_URL."ajaxinstance/?name=".plainstring_to_urlprotected($instance)."&selfedit=".$this->selfedit."'>";
+            echo plainstring_to_htmlprotected(isset($this->anonymousNames[$instance]) ? $this->anonymousNames[$instance] : $instance);
+            echo "</a> - ".plainstring_to_htmlprotected($class)."<br/>";
+        }
+    }
+    echo "</div>";
 }
 
 ?>

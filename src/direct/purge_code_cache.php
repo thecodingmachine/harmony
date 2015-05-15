@@ -6,7 +6,7 @@ use Mouf\MoufUtils;
 
 // Disable output buffering
 while (ob_get_level() != 0) {
-	ob_end_clean();
+    ob_end_clean();
 }
 
 ini_set('display_errors', 1);
@@ -25,4 +25,3 @@ $moufCache = new MoufCache();
 $moufCache->purgeAll();
 
 exit;
-?>

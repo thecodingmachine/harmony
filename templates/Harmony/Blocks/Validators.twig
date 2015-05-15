@@ -1,0 +1,54 @@
+<h1>Status</h1>
+
+{% verbatim %}
+<div ng-app="validatorsApp">
+    <div ng-controller="ValidatorsController" class="validators">
+        <div class="alert alert-danger" ng-show="error != null" ng-bind-html="error">
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-success {{ (pendingResponses != 0)? 'progress-bar-striped' : '' }}" style="width: {{ percentOk() }}%" ng-click="displaySuccesses = !displaySuccesses">
+                <span ng-hide="nbOk() == 0">{{nbOk()}}</span>
+            </div>
+            <div class="progress-bar progress-bar-warning {{ (pendingResponses != 0)? 'progress-bar-striped' : '' }}" style="width: {{ percentWarn() }}%" ng-click="displayWarnings = !displayWarnings">
+                <span ng-hide="nbWarn() == 0">{{nbWarn()}}</span>
+            </div>
+            <div class="progress-bar progress-bar-danger {{ (pendingResponses != 0)? 'progress-bar-striped' : '' }}" style="width: {{ percentError() }}%" ng-click="displayErrors = !displayErrors">
+                <span ng-hide="nbError() == 0">{{nbError()}}</span>
+            </div>
+        </div>
+
+        <!--
+        <div class="row">
+            <div class="col-sm-12">
+                <progress max="nbMax()">
+                    <bar type="success" value="nbOk()" ng-click="displaySuccesses = !displaySuccesses">
+                        <span ng-hide="nbOk() == 0">{{nbOk()}}</span>
+                    </bar>
+                    <bar type="warning" value="nbWarn()">
+                        <span ng-hide="nbWarn() == 0">{{nbWarn()}}</span>
+                    </bar>
+                    <bar type="danger" value="nbError()">
+                        <span ng-hide="nbError() == 0">{{nbError()}}</span>
+                    </bar>
+                </progress>
+
+            </div>
+        </div>
+        -->
+
+        <div ng-repeat="validator in validators">
+            <div class="alert {{ (validator.code == 'ok') ? 'alert-success' : (validator.code == 'warn') ? 'alert-warning' : 'alert-danger' }}" role="alert"
+                    ng-show="(validator.code == 'ok' && displaySuccesses) || (validator.code == 'warn' && displayWarnings) || (validator.code == 'error' && displayErrors)"
+                    ng-bind-html="validator.htmlMessage"></div>
+        </div>
+
+    </div>
+</div>
+{% endverbatim %}
+
+{#
+
+{{ dump(classes) }}
+
+#}

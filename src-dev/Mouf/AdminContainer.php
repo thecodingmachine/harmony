@@ -7,64 +7,80 @@
  */
 namespace Mouf;
 
-
 use Interop\Container\ContainerInterface;
-use Mouf\MoufContainer;
 use Mouf\Reflection\ReflectionClassManagerInterface;
 
-class AdminContainer extends MoufContainer {
+class AdminContainer extends MoufContainer
+{
 
-    public function __construct(ContainerInterface $delegateLookupContainer = null, ReflectionClassManagerInterface $reflectionClassManager = null) {
+    public function __construct(ContainerInterface $delegateLookupContainer = null, ReflectionClassManagerInterface $reflectionClassManager = null)
+    {
         parent::__construct(__DIR__.'/../../mouf/instances.php', __CLASS__, $reflectionClassManager, $delegateLookupContainer);
     }
 
-    protected function _getClosures() {
+    protected function _getClosures()
+    {
         return [
             'bootstrapRenderer' => [
                 'constructor' => [
-                    4 => function(ContainerInterface $container) {
+                    4 => function (ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+            'customRenderer' => [
+                'constructor' => [
+                    4 => function (ContainerInterface $container) {
                         return $container;
                     },
                 ],
             ],
             'packageRenderer_mouf/html.utils.weblibrarymanager' => [
                 'constructor' => [
-                    4 => function(ContainerInterface $container) {
+                    4 => function (ContainerInterface $container) {
                         return $container;
                     },
                 ],
             ],
             'packageRenderer_mouf/html.widgets.menu' => [
                 'constructor' => [
-                    4 => function(ContainerInterface $container) {
+                    4 => function (ContainerInterface $container) {
                         return $container;
                     },
                 ],
             ],
             'packageRenderer_mouf/html.widgets.messageservice' => [
                 'constructor' => [
-                    4 => function(ContainerInterface $container) {
+                    4 => function (ContainerInterface $container) {
                         return $container;
                     },
                 ],
             ],
             'defaultRenderer' => [
                 'constructor' => [
-                    1 => function(ContainerInterface $container) {
+                    1 => function (ContainerInterface $container) {
                         return $this;
                     },
                 ],
             ],
             'packageRenderer_mouf/security.simplelogincontroller' => [
                 'constructor' => [
-                    4 => function(ContainerInterface $container) {
+                    4 => function (ContainerInterface $container) {
                         return $container;
                     },
                 ],
             ],
-            'annotationReader' => function(ContainerInterface $container) {
+            'moufTwigExtension' => [
+                'constructor' => [
+                    0 => function (ContainerInterface $container) {
+                        return $container;
+                    },
+                ],
+            ],
+
+            'annotationReader' => function (ContainerInterface $container) {
                 // Using composer autoloader
-                $loader = require ROOT_PATH . 'vendor/autoload.php';
+                $loader = require ROOT_PATH.'vendor/autoload.php';
                 \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
                 \Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('URL');
 \Doctrine\Common\Annotations\AnnotationReader::addGlobalIgnoredName('Action');
@@ -72,9 +88,10 @@ class AdminContainer extends MoufContainer {
 
                 // Creating a new AnnotationReader
                 $reader = new \Doctrine\Common\Annotations\AnnotationReader();
+
                 return new \Doctrine\Common\Annotations\CachedReader($reader, new \Doctrine\Common\Cache\ArrayCache());
             },
-            'defaultDoctrineCache' => function(ContainerInterface $container) {
+            'defaultDoctrineCache' => function (ContainerInterface $container) {
                 // If DEBUG mode is on, let\'s just use an ArrayCache.
                 if (DEBUG) {
                     $driver = new \Doctrine\Common\Cache\ArrayCache();
@@ -87,736 +104,840 @@ class AdminContainer extends MoufContainer {
                     }
                 }
                 $driver->setNamespace(SECRET);
+
                 return $driver;
             },
         ];
-	}
+    }
     /**
      * @return Mouf\Controllers\MoufAjaxInstanceController
      */
-    public function getAjaxinstance() {
+    public function getAjaxinstance()
+    {
         return $this->get('ajaxinstance');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getAnalyzeClassesMenuItem() {
+    public function getAnalyzeClassesMenuItem()
+    {
         return $this->get('analyzeClassesMenuItem');
     }
 
     /**
      * @return Mouf\Utils\Cache\ApcCache
      */
-    public function getApcCacheService() {
+    public function getApcCacheService()
+    {
         return $this->get('apcCacheService');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlBlock
      */
-    public function getBlock_content() {
+    public function getBlock_content()
+    {
         return $this->get('block.content');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlBlock
      */
-    public function getBlock_footer() {
+    public function getBlock_footer()
+    {
         return $this->get('block.footer');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlBlock
      */
-    public function getBlock_header() {
+    public function getBlock_header()
+    {
         return $this->get('block.header');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlBlock
      */
-    public function getBlock_left() {
+    public function getBlock_left()
+    {
         return $this->get('block.left');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlBlock
      */
-    public function getBlock_right() {
+    public function getBlock_right()
+    {
         return $this->get('block.right');
     }
 
     /**
      * @return Mouf\Html\Renderer\FileBasedRenderer
      */
-    public function getBootstrapRenderer() {
+    public function getBootstrapRenderer()
+    {
         return $this->get('bootstrapRenderer');
     }
 
     /**
      * @return Mouf\Controllers\ConfigController
      */
-    public function getConfig() {
+    public function getConfig()
+    {
         return $this->get('config');
     }
 
     /**
      * @return Mouf\Validator\MoufBasicValidationProvider
      */
-    public function getConfigCompleteValidator() {
+    public function getConfigCompleteValidator()
+    {
         return $this->get('configCompleteValidator');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getCreateNewInstanceByPhpCodeMenuItem() {
+    public function getCreateNewInstanceByPhpCodeMenuItem()
+    {
         return $this->get('createNewInstanceByPhpCodeMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getCreateNewInstanceByPhpCodeMenuItemIcon() {
+    public function getCreateNewInstanceByPhpCodeMenuItemIcon()
+    {
         return $this->get('createNewInstanceByPhpCodeMenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getCreateNewInstanceMenuItem() {
+    public function getCreateNewInstanceMenuItem()
+    {
         return $this->get('createNewInstanceMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getCreateNewInstanceMenuItemIcon() {
+    public function getCreateNewInstanceMenuItemIcon()
+    {
         return $this->get('createNewInstanceMenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getCss_moufCssStyles() {
+    public function getCss_moufCssStyles()
+    {
         return $this->get('css.moufCssStyles');
     }
 
     /**
      * @return Mouf\Html\Renderer\AutoChainRenderer
      */
-    public function getDefaultRenderer() {
+    public function getDefaultRenderer()
+    {
         return $this->get('defaultRenderer');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibraryManager
      */
-    public function getDefaultWebLibraryManager() {
+    public function getDefaultWebLibraryManager()
+    {
         return $this->get('defaultWebLibraryManager');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\DefaultWebLibraryRenderer
      */
-    public function getDefaultWebLibraryRenderer() {
+    public function getDefaultWebLibraryRenderer()
+    {
         return $this->get('defaultWebLibraryRenderer');
     }
 
     /**
      * @return Mouf\Controllers\MoufDisplayGraphController
      */
-    public function getDisplayGraph() {
+    public function getDisplayGraph()
+    {
         return $this->get('displayGraph');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getDisplayPhpInfoMenuItem() {
+    public function getDisplayPhpInfoMenuItem()
+    {
         return $this->get('displayPhpInfoMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getDisplayPhpInfoMenuItemIcon() {
+    public function getDisplayPhpInfoMenuItemIcon()
+    {
         return $this->get('displayPhpInfoMenuItemIcon');
     }
 
     /**
      * @return Mouf\Controllers\DocumentationController
      */
-    public function getDoc() {
+    public function getDoc()
+    {
         return $this->get('doc');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\Menu
      */
-    public function getDocumentationMenu() {
+    public function getDocumentationMenu()
+    {
         return $this->get('documentationMenu');
     }
 
     /**
      * @return Mouf\Html\Template\Menus\BasicMenuRenderer
      */
-    public function getDocumentationMenuRenderer() {
+    public function getDocumentationMenuRenderer()
+    {
         return $this->get('documentationMenuRenderer');
     }
 
     /**
      * @return Mouf\Menu\DocumentationMenuItem
      */
-    public function getDocumentationSubMenu() {
+    public function getDocumentationSubMenu()
+    {
         return $this->get('documentationSubMenu');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getDownloadPackages2MenuItem() {
+    public function getDownloadPackages2MenuItem()
+    {
         return $this->get('downloadPackages2MenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getDownloadPackages2MenuItemIcon() {
+    public function getDownloadPackages2MenuItemIcon()
+    {
         return $this->get('downloadPackages2MenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getEditConfigurationMenuItem() {
+    public function getEditConfigurationMenuItem()
+    {
         return $this->get('editConfigurationMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getEditConfigurationMenuItemIcon() {
+    public function getEditConfigurationMenuItemIcon()
+    {
         return $this->get('editConfigurationMenuItemIcon');
     }
 
     /**
      * @return Mouf\Utils\Log\ErrorLogLogger
      */
-    public function getErrorLogger() {
+    public function getErrorLogger()
+    {
         return $this->get('errorLogger');
     }
 
     /**
      * @return Mouf\Utils\Cache\FileCache
      */
-    public function getFileCacheService() {
+    public function getFileCacheService()
+    {
         return $this->get('fileCacheService');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getIncludePhpFilesMenuItemIcon() {
+    public function getIncludePhpFilesMenuItemIcon()
+    {
         return $this->get('includePhpFilesMenuItemIcon');
     }
 
     /**
      * @return Mouf\Controllers\IncludesAnalyzerController
      */
-    public function getIncludes() {
+    public function getIncludes()
+    {
         return $this->get('includes');
     }
 
     /**
      * @return Mouf\Validator\MoufBasicValidationProvider
      */
-    public function getInstallProcessValidator() {
+    public function getInstallProcessValidator()
+    {
         return $this->get('installProcessValidator');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getInstallTasksMenuItem() {
+    public function getInstallTasksMenuItem()
+    {
         return $this->get('installTasksMenuItem');
     }
 
     /**
      * @return Mouf\Html\Template\MoufTemplate\MoufTemplate
      */
-    public function getInstallTemplate() {
+    public function getInstallTemplate()
+    {
         return $this->get('installTemplate');
     }
 
     /**
      * @return Mouf\Controllers\Composer\InstalledPackagesController
      */
-    public function getInstalledPackagesController() {
+    public function getInstalledPackagesController()
+    {
         return $this->get('installedPackagesController');
     }
 
     /**
      * @return Mouf\Controllers\InstallController
      */
-    public function getInstaller() {
+    public function getInstaller()
+    {
         return $this->get('installer');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\Menu
      */
-    public function getInstanceMenu() {
+    public function getInstanceMenu()
+    {
         return $this->get('instanceMenu');
     }
 
     /**
      * @return Mouf\Html\Template\Menus\BasicMenuRenderer
      */
-    public function getInstanceMenuRenderer() {
+    public function getInstanceMenuRenderer()
+    {
         return $this->get('instanceMenuRenderer');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getInstancesSubMenu() {
+    public function getInstancesSubMenu()
+    {
         return $this->get('instancesSubMenu');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJQueryLibrary() {
+    public function getJQueryLibrary()
+    {
         return $this->get('jQueryLibrary');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJQueryUiLibrary() {
+    public function getJQueryUiLibrary()
+    {
         return $this->get('jQueryUiLibrary');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_bootstrap() {
+    public function getJavascript_bootstrap()
+    {
         return $this->get('javascript.bootstrap');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_chooseInstancePopupJs() {
+    public function getJavascript_chooseInstancePopupJs()
+    {
         return $this->get('javascript.chooseInstancePopupJs');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_composer() {
+    public function getJavascript_composer()
+    {
         return $this->get('javascript.composer');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_highlight_js() {
+    public function getJavascript_highlight_js()
+    {
         return $this->get('javascript.highlight.js');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_jqBootstrapValidation() {
+    public function getJavascript_jqBootstrapValidation()
+    {
         return $this->get('javascript.jqBootstrapValidation');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_jqueryfiletree() {
+    public function getJavascript_jqueryfiletree()
+    {
         return $this->get('javascript.jquery-filetree');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_moufInstanceLibrary() {
+    public function getJavascript_moufInstanceLibrary()
+    {
         return $this->get('javascript.moufInstanceLibrary');
     }
 
     /**
      * @return Mouf\Javascript\SyntaxHighlighterWebLibrary
      */
-    public function getJavascript_syntaxHighlighter() {
+    public function getJavascript_syntaxHighlighter()
+    {
         return $this->get('javascript.syntaxHighlighter');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_topribbonmenu() {
+    public function getJavascript_topribbonmenu()
+    {
         return $this->get('javascript.topribbonmenu');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_underscore() {
+    public function getJavascript_underscore()
+    {
         return $this->get('javascript.underscore');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getJavascript_underscore_debug() {
+    public function getJavascript_underscore_debug()
+    {
         return $this->get('javascript.underscore.debug');
     }
 
     /**
      * @return Mouf\Controllers\MoufLoginController
      */
-    public function getLogin() {
+    public function getLogin()
+    {
         return $this->get('login');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlString
      */
-    public function getLoginWelcomeMessage() {
+    public function getLoginWelcomeMessage()
+    {
         return $this->get('loginWelcomeMessage');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getLogout2MenuItem() {
+    public function getLogout2MenuItem()
+    {
         return $this->get('logout2MenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getLogout2MenuItemIcon() {
+    public function getLogout2MenuItemIcon()
+    {
         return $this->get('logout2MenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\Menu
      */
-    public function getMainMenu() {
+    public function getMainMenu()
+    {
         return $this->get('mainMenu');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getMessageServiceLibrary() {
+    public function getMessageServiceLibrary()
+    {
         return $this->get('messageServiceLibrary');
     }
 
     /**
      * @return Mouf\Html\Widgets\MessageService\Widget\MessageWidget
      */
-    public function getMessageWidget() {
+    public function getMessageWidget()
+    {
         return $this->get('messageWidget');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getMiscellaneousSubMenu() {
+    public function getMiscellaneousSubMenu()
+    {
         return $this->get('miscellaneousSubMenu');
     }
 
     /**
      * @return Mouf\Controllers\MoufController
      */
-    public function getMouf() {
+    public function getMouf()
+    {
         return $this->get('mouf');
     }
 
     /**
      * @return Mouf\Controllers\MoufInstallController
      */
-    public function getMoufInstallController() {
+    public function getMoufInstallController()
+    {
         return $this->get('moufInstallController');
     }
 
     /**
      * @return Mouf\Html\Template\BootstrapTemplate
      */
-    public function getMoufInstallTemplate() {
+    public function getMoufInstallTemplate()
+    {
         return $this->get('moufInstallTemplate');
     }
 
     /**
      * @return Mouf\Html\Template\MoufTemplate\MoufTemplate
      */
-    public function getMoufInstallTemplate2() {
+    public function getMoufInstallTemplate2()
+    {
         return $this->get('moufInstallTemplate2');
     }
 
     /**
      * @return Mouf\Html\Template\BootstrapTemplate
      */
-    public function getMoufLoginTemplate() {
+    public function getMoufLoginTemplate()
+    {
         return $this->get('moufLoginTemplate');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getMoufStatus2MenuItem() {
+    public function getMoufStatus2MenuItem()
+    {
         return $this->get('moufStatus2MenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getMoufStatus2MenuItemIcon() {
+    public function getMoufStatus2MenuItemIcon()
+    {
         return $this->get('moufStatus2MenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Template\BootstrapTemplate
      */
-    public function getMoufTemplate() {
+    public function getMoufTemplate()
+    {
         return $this->get('moufTemplate');
     }
 
     /**
      * @return Mouf\Html\Template\MoufTemplate\MoufTemplate
      */
-    public function getMoufTemplate_bak() {
+    public function getMoufTemplate_bak()
+    {
         return $this->get('moufTemplate.bak');
     }
 
     /**
      * @return Mouf\Html\Template\Menus\BootstrapNavBar
      */
-    public function getNavBar() {
+    public function getNavBar()
+    {
         return $this->get('navBar');
     }
 
     /**
      * @return Mouf\Html\Template\Menus\BootstrapMenuRenderer
      */
-    public function getNavBarMenuRenderer() {
+    public function getNavBarMenuRenderer()
+    {
         return $this->get('navBarMenuRenderer');
     }
 
     /**
      * @return Mouf\Html\Renderer\FileBasedRenderer
      */
-    public function getPackageRenderer_moufsecurity_simplelogincontroller() {
+    public function getPackageRenderer_moufsecurity_simplelogincontroller()
+    {
         return $this->get('packageRenderer_mouf/security.simplelogincontroller');
     }
 
     /**
      * @return Mouf\Controllers\PhpInfoController
      */
-    public function getPhpInfo() {
+    public function getPhpInfo()
+    {
         return $this->get('phpInfo');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getPhpProjectSubMenu() {
+    public function getPhpProjectSubMenu()
+    {
         return $this->get('phpProjectSubMenu');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getProjectSubMenu() {
+    public function getProjectSubMenu()
+    {
         return $this->get('projectSubMenu');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlFromFile
      */
-    public function getPurgeCodeCacheButton() {
+    public function getPurgeCodeCacheButton()
+    {
         return $this->get('purgeCodeCacheButton');
     }
 
     /**
      * @return Mouf\Utils\Cache\InMemoryCache
      */
-    public function getRendererCacheService() {
+    public function getRendererCacheService()
+    {
         return $this->get('rendererCacheService');
     }
 
     /**
      * @return Mouf\Controllers\MoufRootController
      */
-    public function getRootController() {
+    public function getRootController()
+    {
         return $this->get('rootController');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlFromFile
      */
-    public function getRootUrlJsFile() {
+    public function getRootUrlJsFile()
+    {
         return $this->get('rootUrlJsFile');
     }
 
     /**
      * @return Mouf\Controllers\SearchController
      */
-    public function getSearch() {
+    public function getSearch()
+    {
         return $this->get('search');
     }
 
     /**
      * @return Mouf\Html\HtmlElement\HtmlFromFile
      */
-    public function getSearchBox() {
+    public function getSearchBox()
+    {
         return $this->get('searchBox');
     }
 
     /**
      * @return Mouf\MoufSearchService
      */
-    public function getSearchService() {
+    public function getSearchService()
+    {
         return $this->get('searchService');
     }
 
     /**
      * @return Mouf\Utils\Session\SessionManager\DefaultSessionManager
      */
-    public function getSessionManager() {
+    public function getSessionManager()
+    {
         return $this->get('sessionManager');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\InlineWebLibrary
      */
-    public function getSetRootUrlJsBlock() {
+    public function getSetRootUrlJsBlock()
+    {
         return $this->get('setRootUrlJsBlock');
     }
 
     /**
      * @return Mouf\Security\Views\SimpleLoginView
      */
-    public function getSimpleloginview() {
+    public function getSimpleloginview()
+    {
         return $this->get('simpleloginview');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\Menu
      */
-    public function getSpecialActionsMenu() {
+    public function getSpecialActionsMenu()
+    {
         return $this->get('specialActionsMenu');
     }
 
     /**
      * @return Mouf\Html\Template\Menus\BasicMenuRenderer
      */
-    public function getSpecialActionsMenuRenderer() {
+    public function getSpecialActionsMenuRenderer()
+    {
         return $this->get('specialActionsMenuRenderer');
     }
 
     /**
      * @return Mouf\Mvc\Splash\Splash
      */
-    public function getSplash() {
+    public function getSplash()
+    {
         return $this->get('splash');
     }
 
     /**
      * @return Mouf\Mvc\Splash\Controllers\HttpErrorsController
      */
-    public function getSplash_errorsController() {
+    public function getSplash_errorsController()
+    {
         return $this->get('splash.errorsController');
     }
 
     /**
      * @return Mouf\Utils\I18n\Fine\Language\BrowserLanguageDetection
      */
-    public function getSplashBrowserLanguageDetection() {
+    public function getSplashBrowserLanguageDetection()
+    {
         return $this->get('splashBrowserLanguageDetection');
     }
 
     /**
      * @return Mouf\Utils\I18n\Fine\Translate\FinePHPArrayTranslationService
      */
-    public function getSplashTranslateService() {
+    public function getSplashTranslateService()
+    {
         return $this->get('splashTranslateService');
     }
 
     /**
      * @return Mouf\Security\UserFileDao\UserFileDao
      */
-    public function getUserFileDao() {
+    public function getUserFileDao()
+    {
         return $this->get('userFileDao');
     }
 
     /**
      * @return Mouf\Html\Widgets\MessageService\Service\SessionMessageService
      */
-    public function getUserMessageService() {
+    public function getUserMessageService()
+    {
         return $this->get('userMessageService');
     }
 
     /**
      * @return Mouf\Security\UserService\UserService
      */
-    public function getUserService() {
+    public function getUserService()
+    {
         return $this->get('userService');
     }
 
     /**
      * @return Mouf\Controllers\MoufValidatorController
      */
-    public function getValidate() {
+    public function getValidate()
+    {
         return $this->get('validate');
     }
 
     /**
      * @return Mouf\Validator\MoufValidatorService
      */
-    public function getValidatorService() {
+    public function getValidatorService()
+    {
         return $this->get('validatorService');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getViewDeclaredInstancesMenuItem() {
+    public function getViewDeclaredInstancesMenuItem()
+    {
         return $this->get('viewDeclaredInstancesMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getViewDeclaredInstancesMenuItemIcon() {
+    public function getViewDeclaredInstancesMenuItemIcon()
+    {
         return $this->get('viewDeclaredInstancesMenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItem
      */
-    public function getViewDocumentationMenuItem() {
+    public function getViewDocumentationMenuItem()
+    {
         return $this->get('viewDocumentationMenuItem');
     }
 
     /**
      * @return Mouf\Html\Widgets\Menu\MenuItemStyleIcon
      */
-    public function getViewDocumentationMenuItemIcon() {
+    public function getViewDocumentationMenuItemIcon()
+    {
         return $this->get('viewDocumentationMenuItemIcon');
     }
 
     /**
      * @return Mouf\Html\Utils\WebLibraryManager\WebLibrary
      */
-    public function getWeblibrary_qtip2() {
+    public function getWeblibrary_qtip2()
+    {
         return $this->get('weblibrary.qtip2');
     }
-
 }

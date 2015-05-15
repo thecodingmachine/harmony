@@ -6,15 +6,18 @@ namespace Mouf\Composer;
  *
  * @author David Négrier <david@mouf-php.com>
  */
-class ClassNameUtilsTest extends \PHPUnit_Framework_TestCase {
-	public function testGetNamespace() {
-		$this->assertEquals('GeneratedClasses', ClassNameUtils::getNamespace('GeneratedClasses\\Container'));
-		$this->assertEquals('GeneratedClasses', ClassNameUtils::getNamespace('\\GeneratedClasses\\Container'));
-		$this->assertEquals('Toto\\Tata\\Toto', ClassNameUtils::getNamespace('\\Toto\\Tata\\Toto\\Container'));
-	}
-	
-	public function testGetClassname() {
-		$this->assertEquals('Container', ClassNameUtils::getClassName('GeneratedClasses\\Container'));
-		$this->assertEquals('Container', ClassNameUtils::getClassName('\\GeneratedClasses\\Container'));
-	}
+class ClassNameUtilsTest extends \PHPUnit_Framework_TestCase
+{
+    public function testGetNamespace()
+    {
+        $this->assertEquals('GeneratedClasses', ClassNameUtils::getNamespace('GeneratedClasses\\Container'));
+        $this->assertEquals('GeneratedClasses', ClassNameUtils::getNamespace('\\GeneratedClasses\\Container'));
+        $this->assertEquals('Toto\\Tata\\Toto', ClassNameUtils::getNamespace('\\Toto\\Tata\\Toto\\Container'));
+    }
+
+    public function testGetClassname()
+    {
+        $this->assertEquals('Container', ClassNameUtils::getClassName('GeneratedClasses\\Container'));
+        $this->assertEquals('Container', ClassNameUtils::getClassName('\\GeneratedClasses\\Container'));
+    }
 }

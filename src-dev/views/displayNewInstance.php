@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 ?>
 <form action="createComponent" method="post">
 <input type="hidden" name="selfedit" value="<?php echo plainstring_to_htmlprotected($selfedit); ?>" />
@@ -22,13 +22,13 @@
 <div>
 <label for="instanceClass">Class:</label>
 <select name="instanceClass">
-<?php 
+<?php
 foreach ($componentsList as $component) {
-	echo "<option value='$component'";
-	if ($instanceClass==$component) {
-		echo "selected='selected'";	
-	}
-	echo ">$component</option>\n";
+    echo "<option value='$component'";
+    if ($instanceClass == $component) {
+        echo "selected='selected'";
+    }
+    echo ">$component</option>\n";
 }
 ?>
 </select>

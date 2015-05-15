@@ -10,11 +10,8 @@
 namespace Mouf\Controllers;
 
 use Mouf\Html\Widgets\MessageService\Service\UserMessageInterface;
-
 use Mouf\Installer\AbstractInstallTask;
-
 use Mouf\Installer\ComposerInstaller;
-
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Security\UserService\Splash\Logged;
 use Mouf\Mvc\Splash\Controllers\Controller;
@@ -23,144 +20,148 @@ use Mouf\Mvc\Splash\Controllers\Controller;
  * This controller displays the packages installation page.
  *
  */
-class InstallController extends Controller {
+class InstallController extends Controller
+{
 
-	/**
-	 * The template used by the main page for mouf.
-	 *
-	 * @Property
-	 * @Compulsory
-	 * @var TemplateInterface
-	 */
-	public $template;
-	
-	/**
-	 * The content block the template will be writting into.
-	 *
-	 * @Property
-	 * @Compulsory
-	 * @var HtmlBlock
-	 */
-	public $contentBlock;
-	
-	/**
-	 * The service that will take actions to be performed to install.
-	 *
-	 * @Property
-	 * @Compulsory
-	 * @var ComposerInstaller
-	 */
-	public $installService;
-	
-	/**
-	 * 
-	 * @var AbstractInstallTask[]
-	 */
-	protected $installs;
-	
-	protected $countNbTodo;
-	
-	/**
-	 * Displays the page to install packages
-	 * 
-	 * @Action
-	 * @Logged
-	 *
-	 * @param string $selfedit If true, we are in self-edit mode 
-	 */
-	public function index($selfedit = false) {
-		$this->selfedit = $selfedit;
-		$this->installService = new ComposerInstaller($selfedit == 'true');
-		$this->installs = $this->installService->getInstallTasks();
-		//var_dump($this->installs);exit;
-		$this->countNbTodo = 0;
-		foreach ($this->installs as $installTask) {
-			if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
-				$this->countNbTodo++;
-			}
-		}
+    /**
+     * The template used by the main page for mouf.
+     *
+     * @Property
+     * @Compulsory
+     * @var TemplateInterface
+     */
+    public $template;
 
-		$this->contentBlock->addFile(dirname(__FILE__)."/../../views/installer/installTasksList.php", $this);
-		$this->template->toHtml();	
-	}
-	
-	protected $selfedit;
-	
-	/**
-	 * This page starts the install proces of one task or all tasks in "todo" state.
-	 * 
-	 * @Action
-	 * @Logged
-	 *
-	 * @param string $selfedit If true, we are in self-edit mode 
-	 */
-	public function install($selfedit = 'false', $task = null) {
-		$this->selfedit = $selfedit;
-		$this->installService = new ComposerInstaller($selfedit == 'true');
-		
-		if ($task !== null) {
-			$taskArray = unserialize($task);
-		} else {
-			$taskArray = null;
-		}
-		
-		if ($taskArray == null) {
-			$this->installService->installAll();
-		} else {
-			$this->installService->install($taskArray);
-		}
-		// The call to install or installAll redirects to printInstallationScreen.
-	}
-	
-	/**
-	 * Installation screen is displayed and the user is directly redirected via Javascript to the install page.
-	 * 
-	 * @Action
-	 * @param string $selfedit
-	 */
-	public function printInstallationScreen($selfedit = 'false') {
-		$this->selfedit = $selfedit;
-		$this->installService = new ComposerInstaller($selfedit == 'true');
-		$this->installs = $this->installService->getInstallTasks();
-		
-		$this->contentBlock->addFile(dirname(__FILE__)."/../../views/installer/processing.php", $this);
-		$this->template->toHtml();
-	}
-	
-	/**
-	 * Starts the installation process for one package registered with install or installAll.
-	 * 
-	 * @Action
-	 * @param string $selfedit
-	 */
-	public function processInstall($selfedit = 'false') {
-		// Let's process install now by redirecting HERE!
-		$this->selfedit = $selfedit;
-		$this->installService = new ComposerInstaller($selfedit == 'true');
-		$installTask = $this->installService->getNextInstallTask();
-		
-		header("Location: ".MOUF_URL.$installTask->getRedirectUrl($selfedit == 'true'));
-	}
-	
-	/**
-	 * Action called when a full install step has completed.
-	 * 
-	 * @Action
-	 * @param string $selfedit
-	 */
-	public function installTaskDone($selfedit = 'false') {
-		$this->selfedit = $selfedit;
-		$this->installService = new ComposerInstaller($selfedit == 'true');
-		$this->installService->validateCurrentInstall();
-		
-		$installTask = $this->installService->getNextInstallTask();
-		if ($installTask) {
-			$this->printInstallationScreen($selfedit);
-		} else {
-			set_user_message("Installation process succeeded!", UserMessageInterface::SUCCESS);
-			header("Location: .?selfedit=".$selfedit);
-		}
-		
-		
-	}
+    /**
+     * The content block the template will be writting into.
+     *
+     * @Property
+     * @Compulsory
+     * @var HtmlBlock
+     */
+    public $contentBlock;
+
+    /**
+     * The service that will take actions to be performed to install.
+     *
+     * @Property
+     * @Compulsory
+     * @var ComposerInstaller
+     */
+    public $installService;
+
+    /**
+     *
+     * @var AbstractInstallTask[]
+     */
+    protected $installs;
+
+    protected $countNbTodo;
+
+    /**
+     * Displays the page to install packages
+     *
+     * @Action
+     * @Logged
+     *
+     * @param string $selfedit If true, we are in self-edit mode
+     */
+    public function index($selfedit = false)
+    {
+        $this->selfedit = $selfedit;
+        $this->installService = new ComposerInstaller($selfedit == 'true');
+        $this->installs = $this->installService->getInstallTasks();
+        //var_dump($this->installs);exit;
+        $this->countNbTodo = 0;
+        foreach ($this->installs as $installTask) {
+            if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
+                $this->countNbTodo++;
+            }
+        }
+
+        $this->contentBlock->addFile(dirname(__FILE__)."/../../views/installer/installTasksList.php", $this);
+        $this->template->toHtml();
+    }
+
+    protected $selfedit;
+
+    /**
+     * This page starts the install proces of one task or all tasks in "todo" state.
+     *
+     * @Action
+     * @Logged
+     *
+     * @param string $selfedit If true, we are in self-edit mode
+     */
+    public function install($selfedit = 'false', $task = null)
+    {
+        $this->selfedit = $selfedit;
+        $this->installService = new ComposerInstaller($selfedit == 'true');
+
+        if ($task !== null) {
+            $taskArray = unserialize($task);
+        } else {
+            $taskArray = null;
+        }
+
+        if ($taskArray == null) {
+            $this->installService->installAll();
+        } else {
+            $this->installService->install($taskArray);
+        }
+        // The call to install or installAll redirects to printInstallationScreen.
+    }
+
+    /**
+     * Installation screen is displayed and the user is directly redirected via Javascript to the install page.
+     *
+     * @Action
+     * @param string $selfedit
+     */
+    public function printInstallationScreen($selfedit = 'false')
+    {
+        $this->selfedit = $selfedit;
+        $this->installService = new ComposerInstaller($selfedit == 'true');
+        $this->installs = $this->installService->getInstallTasks();
+
+        $this->contentBlock->addFile(dirname(__FILE__)."/../../views/installer/processing.php", $this);
+        $this->template->toHtml();
+    }
+
+    /**
+     * Starts the installation process for one package registered with install or installAll.
+     *
+     * @Action
+     * @param string $selfedit
+     */
+    public function processInstall($selfedit = 'false')
+    {
+        // Let's process install now by redirecting HERE!
+        $this->selfedit = $selfedit;
+        $this->installService = new ComposerInstaller($selfedit == 'true');
+        $installTask = $this->installService->getNextInstallTask();
+
+        header("Location: ".MOUF_URL.$installTask->getRedirectUrl($selfedit == 'true'));
+    }
+
+    /**
+     * Action called when a full install step has completed.
+     *
+     * @Action
+     * @param string $selfedit
+     */
+    public function installTaskDone($selfedit = 'false')
+    {
+        $this->selfedit = $selfedit;
+        $this->installService = new ComposerInstaller($selfedit == 'true');
+        $this->installService->validateCurrentInstall();
+
+        $installTask = $this->installService->getNextInstallTask();
+        if ($installTask) {
+            $this->printInstallationScreen($selfedit);
+        } else {
+            set_user_message("Installation process succeeded!", UserMessageInterface::SUCCESS);
+            header("Location: .?selfedit=".$selfedit);
+        }
+    }
 }

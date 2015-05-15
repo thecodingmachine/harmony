@@ -9,23 +9,22 @@
  */
 
 use Mouf\MoufClassExplorer;
-
 use Mouf\MoufManager;
 
 ini_set('display_errors', 1);
 // Add E_ERROR to error reporting it it is not already set
 error_reporting(E_ERROR | error_reporting());
 
-if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"]!="true") {
-	define('ROOT_URL', $_SERVER['BASE']."/../../../");
-	
-	require_once '../../../../../mouf/Mouf.php';
-	$selfedit = false;
+if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"] != "true") {
+    define('ROOT_URL', $_SERVER['BASE']."/../../../");
+
+    require_once '../../../../../mouf/Mouf.php';
+    $selfedit = false;
 } else {
-	define('ROOT_URL', $_SERVER['BASE']."/");
-	
-	require_once '../../mouf/Mouf.php';
-	$selfedit = true;
+    define('ROOT_URL', $_SERVER['BASE']."/");
+
+    require_once '../../mouf/Mouf.php';
+    $selfedit = true;
 }
 
 // Note: checking rights is done after loading the required files because we need to open the session
@@ -33,19 +32,19 @@ if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"]!="true") {
 require_once 'utils/check_rights.php';
 
 $encode = "php";
-if (isset($_REQUEST["encode"]) && $_REQUEST["encode"]=="json") {
-	$encode = "json";
+if (isset($_REQUEST["encode"]) && $_REQUEST["encode"] == "json") {
+    $encode = "json";
 }
 
 $exportMode = "all";
 if (isset($_REQUEST["export_mode"])) {
-	$exportMode = $_REQUEST["export_mode"];
+    $exportMode = $_REQUEST["export_mode"];
 }
 
 $moufManager = MoufManager::getMoufManager();
 
 $classExplorer = new MoufClassExplorer($selfedit);
-$classNameList = array_keys($classExplorer->getClassMap()); 
+$classNameList = array_keys($classExplorer->getClassMap());
 
 //MoufManager::getMoufManager()->forceAutoload();
 
@@ -53,13 +52,13 @@ $classNameList = array_keys($classExplorer->getClassMap());
 $classList = array();
 
 foreach ($classNameList as $className) {
-	$classDescriptor = $moufManager->getClassDescriptor($className);
-	if ($classDescriptor->isInstantiable()) {
-		while ($classDescriptor != null && !isset($classList[$classDescriptor->getName()])) {
-			$classList[$classDescriptor->getName()] = $classDescriptor->toJson($exportMode);
-			$classDescriptor = $classDescriptor->getParentClass();
-		}
-	} 
+    $classDescriptor = $moufManager->getClassDescriptor($className);
+    if ($classDescriptor->isInstantiable()) {
+        while ($classDescriptor != null && !isset($classList[$classDescriptor->getName()])) {
+            $classList[$classDescriptor->getName()] = $classDescriptor->toJson($exportMode);
+            $classDescriptor = $classDescriptor->getParentClass();
+        }
+    }
 }
 
 $response = array();
@@ -67,12 +66,10 @@ $response["classes"] = $classList;
 $response["errors"] = $classExplorer->getErrors();
 
 if ($encode == "php") {
-	echo serialize($response);
+    echo serialize($response);
 } elseif ($encode == "json") {
-	header("Content-type: application/json");
-	echo json_encode($response);
+    header("Content-type: application/json");
+    echo json_encode($response);
 } else {
-	echo "invalid encode parameter";
+    echo "invalid encode parameter";
 }
-
-?>

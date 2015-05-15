@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
  * This file is part of the Mouf core package.
  *
@@ -31,7 +31,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-  
+
 <h1>PHP Included files analysis</h1>
 
 <p>Mouf was able to find the list of classes below, using the autoloading mechanism of Composer.</p>
@@ -44,37 +44,41 @@ there should be no output (so no errors, no HTML, ...). Any class trigerring som
 </form>
 
 <h2>Classes that trigger errors</h2>
-<?php 
+<?php
 if (empty($this->errors)) {
-	echo "Perfect! No classes are triggering errors.";	
+    echo "Perfect! No classes are triggering errors.";
 } else {
-	foreach ($this->errors as $className=>$errorMsg):
-	?>
+    foreach ($this->errors as $className => $errorMsg):
+    ?>
 		<div class="alert alert-danger">
-			<div>Error while including <strong><?php echo $className; ?></strong>. <a href="#" class="showmore">Show more</a></div>
-			<div class="hiddeable hidden"><?php echo $errorMsg; ?></div>
+			<div>Error while including <strong><?php echo $className;
+    ?></strong>. <a href="#" class="showmore">Show more</a></div>
+			<div class="hiddeable hidden"><?php echo $errorMsg;
+    ?></div>
 		</div>
-	<?php 
-	endforeach;
+	<?php
+    endforeach;
 }
 ?>
 
 <h2>Classes that may contain problems in annotations</h2>
-<?php 
+<?php
 if (empty($this->warnings)) {
-	echo "Perfect! No classes are triggering warnings.";	
+    echo "Perfect! No classes are triggering warnings.";
 } else {
-	foreach ($this->warnings as $className=>$errorMsgs):
-	?>
+    foreach ($this->warnings as $className => $errorMsgs):
+    ?>
 		<div class="alert alert-warning">
-			<div>You might encounter problems while using <strong><?php echo $className; ?></strong>. <a href="#" class="showmore">Show more</a></div>
-			<div class="hiddeable hidden"><ul><?php 
-			foreach ($errorMsgs as $errorMsg) {
-				echo "<li>".$errorMsg."</li>";
-			} ?></ul></div>
+			<div>You might encounter problems while using <strong><?php echo $className;
+    ?></strong>. <a href="#" class="showmore">Show more</a></div>
+			<div class="hiddeable hidden"><ul><?php
+            foreach ($errorMsgs as $errorMsg) {
+                echo "<li>".$errorMsg."</li>";
+            }
+    ?></ul></div>
 		</div>
-	<?php 
-	endforeach;
+	<?php
+    endforeach;
 }
 ?>
 
@@ -82,13 +86,13 @@ if (empty($this->warnings)) {
 
 <h2>Included classes</h2>
 
-<?php 
+<?php
 foreach ($this->classList as $className):
 ?>
 	<div class="alert alert-success">
 	<?php echo $className; ?>
 	</div>
-<?php 
+<?php
 endforeach;
 ?>
 </ul>

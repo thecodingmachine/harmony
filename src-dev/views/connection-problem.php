@@ -28,7 +28,7 @@ or if you have special DNS settings. Here is a test you can do to check this:
 	the file should contain just the word "ok".</li>
 </ul>
 </li>
-<li><strong>Authorization issues:</strong> If access to the Mouf URL requires some sort of authentication (apart from the 
+<li><strong>Authorization issues:</strong> If access to the Mouf URL requires some sort of authentication (apart from the
 standard Mouf authentication process), access to Mouf will fail. Here is a list of possible causes:
 	<ul>
 		<li>Your Apache configuration requires a Basic HTTP authentication.</li>

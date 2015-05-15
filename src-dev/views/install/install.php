@@ -13,14 +13,14 @@
 <div id="errorZone">
 </div>
 <div id="installProcess">
-<?php 
+<?php
 include 'displaySteps.php';
 ?>
 </div>
 <script type="text/javascript">
 jQuery(document).ready(function() {
 	jQuery.ajaxSetup({
-	  "error":function(xmlHttpRequest) {   
+	  "error":function(xmlHttpRequest) {
 		jQuery('#errorZone').append("<div class='error'>An error occured in the install process. Error message:<br/><pre>"+xmlHttpRequest.responseText+"</pre></div>");
 	}});
 	var performNextStep = function() {
@@ -39,7 +39,7 @@ jQuery(document).ready(function() {
 			} else {
 				jQuery('#installProcess').html("<div class='error'>Unknown JSON answer</div>");
 			}
-							
+
 		});
 	};
 	performNextStep();

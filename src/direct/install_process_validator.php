@@ -1,9 +1,6 @@
 <?php
 use Mouf\Installer\AbstractInstallTask;
-
 use Mouf\Installer\ComposerInstaller;
-
-use Mouf\MoufManager;
 
 /*
  * This file is part of the Mouf core package.
@@ -17,7 +14,6 @@ use Mouf\MoufManager;
 // This validator checks that no installation step is pending.
 use Mouf\MoufUtils;
 
-
 ini_set('display_errors', 1);
 // Add E_ERROR to error reporting it it is not already set
 error_reporting(E_ERROR | error_reporting());
@@ -26,7 +22,6 @@ define('ROOT_URL', $_SERVER['BASE']."/");
 
 require_once '../../mouf/Mouf.php';
 
-
 // Note: checking rights is done after loading the required files because we need to open the session
 // and only after can we check if it was not loaded before loading it ourselves...
 //require_once 'utils/check_rights.php';
@@ -34,11 +29,10 @@ MoufUtils::checkRights();
 
 MoufAdmin::getSessionManager()->write_close();
 
-
-if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"]!="true") {
-	$selfEdit = false;
+if (!isset($_REQUEST["selfedit"]) || $_REQUEST["selfedit"] != "true") {
+    $selfEdit = false;
 } else {
-	$selfEdit = true;
+    $selfEdit = true;
 }
 
 $installService = new ComposerInstaller($selfEdit == 'true');
@@ -46,19 +40,18 @@ $installs = $installService->getInstallTasks();
 //var_dump($installs);exit;
 $countNbTodo = 0;
 foreach ($installs as $installTask) {
-	if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
-		$countNbTodo++;
-	}
+    if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
+        $countNbTodo++;
+    }
 }
 
 $jsonObj = array();
 if ($countNbTodo == 0) {
-	$jsonObj['code'] = "ok";
-	$jsonObj['html'] = "No pending install tasks to execute.";
+    $jsonObj['code'] = "ok";
+    $jsonObj['html'] = "No pending install tasks to execute.";
 } else {
-	$jsonObj['code'] = "warn";
-	$jsonObj['html'] = "<p>$countNbTodo pending install action(s) detected.</p><p><a href='".ROOT_URL."installer/?selfedit=".json_encode($selfEdit)."' class='btn btn-success btn-large'>Run install tasks</a></p>";
+    $jsonObj['code'] = "warn";
+    $jsonObj['html'] = "<p>$countNbTodo pending install action(s) detected.</p><p><a href='".ROOT_URL."installer/?selfedit=".json_encode($selfEdit)."' class='btn btn-success btn-large'>Run install tasks</a></p>";
 }
 
 echo json_encode($jsonObj);
-?>

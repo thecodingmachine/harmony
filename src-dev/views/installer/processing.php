@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Mouf\Installer\AbstractInstallTask;
 
 /* @var $this Mouf\Controllers\InstallController */
@@ -7,10 +7,10 @@ use Mouf\Installer\AbstractInstallTask;
 // We want to print the last 5 packages installed and the upcoming packages:
 $nextTodoPosition = 0;
 foreach ($this->installs as $installTask) {
-	if ($installTask->getStatus()==AbstractInstallTask::STATUS_TODO) {
-		break;
-	};
-	$nextTodoPosition++;
+    if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
+        break;
+    };
+    $nextTodoPosition++;
 }
 
 $count = 0;
@@ -23,26 +23,26 @@ $count = 0;
 		<th style="width: 45%">Description</th>
 		<th style="width: 20%">Status</th>
 	</tr>
-	<?php foreach ($this->installs as $installTask): 
-		/* @var $installTask AbstractInstallTask */
-	?>	
+	<?php foreach ($this->installs as $installTask):
+        /* @var $installTask AbstractInstallTask */
+    ?>
 	<tr>
 		<td><?php echo plainstring_to_htmlprotected($installTask->getPackage()->getName()); ?></td>
 		<td><?php echo plainstring_to_htmlprotected($installTask->getDescription()); ?></td>
 		<td><?php
-		$count++;
-		if ($count + 5 == $nextTodoPosition) {
-			echo '<a name="toinstall"></a>';
-		}
-		
-		if ($installTask->getStatus()==AbstractInstallTask::STATUS_TODO) {
-			echo '<i class="icon-time"></i> Awaiting installation';
-		} elseif ($installTask->getStatus()==AbstractInstallTask::STATUS_DONE) {
-			echo '<i class="icon-ok"></i> Done';
-		} else {
-			echo plainstring_to_htmlprotected($installTask->getStatus());
-		}
-		?>
+        $count++;
+        if ($count + 5 == $nextTodoPosition) {
+            echo '<a name="toinstall"></a>';
+        }
+
+        if ($installTask->getStatus() == AbstractInstallTask::STATUS_TODO) {
+            echo '<i class="icon-time"></i> Awaiting installation';
+        } elseif ($installTask->getStatus() == AbstractInstallTask::STATUS_DONE) {
+            echo '<i class="icon-ok"></i> Done';
+        } else {
+            echo plainstring_to_htmlprotected($installTask->getStatus());
+        }
+        ?>
 		</td>
 	</tr>
 	<?php endforeach; ?>

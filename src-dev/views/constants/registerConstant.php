@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 ?>
 <h1>Add/edit constant</h1>
 
@@ -39,13 +39,13 @@ jQuery(document).ready(function() {
 
 <form action="registerConstant" method="post" class="form-horizontal">
 <input type="hidden" name="selfedit" id="selfedit" value="<?php echo $this->selfedit; ?>" />
-<?php 
+<?php
 if ($this->type == "bool") {
-	$hideBool = "";
-	$hideText = " style='display:none' disabled='true' ";
+    $hideBool = "";
+    $hideText = " style='display:none' disabled='true' ";
 } else {
-	$hideText = "";
-	$hideBool = " style='display:none' disabled='true' ";
+    $hideText = "";
+    $hideBool = " style='display:none' disabled='true' ";
 }
 
 ?>
@@ -60,10 +60,18 @@ if ($this->type == "bool") {
 <label class="control-label">Type:</label>
 <div class="controls">
 <select id="type" name="type">
-	<option value="string" <?php if ($this->type == "string") echo "selected='selected'"; ?>>String</option>
-	<option value="float" <?php if ($this->type == "float") echo "selected='selected'"; ?>>Float</option>
-	<option value="int" <?php if ($this->type == "int") echo "selected='selected'"; ?>>Integer</option>
-	<option value="bool" <?php if ($this->type == "bool") echo "selected='selected'"; ?>>Boolean</option>
+	<option value="string" <?php if ($this->type == "string") {
+    echo "selected='selected'";
+} ?>>String</option>
+	<option value="float" <?php if ($this->type == "float") {
+    echo "selected='selected'";
+} ?>>Float</option>
+	<option value="int" <?php if ($this->type == "int") {
+    echo "selected='selected'";
+} ?>>Integer</option>
+	<option value="bool" <?php if ($this->type == "bool") {
+    echo "selected='selected'";
+} ?>>Boolean</option>
 </select>
 </div>
 </div>
@@ -71,7 +79,7 @@ if ($this->type == "bool") {
 <div class="control-group">
 <label class="control-label">Default value:</label>
 <div class="controls">
-	<input id="booldefaultvalue" <?php echo $hideBool ?> type="checkbox" name="defaultvalue" value="true" <?php echo $this->defaultvalue?"checked='checked'":""; ?> />
+	<input id="booldefaultvalue" <?php echo $hideBool ?> type="checkbox" name="defaultvalue" value="true" <?php echo $this->defaultvalue ? "checked='checked'" : ""; ?> />
 	<input id="textdefaultvalue" <?php echo $hideText ?> name="defaultvalue" type="text" value="<?php echo plainstring_to_htmlprotected($this->defaultvalue); ?>" />
 </div>
 </div>
@@ -79,7 +87,7 @@ if ($this->type == "bool") {
 <div class="control-group">
 <label class="control-label">Value:</label>
 <div class="controls">
-	<input id="boolvalue" <?php echo $hideBool ?> type="checkbox" name="value" value="true" <?php echo $this->value?"checked='checked'":""; ?> />
+	<input id="boolvalue" <?php echo $hideBool ?> type="checkbox" name="value" value="true" <?php echo $this->value ? "checked='checked'" : ""; ?> />
 	<input id="textvalue" <?php echo $hideText ?> name="value" type="text" value="<?php echo plainstring_to_htmlprotected($this->value); ?>" />
 </div>
 </div>

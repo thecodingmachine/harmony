@@ -1,0 +1,106 @@
+<h1>File permission problem detected</h1>
+
+<div class="alert alert-danger">
+    <p>In order to install Harmony, Harmony needs to create a file here:</p>
+    <ul>
+        <li>{{ harmonyUsersFile }}</li>
+    </ul>
+    <p><strong>However,</strong> Harmony cannot write to this {{ isDirectory?"directory":"file" }}:</p>
+    <ul>
+        <li>{{ dirname }}</li>
+    </ul>
+</div>
+
+<h2>More information</h2>
+
+About <code>{{ dirname }}</code>:
+
+<ul>
+    <li>Owner: <code>{{ user.name }}</code> - Writable by owner: <strong>{{ userWritable?"Yes":"No" }}</strong></li>
+    <li>Group: <code>{{ group.name }}</code> - Writable by group: <strong>{{ groupWritable?"Yes":"No" }}</strong></li>
+</ul>
+
+The user running PHP is <code>{{ phpUser.name }}</code>.
+
+{% if user.name == "root" and group.name == "root" %}
+
+    <h2>Solutions</h2>
+
+    The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> belongs to <code>root</code>.
+    Using the "root" user has a owner is not a good practice. You should use another user for your files.
+
+    <h3>Solution 1</h3>
+
+    Change the owner of the {{ isDirectory?"directory":"file" }}:
+
+    <pre><code>sudo chown {{ phpUser.name }} {{ dirname }}</code></pre>
+
+    <h3>Solution 2 (if you insist on using the "root" user)</h3>
+
+    Run "harmony" as root:
+
+    <pre><code>sudo {{ rootPath }}/bin/harmony</code></pre>
+
+    <div class="alert alert-warning">You should prefer solution 1. Use this only if you insist on keeping using the "root" user.
+    Any file created by Harmony will also belong to "root".</div>
+
+    <h3>Solution 3 (if you don't care about security)</h3>
+
+    Make the {{ isDirectory?"directory":"file" }} writable by anyone:
+
+    <pre><code>sudo chmod 777 {{ dirname }}</code></pre>
+
+    <div class="alert alert-warning">This is inherently insecure. Please prefer solution 1 unless you have a very
+        good reason to do otherwise.</div>
+
+
+{% elseif user.name == phpUser.name and userWritable == false %}
+    <h2>Solution</h2>
+
+    The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> is not writable. You need to make it
+    writable:
+
+    <pre><code>chmod u+w {{ dirname }}</code></pre>
+
+{% else %}
+    {% if phpUserMemberOfGroup == true %}
+        <h2>Solution</h2>
+
+        The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> belongs to group <code>{{ group.name }}</code> but
+        is not writable for the group. You need to make it writable for the group:
+
+        <pre><code>sudo chmod g+w {{ dirname }}</code></pre>
+
+    {% else %}
+        <h2>Solutions</h2>
+
+        The {{ isDirectory?"directory":"file" }} <code>{{ dirname }}</code> belongs to group <code>{{ group.name }}</code>.
+        PHP is running with user <code>{{ phpUser.name }}</code>, that does not belong to the group.
+
+        <h3>Solution 1</h3>
+
+        Make <code>{{ phpUser.name }}</code> a member of group <code>{{ group.name }}</code>
+        {% if not groupWritable %} and make {{ isDirectory?"directory":"file" }} writable to group{% endif %}:
+
+        <pre><code>sudo adduser {{ phpUser.name }} {{ group.name }}
+{% if not groupWritable %}
+sudo chmod g+w {{ dirname }}
+{% endif %}</code></pre>
+
+        <h3>Solution 2</h3>
+
+        Change owner of <code>{{ dirname }}</code>:
+
+        <pre><code>sudo chown {{ phpUser.name }} {{ dirname }}</code></pre>
+
+    {% endif %}
+
+{% endif %}
+
+<div class="alert alert-info">Refresh this page when you have performed those changes.</div>
+
+<p>If after running the commands above and refreshing this page, you are still seeing this page, you might want to consider one of the following troubleshooting advices:</p>
+<ul>
+    <li>If you are running SELinux: be sure that the directories are parts of the SELinux Apache context. <a href="http://wiki.centos.org/HowTos/SELinux">Get more info about SELinux</a></li>
+    <li>If you are running Plesk and virtual domains: in Plesk, in your domain settings, you might want to switch "PHP Support" from "Apache module" to "FastCGI application".</li>
+</ul>

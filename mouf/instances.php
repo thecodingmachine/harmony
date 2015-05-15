@@ -5,622 +5,477 @@
  *
  * Unless you know what you are doing, do not modify it, as it could be overwritten.
  */
-		
-return array (
-  '__anonymous_1351271292292' =>
-  array (
+return array(
+  '__anonymous_1351271292292' => array(
     'class' => 'Mouf\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
     'weak' => true,
     'anonymous' => true,
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => 
-        array (
+    'constructor' => array(
+      0 => array(
+        'value' => array(
           0 => 'logout2MenuItem',
         ),
         'parametertype' => 'object',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-      'fieldProperties' =>
-          array (
-              'navbar' =>
-                  array (
+      'fieldProperties' => array(
+              'navbar' => array(
                       'value' => true,
                       'type' => 'string',
-                      'metadata' =>
-                          array (
+                      'metadata' => array(
                           ),
                   ),
           ),
   ),
-  '__anonymous_1356167917517' => 
-  array (
+  '__anonymous_1356167917517' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
     'weak' => true,
     'anonymous' => true,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'type' => 'string',
         'value' => 'vendor/mouf/famfamfam/icons/drive_go.png',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'ajaxinstance' => 
-  array (
+  'ajaxinstance' => array(
     'class' => 'Mouf\\Controllers\\MoufAjaxInstanceController',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
       'rightBlock' => 'block.right',
     ),
   ),
-  'analyzeClassesMenuItem' => 
-  array (
+  'analyzeClassesMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setIsActive' => 
-      array (
+    'setterProperties' => array(
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'includePhpFilesMenuItemIcon',
       ),
     ),
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'value' => 'Analyze classes',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
+      1 => array(
         'value' => 'includes/',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'apcCacheService' => 
-  array (
+  'apcCacheService' => array(
     'class' => 'Mouf\\Utils\\Cache\\ApcCache',
     'external' => false,
     'weak' => false,
-    'fieldProperties' => 
-    array (
-      'defaultTimeToLive' => 
-      array (
+    'fieldProperties' => array(
+      'defaultTimeToLive' => array(
         'value' => 3600,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'fallback' => 'fileCacheService',
     ),
   ),
-		'console' =>
-		array (
-				'class' => 'Mouf\\Commands\\ConsoleApplication',
-				'external' => false,
-				'weak' => false,
-				'setterBinds' =>
-				array (
-						'setCommands' =>
-						array (
-								0 => 'composerInstallCommand',
-								1 => 'composerUpdateCommand',
-								2 => 'composerDumpAutoloadCommand',
-						),
-				),
-		),
-		'composerInstallCommand' =>
-		array (
-				'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\InstallCommand',
-				'external' => false,
-				'weak' => false,
-		),
-		'composerUpdateCommand' =>
-		array (
-				'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\UpdateCommand',
-				'external' => false,
-				'weak' => false,
-		),
-		'composerDumpAutoloadCommand' =>
-		array (
-				'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\DumpAutoloadCommand',
-				'external' => false,
-				'weak' => false,
-		),
-		
-  'block.content' => 
-  array (
+        'console' => array(
+                'class' => 'Mouf\\Commands\\ConsoleApplication',
+                'external' => false,
+                'weak' => false,
+                'setterBinds' => array(
+                        'setCommands' => array(
+                                0 => 'composerInstallCommand',
+                                1 => 'composerUpdateCommand',
+                                2 => 'composerDumpAutoloadCommand',
+                        ),
+                ),
+        ),
+        'composerInstallCommand' => array(
+                'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\InstallCommand',
+                'external' => false,
+                'weak' => false,
+        ),
+        'composerUpdateCommand' => array(
+                'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\UpdateCommand',
+                'external' => false,
+                'weak' => false,
+        ),
+        'composerDumpAutoloadCommand' => array(
+                'class' => 'Dflydev\\EmbeddedComposer\\Console\\Command\\DumpAutoloadCommand',
+                'external' => false,
+                'weak' => false,
+        ),
+
+  'block.content' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlBlock',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
-      'children' => 
-      array (
+    'fieldBinds' => array(
+      'children' => array(
         0 => 'messageWidget',
       ),
     ),
   ),
-  'block.footer' => 
-  array (
+  'block.footer' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlBlock',
     'external' => false,
     'weak' => false,
   ),
-  'block.header' => 
-  array (
+  'block.header' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlBlock',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
-      'children' => 
-      array (
+    'fieldBinds' => array(
+      'children' => array(
         0 => 'navBar',
       ),
     ),
   ),
-  'block.left' => 
-  array (
+  'block.left' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlBlock',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
-      'children' => 
-      array (
+    'fieldBinds' => array(
+      'children' => array(
         0 => 'instanceMenu',
         1 => 'documentationMenu',
         2 => 'specialActionsMenu',
       ),
     ),
   ),
-  'block.right' => 
-  array (
+  'block.right' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlBlock',
     'external' => false,
     'weak' => false,
   ),
-  'bootstrapRenderer' => 
-  array (
+  'bootstrapRenderer' => array(
     'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'value' => 'vendor/mouf/html.template.bootstrap/src/templates',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
+      1 => array(
         'value' => 'rendererCacheService',
         'parametertype' => 'object',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      2 => 
-      array (
+      2 => array(
         'value' => 'template',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      3 => 
-      array (
+      3 => array(
         'value' => 0,
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-        4 =>
-            array (
+        4 => array(
                 'value' => 'return $container;',
                 'parametertype' => 'primitive',
                 'type' => 'php',
-                'metadata' =>
-                    array (
+                'metadata' => array(
                     ),
             ),
 
     ),
   ),
-  'config' => 
-  array (
+  'config' => array(
     'class' => 'Mouf\\Controllers\\ConfigController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'configCompleteValidator' => 
-  array (
+  'configCompleteValidator' => array(
     'class' => 'Mouf\\Validator\\MoufBasicValidationProvider',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'name' => 
-      array (
+    'fieldProperties' => array(
+      'name' => array(
         'value' => 'Configuration file validator',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'url' => 
-      array (
+      'url' => array(
         'value' => 'src/direct/config_complete_validator.php',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'propagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'propagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'createNewInstanceByPhpCodeMenuItem' => 
-  array (
+  'createNewInstanceByPhpCodeMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Create a new instance by PHP code',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'mouf/newInstanceByCallback',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'createNewInstanceByPhpCodeMenuItemIcon',
       ),
     ),
   ),
-  'createNewInstanceByPhpCodeMenuItemIcon' => 
-  array (
+  'createNewInstanceByPhpCodeMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/page_white_php.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'createNewInstanceMenuItem' => 
-  array (
+  'createNewInstanceMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Create a new instance',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'mouf/newInstance2',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'createNewInstanceMenuItemIcon',
       ),
     ),
   ),
-  'createNewInstanceMenuItemIcon' => 
-  array (
+  'createNewInstanceMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/page_add.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'css.moufCssStyles' => 
-  array (
+  'css.moufCssStyles' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
+      'setCssFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/styles.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'defaultRenderer' => 
-  array (
+  'defaultRenderer' => array(
     'class' => 'Mouf\\Html\\Renderer\\AutoChainRenderer',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'value' => 'rendererCacheService',
         'parametertype' => 'object',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'defaultWebLibraryManager' => 
-  array (
+  'defaultWebLibraryManager' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibraryManager',
     'external' => false,
     'weak' => false,
-    'setterBinds' => 
-    array (
-      'setWebLibraries' => 
-      array (
-        0 => 'javascript.underscore',
+    'setterBinds' => array(
+      'setWebLibraries' => array(
+        //0 => 'javascript.underscore',
         1 => 'component.jquery',
         2 => 'component.jqueryui',
         3 => 'component.bootstrap',
         5 => 'setRootUrlJsBlock',
+
         7 => 'javascript.moufInstanceLibrary',
         8 => 'javascript.composer',
         9 => 'css.moufCssStyles',
@@ -628,566 +483,428 @@ return array (
         12 => 'messageServiceLibrary',
         13 => 'weblibrary.qtip2',
         15 => 'javascript.highlight.js',
+        16 => 'bootstrapValidatorLibrary',
       ),
     ),
-      'constructor' =>
-          array (
-              0 =>
-                  array (
+      'constructor' => array(
+              0 => array(
                       'value' => 'defaultRenderer',
                       'parametertype' => 'object',
                       'type' => 'string',
-                      'metadata' =>
-                          array (
+                      'metadata' => array(
                           ),
                   ),
           ),
   ),
-  'displayGraph' =>
-  array (
+  'displayGraph' => array(
     'class' => 'Mouf\\Controllers\\MoufDisplayGraphController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'displayPhpInfoMenuItem' => 
-  array (
+  'displayPhpInfoMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Display PHP Info',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'phpInfo/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'displayPhpInfoMenuItemIcon',
       ),
     ),
   ),
-  'displayPhpInfoMenuItemIcon' => 
-  array (
+  'displayPhpInfoMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/table.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'doc' => 
-  array (
+  'doc' => array(
     'class' => 'Mouf\\Controllers\\DocumentationController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
       'documentationMenu' => 'documentationMenu',
     ),
   ),
-  'documentationMenu' => 
-  array (
+  'documentationMenu' => array(
     'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
   ),
-  'documentationSubMenu' =>
-  array (
+  'documentationSubMenu' => array(
     'class' => 'Mouf\\Menu\\DocumentationMenuItem',
     'external' => false,
     'weak' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'viewDocumentationMenuItem',
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '999',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'downloadPackages2MenuItem' => 
-  array (
+  'downloadPackages2MenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Install/Remove packages',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'composer/view',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'downloadPackages2MenuItemIcon',
       ),
     ),
   ),
-  'downloadPackages2MenuItemIcon' => 
-  array (
+  'downloadPackages2MenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/download.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'editConfigurationMenuItem' => 
-  array (
+  'editConfigurationMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Edit configuration',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'config/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'editConfigurationMenuItemIcon',
       ),
     ),
   ),
-  'editConfigurationMenuItemIcon' => 
-  array (
+  'editConfigurationMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/note_edit.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'errorLogger' => 
-  array (
+  'errorLogger' => array(
     'class' => 'Mouf\\Utils\\Log\\ErrorLogLogger',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'level' => 
-      array (
+    'fieldProperties' => array(
+      'level' => array(
         'value' => '4',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'fileCacheService' => 
-  array (
-    'class' => 'Mouf\\Utils\\Cache\\FileCache',
+  'fileCacheService' => array(
+    'class' => 'Mouf\\Utils\\Cache\\PhpFileCache',
     'external' => false,
     'weak' => false,
-    'fieldProperties' => 
-    array (
-      'defaultTimeToLive' => 
-      array (
+    'fieldProperties' => array(
+      'defaultTimeToLive' => array(
         'value' => 3600,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'relativeToSystemTempDirectory' => 
-      array (
+      'relativeToSystemTempDirectory' => array(
         'type' => 'string',
         'value' => true,
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'cacheDirectory' => 
-      array (
+      'cacheDirectory' => array(
         'type' => 'string',
         'value' => 'mouf_cache',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'includePhpFilesMenuItemIcon' => 
-  array (
+  'includePhpFilesMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/page_white_php.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'includes' => 
-  array (
+  'includes' => array(
     'class' => 'Mouf\\Controllers\\IncludesAnalyzerController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'installProcessValidator' => 
-  array (
+  'installProcessValidator' => array(
     'class' => 'Mouf\\Validator\\MoufBasicValidationProvider',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'name' => 
-      array (
+    'fieldProperties' => array(
+      'name' => array(
         'value' => 'Installation process validator',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'url' => 
-      array (
+      'url' => array(
         'value' => 'src/direct/install_process_validator.php',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'propagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'propagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'installTasksMenuItem' => 
-  array (
+  'installTasksMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'type' => 'string',
         'value' => 'Installation tasks',
         'parametertype' => 'primitive',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
+      1 => array(
         'type' => 'string',
         'value' => 'installer/',
         'parametertype' => 'primitive',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => '__anonymous_1356167917517',
       ),
     ),
   ),
-  'installTemplate' => 
-  array (
+  'installTemplate' => array(
     'class' => 'Mouf\\Html\\Template\\MoufTemplate\\MoufTemplate',
     'external' => false,
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
       'setWebLibraryManager' => 'defaultWebLibraryManager',
       'setHeader' => 'block.header',
       'setFooter' => 'block.footer',
@@ -1195,302 +912,244 @@ return array (
       'setRight' => 'block.right',
       'setContent' => 'block.content',
     ),
-    'fieldProperties' => 
-    array (
-      'logoImg' => 
-      array (
+    'fieldProperties' => array(
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'installedPackagesController' => 
-  array (
+  'installedPackagesController' => array(
     'class' => 'Mouf\\Controllers\\Composer\\InstalledPackagesController',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'installer' => 
-  array (
+  'installer' => array(
     'class' => 'Mouf\\Controllers\\InstallController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'instanceMenu' => 
-  array (
+  'instanceMenu' => array(
     'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
   ),
-  'instancesSubMenu' =>
-  array (
+  'instancesSubMenu' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'viewDeclaredInstancesMenuItem',
         1 => 'createNewInstanceMenuItem',
         2 => 'createNewInstanceByPhpCodeMenuItem',
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Instances',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '20',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'jQueryLibrary' => 
-  array (
+  'jQueryLibrary' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/javascript.jquery.jquery/jquery-1.11.0.min.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
 
-  'javascript.chooseInstancePopupJs' => 
-  array (
+    'bootstrapValidatorLibrary' => array(
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
+            'external' => false,
+            'weak' => false,
+            'setterProperties' => array(
+                    'setJsFiles' => array(
+                            'value' => array(
+                                    0 => 'src-dev/views/javascript/bootstrap-validator/validator.min.js',
+                                ),
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                ),
+        ),
+
+  'javascript.chooseInstancePopupJs' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/chooseInstancePopup.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
+      'setCssFiles' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.composer' => 
-  array (
+  'javascript.composer' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/composer/composer.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.highlight.js' => 
-  array (
+  'javascript.highlight.js' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/javascript/highlight.js/highlight.pack.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
+      'setCssFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/javascript/highlight.js/styles/googlecode.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.jqBootstrapValidation' => 
-  array (
+  'javascript.jqBootstrapValidation' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/javascript.jquery.jq-bootstrap-validation/lib/jqBootstrapValidation.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
+      'setCssFiles' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.jquery-filetree' => 
-  array (
+  'javascript.jquery-filetree' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/javascript.jquery.jquery-filetree/jqueryFileTree.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
+      'setCssFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/javascript.jquery.jquery-filetree/jqueryFileTree.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setDependencies' =>
-      array (
+    'setterBinds' => array(
+      'setDependencies' => array(
         0 => 'jQueryLibrary',
       ),
     ),
   ),
-  'javascript.moufInstanceLibrary' => 
-  array (
+  'javascript.moufInstanceLibrary' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/instances/messages.js',
           1 => 'src-dev/views/instances/utils.js',
           2 => 'src-dev/views/instances/instances.js',
@@ -1501,508 +1160,414 @@ return array (
           7 => 'src-dev/views/instances/codeValidator.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
+      'setCssFiles' => array(
+        'value' => array(
           0 => 'src-dev/views/instances/defaultRenderer.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.syntaxHighlighter' => 
-  array (
+  'javascript.syntaxHighlighter' => array(
     'class' => 'Mouf\\Javascript\\SyntaxHighlighterWebLibrary',
     'external' => false,
     'weak' => false,
   ),
-  'javascript.topribbonmenu' => 
-  array (
+  'javascript.topribbonmenu' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/html.template.menus.topribbonmenu/topribbonmenu.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
-        'value' => 
-        array (
+      'setCssFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/html.template.menus.topribbonmenu/topribbonmenu.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setDependencies' =>
-      array (
+    'setterBinds' => array(
+      'setDependencies' => array(
         0 => 'jQueryLibrary',
       ),
     ),
   ),
-  'javascript.underscore' => 
-  array (
+  'javascript.underscore' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'vendor/mouf/javascript.underscore/lib/underscore-min.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
+      'setCssFiles' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'javascript.underscore.debug' => 
-  array (
+  'javascript.underscore.debug' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'setterProperties' => 
-    array (
-      'setJsFiles' => 
-      array (
-        'value' => 
-        array (
+    'setterProperties' => array(
+      'setJsFiles' => array(
+        'value' => array(
           0 => 'plugins/javascript/underscore/1.3.3/lib/underscore.js',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssFiles' => 
-      array (
+      'setCssFiles' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'login' => 
-  array (
+  'login' => array(
     'class' => 'Mouf\\Controllers\\MoufLoginController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufLoginTemplate',
       'userService' => 'userService',
       'contentBlock' => 'block.content',
-      'contentBeforeLoginBox' => 
-      array (
+      'contentBeforeLoginBox' => array(
         0 => 'loginWelcomeMessage',
       ),
       'simpleLoginView' => 'simpleloginview',
     ),
-    'fieldProperties' => 
-    array (
-      'defaultRedirectUrl' => 
-      array (
+    'fieldProperties' => array(
+      'defaultRedirectUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'logoutRedirectUrl' => 
-      array (
+      'logoutRedirectUrl' => array(
         'value' => 'login/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'loginLabel' => 
-      array (
+      'loginLabel' => array(
         'value' => 'Login',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'i18nLoginLabel' => 
-      array (
+      'i18nLoginLabel' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'passwordLabel' => 
-      array (
+      'passwordLabel' => array(
         'value' => 'Password',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'i18nPasswordLabel' => 
-      array (
+      'i18nPasswordLabel' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'loginSubmitLabel' => 
-      array (
+      'loginSubmitLabel' => array(
         'value' => 'Login',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'i18nLoginSubmitLabel' => 
-      array (
+      'i18nLoginSubmitLabel' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'badCredentialsLabel' => 
-      array (
+      'badCredentialsLabel' => array(
         'value' => 'Invalid login or password, please try again.',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'i18nBadCredentialsLabel' => 
-      array (
+      'i18nBadCredentialsLabel' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'loginWelcomeMessage' => 
-  array (
+  'loginWelcomeMessage' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlString',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'Mouf\\Html\\HtmlElement\\HtmlString' => 
-      array (
+    'fieldProperties' => array(
+      'Mouf\\Html\\HtmlElement\\HtmlString' => array(
         'value' => '<h1>Login</h1>
 <p>Welcome to Mouf. Please login to access the administration interface of your web application.</p>
 <br/>
 <br/>
 <br/>',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'logout2MenuItem' => 
-  array (
+  'logout2MenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Logout',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'login/logout',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'logout2MenuItemIcon',
       ),
     ),
   ),
-  'logout2MenuItemIcon' => 
-  array (
+  'logout2MenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/door_open.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'mainMenu' => 
-  array (
+  'mainMenu' => array(
     'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapMenu',
     'external' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'projectSubMenu',
         1 => 'instancesSubMenu',
         2 => 'documentationSubMenu',
       ),
     ),
-      'fieldProperties' =>
-          array (
-              'navbar' =>
-                  array (
+      'fieldProperties' => array(
+              'navbar' => array(
                       'value' => true,
                       'type' => 'string',
-                      'metadata' =>
-                          array (
+                      'metadata' => array(
                           ),
                   ),
           ),
   ),
-  'messageServiceLibrary' => 
-  array (
+  'messageServiceLibrary' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => 
-        array (
+    'constructor' => array(
+      0 => array(
+        'value' => array(
         ),
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
-        'value' => 
-        array (
+      1 => array(
+        'value' => array(
           0 => 'vendor/mouf/html.widgets.messageservice/messages.css',
         ),
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
 
     ),
   ),
-  'messageWidget' => 
-  array (
+  'messageWidget' => array(
     'class' => 'Mouf\\Html\\Widgets\\MessageService\\Widget\\MessageWidget',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'messageProvider' => 'userMessageService',
     ),
   ),
-  'miscellaneousSubMenu' => 
-  array (
+  'miscellaneousSubMenu' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'moufStatus2MenuItem',
         1 => 'displayPhpInfoMenuItem',
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Miscellaneous',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '100',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'mouf' => 
-  array (
+  'mouf' => array(
     'class' => 'Mouf\\Controllers\\MoufController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'moufInstallController' => 
-  array (
+  'install' => array(
     'class' => 'Mouf\\Controllers\\MoufInstallController',
     'external' => false,
     'weak' => false,
-    'fieldProperties' => 
-    array (
+    'fieldProperties' => array(
     ),
-    'fieldBinds' => 
-    array (
-      'template' => 'moufInstallTemplate',
-      'contentBlock' => 'block.content',
-    ),
+
+      'constructor' => array(
+              0 => array(
+                      'value' => 'moufInstallTemplate',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' => array(
+                          ),
+                  ),
+              1 => array(
+                      'value' => 'block.content',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' => array(
+                          ),
+                  ),
+              2 => array(
+                      'value' => 'twigEnvironment',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' => array(
+                          ),
+                  ),
+              3 => array(
+                      'value' => 'userFileDao',
+                      'parametertype' => 'object',
+                      'type' => 'string',
+                      'metadata' => array(
+                          ),
+                  ),
+
+          ),
+
   ),
-  'moufInstallTemplate' => 
-  array (
+  'moufInstallTemplate' => array(
     'class' => 'Mouf\\Html\\Template\\BootstrapTemplate',
     'external' => false,
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
         'setFooter' => 'block.footer',
       'setRight' => 'block.right',
       'setContent' => 'block.content',
@@ -2010,74 +1575,56 @@ return array (
       'setTemplateRenderer' => 'bootstrapRenderer',
       'setDefaultRenderer' => 'defaultRenderer',
     ),
-    'fieldProperties' => 
-    array (
-      'logoImg' => 
-      array (
+    'fieldProperties' => array(
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'moufInstallTemplate2' => 
-  array (
+  'moufInstallTemplate2' => array(
     'class' => 'Mouf\\Html\\Template\\MoufTemplate\\MoufTemplate',
     'external' => false,
-    'fieldBinds' => 
-    array (
-      'head' => 
-      array (
+    'fieldBinds' => array(
+      'head' => array(
       ),
     ),
-    'fieldProperties' => 
-    array (
-      'logoImg' => 
-      array (
+    'fieldProperties' => array(
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'css_files' => 
-      array (
-        'value' => 
-        array (
+      'css_files' => array(
+        'value' => array(
           0 => 'src-dev/views/styles.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'moufLoginTemplate' => 
-  array (
+  'moufLoginTemplate' => array(
     'class' => 'Mouf\\Html\\Template\\BootstrapTemplate',
     'external' => false,
     'weak' => false,
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
       'setWebLibraryManager' => 'defaultWebLibraryManager',
       'setFooter' => 'block.footer',
       'setLeft' => 'block.left',
@@ -2086,182 +1633,137 @@ return array (
       'setTemplateRenderer' => 'bootstrapRenderer',
       'setDefaultRenderer' => 'defaultRenderer',
     ),
-    'fieldProperties' => 
-    array (
-      'logoImg' => 
-      array (
+    'fieldProperties' => array(
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'enableResponsiveDesign' => 
-      array (
+      'enableResponsiveDesign' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLeftColumnSize' => 
-      array (
+    'setterProperties' => array(
+      'setLeftColumnSize' => array(
         'value' => '3',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setRightColumnSize' => 
-      array (
+      'setRightColumnSize' => array(
         'value' => '2',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setTitle' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'setTitle' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setWrapLeftSideBarInWell' => 
-      array (
+      'setWrapLeftSideBarInWell' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setWrapRightSideBarInWell' => 
-      array (
+      'setWrapRightSideBarInWell' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'moufStatus2MenuItem' => 
-  array (
+  'moufStatus2MenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Mouf Status',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'validate/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'moufStatus2MenuItemIcon',
       ),
     ),
   ),
-  'moufStatus2MenuItemIcon' => 
-  array (
+  'moufStatus2MenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/tick.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'moufTemplate' => 
-  array (
+  'moufTemplate' => array(
     'class' => 'Mouf\\Html\\Template\\BootstrapTemplate',
     'external' => false,
     'weak' => false,
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
       'setWebLibraryManager' => 'defaultWebLibraryManager',
       'setHeader' => 'block.header',
       'setFooter' => 'block.footer',
@@ -2271,83 +1773,63 @@ return array (
       'setTemplateRenderer' => 'bootstrapRenderer',
       'setDefaultRenderer' => 'defaultRenderer',
     ),
-    'fieldProperties' => 
-    array (
-      'logoImg' => 
-      array (
+    'fieldProperties' => array(
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'enableResponsiveDesign' => 
-      array (
+      'enableResponsiveDesign' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLeftColumnSize' => 
-      array (
+    'setterProperties' => array(
+      'setLeftColumnSize' => array(
         'value' => '3',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setRightColumnSize' => 
-      array (
+      'setRightColumnSize' => array(
         'value' => '2',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setTitle' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'setTitle' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setWrapLeftSideBarInWell' => 
-      array (
+      'setWrapLeftSideBarInWell' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setWrapRightSideBarInWell' => 
-      array (
+      'setWrapRightSideBarInWell' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'moufTemplate.bak' => 
-  array (
+  'moufTemplate.bak' => array(
     'class' => 'Mouf\\Html\\Template\\MoufTemplate\\MoufTemplate',
     'external' => false,
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
       'setHeader' => 'block.header',
       'setFooter' => 'block.footer',
       'setLeft' => 'block.left',
@@ -2356,75 +1838,56 @@ return array (
       'setWebLibraryManager' => 'defaultWebLibraryManager',
     ),
     'weak' => false,
-    'fieldProperties' => 
-    array (
-      'favIconUrl' => 
-      array (
+    'fieldProperties' => array(
+      'favIconUrl' => array(
         'value' => 'plugins/html/template/MoufTemplate/1.0/images/favicon.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'logoImg' => 
-      array (
+      'logoImg' => array(
         'value' => 'src-dev/views/images/MoufLogo.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf - Build your website',
+      'title' => array(
+        'value' => 'Harmony - Build your website',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'css_files' => 
-      array (
-        'value' => 
-        array (
+      'css_files' => array(
+        'value' => array(
           0 => 'src-dev/views/styles.css',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'navBar' => 
-  array (
+  'navBar' => array(
     'class' => 'Mouf\\Html\\Template\\Menus\\BootstrapNavBar',
     'external' => false,
     'weak' => true,
-    'fieldProperties' => 
-    array (
-      'inverted' => 
-      array (
+    'fieldProperties' => array(
+      'inverted' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'title' => 
-      array (
-        'value' => 'Mouf',
+      'title' => array(
+        'value' => 'Harmony',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => 
-        array (
+    'constructor' => array(
+      0 => array(
+        'value' => array(
           0 => 'mainMenu',
           1 => '__anonymous_1351271292292',
           2 => 'searchBox',
@@ -2432,153 +1895,118 @@ return array (
         ),
         'parametertype' => 'object',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
     'anonymous' => false,
   ),
-  'packageRenderer_mouf/security.simplelogincontroller' => 
-  array (
+  'packageRenderer_mouf/security.simplelogincontroller' => array(
     'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'value' => 'vendor/mouf/security.simplelogincontroller/src/templates',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
+      1 => array(
         'value' => 'rendererCacheService',
         'parametertype' => 'object',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      2 => 
-      array (
+      2 => array(
         'value' => 'package',
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      3 => 
-      array (
+      3 => array(
         'value' => 0,
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-        4 =>
-            array (
+        4 => array(
                 'value' => 'return $container;',
                 'parametertype' => 'primitive',
                 'type' => 'php',
-                'metadata' =>
-                    array (
+                'metadata' => array(
                     ),
             ),
 
     ),
   ),
-  'phpInfo' => 
-  array (
+  'phpInfo' => array(
     'class' => 'Mouf\\Controllers\\PhpInfoController',
     'external' => false,
   ),
-  'phpProjectSubMenu' => 
-  array (
+  'phpProjectSubMenu' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'editConfigurationMenuItem',
         1 => 'analyzeClassesMenuItem',
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'PHP Project',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '20',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'projectSubMenu' => 
-  array (
+  'projectSubMenu' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterBinds' => 
-    array (
-      'setChildren' => 
-      array (
+    'setterBinds' => array(
+      'setChildren' => array(
         0 => 'editConfigurationMenuItem',
         1 => 'installTasksMenuItem',
         2 => 'analyzeClassesMenuItem',
@@ -2586,921 +2014,740 @@ return array (
         4 => 'displayPhpInfoMenuItem',
       ),
     ),
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'Project',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '0',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'purgeCodeCacheButton' => 
-  array (
+  'purgeCodeCacheButton' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlFromFile',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'type' => 'string',
         'value' => 'src-dev/views/codeCacheButton.php',
         'parametertype' => 'primitive',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'rendererCacheService' => 
-  array (
+  'rendererCacheService' => array(
     'class' => 'Mouf\\Utils\\Cache\\InMemoryCache',
     'external' => false,
     'weak' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'chainWith' => 'apcCacheService',
     ),
   ),
-  'rootController' => 
-  array (
+  'rootController' => array(
     'class' => 'Mouf\\Controllers\\MoufRootController',
     'external' => false,
   ),
-  'rootUrlJsFile' => 
-  array (
+  'rootUrlJsFile' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlFromFile',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
+    'constructor' => array(
+      0 => array(
         'type' => 'string',
         'value' => 'src-dev/views/instances/setRootUrlBlock.php',
         'parametertype' => 'primitive',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'search' => 
-  array (
+    'harmonyWsPortFile' => array(
+            'class' => 'Mouf\\Html\\HtmlElement\\HtmlFromFile',
+            'external' => false,
+            'weak' => false,
+            'constructor' => array(
+                    0 => array(
+                            'type' => 'string',
+                            'value' => 'src-dev/views/javascript/harmonyWsPort.php',
+                            'parametertype' => 'primitive',
+                            'metadata' => array(
+                                ),
+                        ),
+                ),
+        ),
+
+  'search' => array(
     'class' => 'Mouf\\Controllers\\SearchController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
       'searchService' => 'searchService',
     ),
   ),
-  'searchBox' => 
-  array (
+  'searchBox' => array(
     'class' => 'Mouf\\Html\\HtmlElement\\HtmlFromFile',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'fileName' => 
-      array (
+    'fieldProperties' => array(
+      'fileName' => array(
         'value' => 'src-dev/views/search/searchbox.php',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'relativeToRootPath' => 
-      array (
+      'relativeToRootPath' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'searchService' => 
-  array (
+  'searchService' => array(
     'class' => 'Mouf\\MoufSearchService',
     'external' => false,
-    'fieldBinds' => 
-    array (
-      'searchableServices' => 
-      array (
+    'fieldBinds' => array(
+      'searchableServices' => array(
         0 => 'mouf',
       ),
     ),
   ),
-  'sessionManager' => 
-  array (
+  'sessionManager' => array(
     'class' => 'Mouf\\Utils\\Session\\SessionManager\\DefaultSessionManager',
     'external' => false,
+      'fieldProperties' => array(
+          'cookieName' => array(
+              'value' => 'HARMONYSESSID',
+              'type' => 'string',
+              'metadata' => array(
+              ),
+          ),
+      ),
+
   ),
-  'setRootUrlJsBlock' => 
-  array (
+  'setRootUrlJsBlock' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\InlineWebLibrary',
     'external' => false,
     'weak' => false,
-    'setterBinds' =>
-    array (
+    'setterBinds' => array(
       'setAdditionalElement' => 'rootUrlJsFile',
     ),
   ),
-  'simpleloginview' => 
-  array (
+    'setHarmonyWsPort' => array(
+            'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\InlineWebLibrary',
+            'external' => false,
+            'weak' => false,
+            'setterBinds' => array(
+                    'setAdditionalElement' => 'harmonyWsPortFile',
+                ),
+        ),
+
+  'simpleloginview' => array(
     'class' => 'Mouf\\Security\\Views\\SimpleLoginView',
     'external' => false,
   ),
-  'specialActionsMenu' => 
-  array (
+  'specialActionsMenu' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\Menu',
     'external' => false,
   ),
-  'splash' =>
-  array (
+  'splash' => array(
     'class' => 'Mouf\\Mvc\\Splash\\Splash',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'log' => 'errorLogger',
       'defaultTemplate' => 'moufTemplate',
       'content' => 'block.content',
       'http404Handler' => 'splash.errorsController',
       'http500Handler' => 'splash.errorsController',
     ),
-    'fieldProperties' => 
-    array (
-      'debugMode' => 
-      array (
+    'fieldProperties' => array(
+      'debugMode' => array(
         'value' => true,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'supportsHttps' => 
-      array (
+      'supportsHttps' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'splash.errorsController' => 
-  array (
+  'splash.errorsController' => array(
     'class' => 'Mouf\\Mvc\\Splash\\Controllers\\HttpErrorsController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
     ),
   ),
-  'splashBrowserLanguageDetection' => 
-  array (
+  'splashBrowserLanguageDetection' => array(
     'class' => 'Mouf\\Utils\\I18n\\Fine\\Language\\BrowserLanguageDetection',
     'external' => false,
   ),
-  'splashTranslateService' => 
-  array (
+  'splashTranslateService' => array(
     'class' => 'Mouf\\Utils\\I18n\\Fine\\Translate\\FinePHPArrayTranslationService',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'i18nMessagePath' => 
-      array (
+    'fieldProperties' => array(
+      'i18nMessagePath' => array(
         'value' => 'plugins/mvc/splash-common/3.2/resources/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
+    'setterBinds' => array(
       'setLanguageDetection' => 'splashBrowserLanguageDetection',
     ),
   ),
-  'userFileDao' => 
-  array (
+  'userFileDao' => array(
     'class' => 'Mouf\\Security\\UserFileDao\\UserFileDao',
     'external' => false,
-    'fieldProperties' => 
-    array (
-      'userFile' => 
-      array (
-        'value' => '../../../mouf/no_commit/MoufUsers.php',
-        'type' => 'string',
-        'metadata' => 
-        array (
-        ),
-      ),
-    ),
+        'constructor' => array(
+                0 => array(
+                        'value' => 'generated/users.php',
+                        'parametertype' => 'primitive',
+                        'type' => 'string',
+                        'metadata' => array(
+                            ),
+                    ),
+
+            ),
   ),
-  'userMessageService' => 
-  array (
+  'userMessageService' => array(
     'class' => 'Mouf\\Html\\Widgets\\MessageService\\Service\\SessionMessageService',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'sessionManager' => 'sessionManager',
     ),
   ),
-  'userService' => 
-  array (
+  'userService' => array(
     'class' => 'Mouf\\Security\\UserService\\UserService',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'log' => 'errorLogger',
       'userDao' => 'userFileDao',
-      'sessionManager' => 'sessionManager'
+      'sessionManager' => 'sessionManager',
     ),
-    'fieldProperties' => 
-    array (
-      'loginPageUrl' => 
-      array (
+    'fieldProperties' => array(
+      'loginPageUrl' => array(
         'value' => 'login/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'sessionPrefix' => 
-      array (
+      'sessionPrefix' => array(
         'value' => 'Mouf',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'redirectParameter' => 
-      array (
+      'redirectParameter' => array(
         'value' => 'redirect',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'validate' => 
-  array (
+  'validate' => array(
     'class' => 'Mouf\\Controllers\\MoufValidatorController',
     'external' => false,
-    'fieldBinds' => 
-    array (
+    'fieldBinds' => array(
       'template' => 'moufTemplate',
       'contentBlock' => 'block.content',
       'validatorService' => 'validatorService',
     ),
   ),
-  'validatorService' => 
-  array (
+  'validatorService' => array(
     'class' => 'Mouf\\Validator\\MoufValidatorService',
     'external' => false,
-    'fieldBinds' => 
-    array (
-      'validators' => 
-      array (
+    'fieldBinds' => array(
+      'validators' => array(
         0 => 'installProcessValidator',
         1 => 'configCompleteValidator',
       ),
     ),
   ),
-  'viewDeclaredInstancesMenuItem' => 
-  array (
+  'viewDeclaredInstancesMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'View declared instances',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'mouf/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
-        'value' => 
-        array (
+      'setPropagatedUrlParameters' => array(
+        'value' => array(
           0 => 'selfedit',
         ),
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'viewDeclaredInstancesMenuItemIcon',
       ),
     ),
   ),
-  'viewDeclaredInstancesMenuItemIcon' => 
-  array (
+  'viewDeclaredInstancesMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/page_white_stack.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'viewDocumentationMenuItem' => 
-  array (
+  'viewDocumentationMenuItem' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItem',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setLabel' => 
-      array (
+    'setterProperties' => array(
+      'setLabel' => array(
         'value' => 'View all documentation',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setUrl' => 
-      array (
+      'setUrl' => array(
         'value' => 'doc/',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsActive' => 
-      array (
+      'setIsActive' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setIsExtended' => 
-      array (
+      'setIsExtended' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setCssClass' => 
-      array (
+      'setCssClass' => array(
         'value' => '',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPriority' => 
-      array (
+      'setPriority' => array(
         'value' => '90',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setPropagatedUrlParameters' => 
-      array (
+      'setPropagatedUrlParameters' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      'setActivateBasedOnUrl' => 
-      array (
+      'setActivateBasedOnUrl' => array(
         'value' => false,
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
-    'setterBinds' => 
-    array (
-      'setAdditionalStyles' => 
-      array (
+    'setterBinds' => array(
+      'setAdditionalStyles' => array(
         0 => 'viewDocumentationMenuItemIcon',
       ),
     ),
   ),
-  'viewDocumentationMenuItemIcon' => 
-  array (
+  'viewDocumentationMenuItemIcon' => array(
     'class' => 'Mouf\\Html\\Widgets\\Menu\\MenuItemStyleIcon',
     'external' => false,
-    'setterProperties' => 
-    array (
-      'setUrl' => 
-      array (
+    'setterProperties' => array(
+      'setUrl' => array(
         'value' => 'src-dev/views/images/report.png',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-  'weblibrary.qtip2' => 
-  array (
+  'weblibrary.qtip2' => array(
     'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
     'external' => false,
     'weak' => false,
-    'constructor' => 
-    array (
-      0 => 
-      array (
-        'value' => 
-        array (
+    'constructor' => array(
+      0 => array(
+        'value' => array(
           0 => 'src-dev/views/javascript/qtip/jquery.qtip.js',
         ),
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
-      1 => 
-      array (
-        'value' => 
-        array (
+      1 => array(
+        'value' => array(
           0 => 'src-dev/views/javascript/qtip/jquery.qtip.css',
         ),
         'parametertype' => 'primitive',
         'type' => 'string',
-        'metadata' => 
-        array (
+        'metadata' => array(
         ),
       ),
     ),
   ),
-    'filterRepository' =>
-        array (
+    'filterRepository' => array(
             'class' => 'Mouf\\Mvc\\Splash\\Filters\\FilterRepository',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
-                            'value' =>
-                                array (
-                                  'loggedFilterFactory'
+            'constructor' => array(
+                    0 => array(
+                            'value' => array(
+                                  'loggedFilterFactory',
                                 ),
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'component.bootstrap' =>
-        array (
+    'component.bootstrap' => array(
             'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
-                            'value' =>
-                                array (
+            'constructor' => array(
+                    0 => array(
+                            'value' => array(
                                     0 => 'components/bootstrap/js/bootstrap.js',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
-                            'value' =>
-                                array (
+                    1 => array(
+                            'value' => array(
                                     0 => 'components/bootstrap/css/bootstrap.min.css',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'component.jquery' =>
-        array (
+    'component.jquery' => array(
             'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
-                            'value' =>
-                                array (
+            'constructor' => array(
+                    0 => array(
+                            'value' => array(
                                     0 => 'components/jquery/jquery.js',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
-                            'value' =>
-                                array (
+                    1 => array(
+                            'value' => array(
                                 ),
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'component.underscore' =>
-        array (
+    'component.underscore' => array(
             'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
-                            'value' =>
-                                array (
+            'constructor' => array(
+                    0 => array(
+                            'value' => array(
                                     0 => 'components/underscore/underscore-min.js',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
-                            'value' =>
-                                array (
+                    1 => array(
+                            'value' => array(
                                 ),
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'component.jqueryui' =>
-        array (
+    'component.jqueryui' => array(
             'class' => 'Mouf\\Html\\Utils\\WebLibraryManager\\WebLibrary',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
-                            'value' =>
-                                array (
+            'constructor' => array(
+                    0 => array(
+                            'value' => array(
                                     0 => 'components/jquery-ui/jquery-ui.min.js',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
-                            'value' =>
-                                array (
+                    1 => array(
+                            'value' => array(
                                     0 => 'components/jquery-ui/themes/ui-lightness/jquery-ui.min.css',
                                 ),
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
 
-    'packageRenderer_mouf/html.utils.weblibrarymanager' =>
-        array (
+    'packageRenderer_mouf/html.utils.weblibrarymanager' => array(
             'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
+            'constructor' => array(
+                    0 => array(
                             'value' => 'vendor/mouf/html.utils.weblibrarymanager/src/templates',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
+                    1 => array(
                             'value' => 'rendererCacheService',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    2 =>
-                        array (
+                    2 => array(
                             'value' => 'package',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    3 =>
-                        array (
+                    3 => array(
                             'value' => 0,
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    4 =>
-                        array (
+                    4 => array(
                             'value' => 'return $container;',
                             'parametertype' => 'primitive',
                             'type' => 'php',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'packageRenderer_mouf/html.widgets.menu' =>
-        array (
+    'packageRenderer_mouf/html.widgets.menu' => array(
             'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
+            'constructor' => array(
+                    0 => array(
                             'value' => 'vendor/mouf/html.widgets.menu/src/templates',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
+                    1 => array(
                             'value' => 'rendererCacheService',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    2 =>
-                        array (
+                    2 => array(
                             'value' => 'package',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    3 =>
-                        array (
+                    3 => array(
                             'value' => 0,
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    4 =>
-                        array (
+                    4 => array(
                             'value' => 'return $container;',
                             'parametertype' => 'primitive',
                             'type' => 'php',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'packageRenderer_mouf/html.widgets.messageservice' =>
-        array (
+    'packageRenderer_mouf/html.widgets.messageservice' => array(
             'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
+            'constructor' => array(
+                    0 => array(
                             'value' => 'vendor/mouf/html.widgets.messageservice/src/templates',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
+                    1 => array(
                             'value' => 'rendererCacheService',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    2 =>
-                        array (
+                    2 => array(
                             'value' => 'package',
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    3 =>
-                        array (
+                    3 => array(
                             'value' => 0,
                             'parametertype' => 'primitive',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    4 =>
-                        array (
+                    4 => array(
                             'value' => 'return $container;',
                             'parametertype' => 'primitive',
                             'type' => 'php',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
 
-    'defaultRenderer' =>
-        array (
+    'defaultRenderer' => array(
             'class' => 'Mouf\\Html\\Renderer\\AutoChainRenderer',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
+            'constructor' => array(
+                    0 => array(
                             'value' => 'rendererCacheService',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
+                    1 => array(
                             'value' => 'return $this;',
                             'parametertype' => 'primitive',
                             'type' => 'php',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
-    'annotationReader' =>
-  array (
+    'annotationReader' => array(
       'weak' => false,
       'comment' => '',
       'class' => 'Doctrine\\Common\\Annotations\\CachedReader',
@@ -3518,8 +2765,7 @@ $reader = new \\Doctrine\\Common\\Annotations\\AnnotationReader();
 return new \\Doctrine\\Common\\Annotations\\CachedReader($reader, $container->get("defaultDoctrineCache");',
   ),
 
-    'defaultDoctrineCache' =>
-        array (
+    'defaultDoctrineCache' => array(
             'weak' => false,
             'comment' => '',
             'class' => 'Doctrine\\Common\\Annotations\\CachedReader',
@@ -3540,35 +2786,328 @@ return $driver;
 ',
         ),
 
-
-
-
-
-    'loggedFilterFactory' =>
-        array (
+    'loggedFilterFactory' => array(
             'class' => 'Mouf\Security\UserService\Splash\\LoggedFilterFactory',
             'external' => false,
             'weak' => false,
-            'constructor' =>
-                array (
-                    0 =>
-                        array (
+            'constructor' => array(
+                    0 => array(
                             'value' => 'annotationReader',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
-                    1 =>
-                        array (
+                    1 => array(
                             'value' => 'userService',
                             'parametertype' => 'object',
                             'type' => 'string',
-                            'metadata' =>
-                                array (
+                            'metadata' => array(
                                 ),
                         ),
                 ),
         ),
+
+    'twigEnvironment' => array(
+            'class' => 'Mouf\\Html\\Renderer\\Twig\\MoufTwigEnvironment',
+            'external' => false,
+            'weak' => false,
+            'setterBinds' => array(
+                    'setExtensions' => array(
+                            0 => 'moufTwigExtension',
+                            1 => 'twigDebugExtension',
+                        ),
+                ),
+        ),
+
+    'moufTwigExtension' => array(
+            'class' => 'Mouf\\Html\\Renderer\\Twig\\MoufTwigExtension',
+            'external' => false,
+            'weak' => false,
+            'constructor' => array(
+                    0 => array(
+                            'value' => 'return $container;',
+                            'parametertype' => 'primitive',
+                            'type' => 'php',
+                            'metadata' => array(
+                                ),
+                        ),
+                ),
+        ),
+
+    'twigDebugExtension' => array(
+            'class' => 'Twig_Extension_Debug',
+            'external' => false,
+            'weak' => false,
+        ),
+
+    'testController' => array(
+            'class' => 'Harmony\\Controllers\\TestController',
+            'external' => false,
+            'weak' => false,
+            'fieldProperties' => array(
+                ),
+
+            'constructor' => array(
+                    0 => array(
+                            'value' => 'moufTemplate',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                    1 => array(
+                            'value' => 'block.content',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                    2 => array(
+                            'value' => 'block.left',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                    3 => array(
+                            'value' => 'block.footer',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                    4 => array(
+                            'value' => 'twigEnvironment',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+
+                ),
+
+        ),
+
+    'mainApplication' => array(
+            'class' => 'Harmony\\MainConsole\\MainApplication',
+            'external' => false,
+            'weak' => false,
+            'constructor' => array(
+                    0 => array(
+                            'value' => 'runHarmonyCommand',
+                            'parametertype' => 'object',
+                            'type' => 'string',
+                            'metadata' => array(
+                                ),
+                        ),
+                ),
+        ),
+
+    'consoleApplication' => array(
+        'class' => 'Mouf\\Commands\\ConsoleApplication',
+        'external' => false,
+        'weak' => false,
+        'setterBinds' => array(
+            'setCommands' => array(
+                0 => 'runValidatorsCommand',
+            ),
+        ),
+    ),
+
+    'runHarmonyCommand' => array(
+            'class' => 'Harmony\\MainConsole\\RunHarmonyCommand',
+            'external' => false,
+            'weak' => false,
+
+        ),
+
+    'runValidatorsCommand' => array(
+        'class' => 'Harmony\\MainConsole\\RunValidatorsCommand',
+        'external' => false,
+        'weak' => false,
+        'constructor' => array(
+            0 => array(
+                'value' => 'harmonyValidatorService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+        ),
+
+    ),
+
+    'searchInstancesController' => array(
+        'class' => 'Harmony\\Controllers\\SearchInstancesController',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'containerService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+
+    'validatorsController' => array(
+        'class' => 'Harmony\\Controllers\\ValidatorsController',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'moufTemplate',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            1 => array(
+                'value' => 'block.content',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            2 => array(
+                'value' => 'twigEnvironment',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            3 => array(
+                'value' => 'harmonyValidatorService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+    'reflectionService' => array(
+        'class' => 'Harmony\\Services\\ReflectionService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'fileCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+    'harmonyValidatorService' => array(
+        'class' => 'Harmony\\Services\\ValidatorService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'reflectionService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            1 => array(
+                'value' => 'containerService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
+
+    'customRenderer' => array(
+        'class' => 'Mouf\\Html\\Renderer\\FileBasedRenderer',
+        'external' => false,
+        'weak' => false,
+        'constructor' => array(
+            0 => array(
+                'value' => 'templates',
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            1 => array(
+                'value' => 'rendererCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            2 => array(
+                'value' => 'custom',
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            3 => array(
+                'value' => 0,
+                'parametertype' => 'primitive',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+            4 => array(
+                'value' => 'return $container;',
+                'parametertype' => 'primitive',
+                'type' => 'php',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+    ),
+
+    'containerService' => array(
+        'class' => 'Harmony\\Services\\ContainerService',
+        'external' => false,
+        'weak' => false,
+        'fieldProperties' => array(
+        ),
+
+        'constructor' => array(
+            0 => array(
+                'value' => 'fileCacheService',
+                'parametertype' => 'object',
+                'type' => 'string',
+                'metadata' => array(
+                ),
+            ),
+
+        ),
+
+    ),
 );

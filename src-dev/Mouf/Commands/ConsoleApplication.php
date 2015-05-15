@@ -20,37 +20,38 @@ use Dflydev\EmbeddedComposer\Core\EmbeddedComposerBuilder;
  *
  */
 class ConsoleApplication extends Application implements
-		EmbeddedComposerAwareInterface {
+        EmbeddedComposerAwareInterface
+{
 
-	/**
-	 * Simple alias to 'addCommands' so that we can use the Mouf UI.
-	 * @param Command[] $commands
-	 */
-	public function setCommands(array $commands) {
-		$this->addCommands($commands);
-	}
+    /**
+     * Simple alias to 'addCommands' so that we can use the Mouf UI.
+     * @param Command[] $commands
+     */
+    public function setCommands(array $commands)
+    {
+        $this->addCommands($commands);
+    }
 
-	public function getEmbeddedComposer() {
-		// Check where autoload would be
-		
-		putenv("COMPOSER=composer-mouf.json");
-		
-		if (!$classLoader = @include __DIR__.'/../../../vendor/autoload.php') {
-			throw new MoufException('You must set up the project dependencies. Did you skip plugins when installing Mouf via Composer?');
-		}
-		
-		$embeddedComposerBuilder = new EmbeddedComposerBuilder(
-				$classLoader,
-				__DIR__.'/../../../'
-		);
-		
-		$embeddedComposer = $embeddedComposerBuilder
-			->setComposerFilename('../../../composer-harmony-dependencies.json')
-			->setVendorDirectory('vendor-harmony')
-			->build();
-			
-		return $embeddedComposer;
-	}
+    public function getEmbeddedComposer()
+    {
+        // Check where autoload would be
 
+        putenv("COMPOSER=composer-harmony-core.json");
+
+        if (!$classLoader = @include __DIR__.'/../../../vendor/autoload.php') {
+            throw new MoufException('You must set up the project dependencies. Did you skip plugins when installing Mouf via Composer?');
+        }
+
+        $embeddedComposerBuilder = new EmbeddedComposerBuilder(
+                $classLoader,
+                __DIR__.'/../../../'
+        );
+
+        $embeddedComposer = $embeddedComposerBuilder
+            ->setComposerFilename('../../../composer-harmony-dependencies.json')
+            ->setVendorDirectory('vendor-harmony')
+            ->build();
+
+        return $embeddedComposer;
+    }
 }
-?>

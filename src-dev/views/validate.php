@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 ?>
 <script type="text/javascript">
 ValidatorsCounter = {
@@ -39,7 +39,7 @@ ValidatorsCounter = {
 
 ValidatorMessages = {
 	displayMode: "all", // displayMode can be "all", "warn" or "error"
-		
+
 	addLoadingMessage: function(text) {
 		ValidatorsCounter.incrementGlobal();
 
@@ -72,7 +72,7 @@ ValidatorMessages = {
 	},
 	turnMessageIntoError: function(container, text) {
 		ValidatorsCounter.incrementError();
-		if (typeof(text)=="string") { 
+		if (typeof(text)=="string") {
 			container.html("<div class='alert alert-danger validatorError'>"+text+"</div>");
 		} else {
 			container.html("<div class='alert alert-danger validatorError'></div>").find("div").append(text);
@@ -105,7 +105,7 @@ $(document).ready(function() {
 		$(".validatorSuccess").hide();
 		$(".validatorWarning").show();
 	});
-	
+
 	$("#errorBtn").click(function() {
 		$(".validatorSuccess").hide();
 		$(".validatorWarning").hide();
@@ -158,7 +158,7 @@ $(document).ready(function() {
 					console.log("Ajax request probably interrupted by page change: "+msg);
 					return;
 				}
-                                
+
 				//addMessage("<pre>"+msg+"</pre>", "error");
                                 $("#loadingValidatorsIndicator").removeClass('loading').addClass('alert alert-danger').text("An error occured while loading validators for classes and instances : "+msg);
 			})
@@ -169,9 +169,9 @@ $(document).ready(function() {
 					return;
 				}
 
-				
+
 				$('#loadingValidatorsIndicator').hide();
-				
+
 				_.each(result.classes, function(className) {
 
 					var container = ValidatorMessages.addLoadingMessage("Running validator for class '"+className+"'");
@@ -192,7 +192,7 @@ $(document).ready(function() {
 									return;
 								}
 								//var json = jQuery.parseJSON(text);
-								
+
 								if (json.code == "ok") {
 									ValidatorMessages.turnMessageIntoSuccess(container, json.message).attr("title", "Validator for class '"+className+"'");
 								} else if (json.code == "warn") {
@@ -208,13 +208,13 @@ $(document).ready(function() {
 						error: function(jqXHR, textStatus, errorThrown) {
 							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-danger'>Unable to run validator for class '"+className+"': "+textStatus+"</div>");
 						}
-										
+
 					});
-					
+
 				});
 
 				_.each(result.instances, function(instanceName) {
-					
+
 					var container = ValidatorMessages.addLoadingMessage("Running validator for instance '"+instanceName+"'");
 
 					$.ajax({
@@ -233,7 +233,7 @@ $(document).ready(function() {
 									return;
 								}
 								//var json = jQuery.parseJSON(text);
-								
+
 								if (json.code == "ok") {
 									ValidatorMessages.turnMessageIntoSuccess(container, json.message).attr("title", "Validator for instance '"+instanceName+"'");
 								} else if (json.code == "warn") {
@@ -249,10 +249,10 @@ $(document).ready(function() {
 						error: function(jqXHR, textStatus, errorThrown) {
 							ValidatorMessages.turnMessageIntoError(container, "<div class='alert alert-danger'>Unable to run validator for instance '"+instanceName+"': "+textStatus+"</div>");
 						}
-										
+
 					});
 				});
-				
+
 			});
 
 });

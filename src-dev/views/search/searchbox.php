@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE.txt
  * file that was distributed with this source code.
  */
- 
+
 ?>
 <form action="<?php echo ROOT_URL?>search/" class="navbar-search pull-right">
 	<input type="text" name="query" value="<?php echo plainstring_to_htmlprotected(get("query")); ?>" class="search-query" placeholder="Search" />

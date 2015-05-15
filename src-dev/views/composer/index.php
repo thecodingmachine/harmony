@@ -71,11 +71,11 @@ $(document).ready(function() {
 
 <h1>Installed packages</h1>
 
-<?php 
+<?php
 foreach ($this->packageList as $package):
-	/* @var $package PackageInterface */
-	echo $this->getHtmlForPackage($package);
+    /* @var $package PackageInterface */
+    echo $this->getHtmlForPackage($package);
 ?>
-<?php 
+<?php
 endforeach;
 ?>
